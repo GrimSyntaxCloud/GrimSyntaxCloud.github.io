@@ -6,7 +6,7 @@ Reviewed the public repository metadata, README files, recursive file lists, and
 
 - 55 public repositories in the searchable archive.
 - 12 selected projects with Markdown case studies.
-- 16 existing or newly enabled demo links, checked for HTTP availability.
+- 17 existing or newly enabled demo links, checked for HTTP availability.
 - No public AI application identified in this review. The AI category remains ready for future entries.
 - Private repositories were not published or described.
 
@@ -31,7 +31,9 @@ Verified the renamed `grimsyntaxcloud.github.io` URLs for the loan app, BioSite,
 
 BCRS and Loc8r have existing Render deployments. Their public pages loaded. BCRS initially timed out, then responded on a later check; its account/database flows were not tested. Loc8r is a _Getting MEAN_ learning implementation with sample location data.
 
-Pets-R-Us' old Heroku URL returns “No such app”; it was not added as a demo. Nodebucket has no verified public deployment. These applications need backend hosting, and cannot be made functional by publishing their frontend source on Pages.
+Nodebucket now runs on Azure Static Web Apps Free, with a managed Node.js Functions API and Cosmos DB's MongoDB interface. The shared demo uses employee ID 1007 and holds at most 50 sample tasks. Cosmos free tier is enabled with one region, 400 RU/s collection throughput, and a 1,000 RU/s account cap. The Azure trial spending limit remains on. GitHub Actions tests and deploys changes from `main`, then checks database connectivity.
+
+Pets-R-Us' old Heroku URL returns “No such app”; it was not added as a demo. It needs backend hosting and cannot be made functional by publishing its frontend source on Pages.
 
 PHP and Drupal projects remain source links. No server migration or paid hosting setup was performed.
 
@@ -59,5 +61,6 @@ The loan calculator needs more input handling for edge cases such as zero intere
 - Object-Oriented Task Manager: added a temporary task, confirmed persistence after reload, then removed the test task.
 - Loan Calculator: 10,000 at 5% for three years displayed 299.71 monthly and 789.56 total interest.
 - Savings Calculator: the same growth inputs displayed 11,576.25.
+- Nodebucket: Azure deployment and database health check passed. Added a task through the live browser, reloaded to confirm Cosmos persistence, dragged it to Done, reloaded again, and deleted the temporary task. Seven backend integration tests passed before deployment.
 
 Demo availability checks are not a full audit of legacy projects. Portfolio CI validates the portfolio build and its internal links. Explicit demo URLs in the repository catalog are treated as separate deployments even when they share the `github.io` origin.

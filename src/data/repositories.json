@@ -22,12 +22,13 @@
   {
     "name": "nodebucket",
     "title": "Nodebucket",
-    "description": "Angular task management with drag-and-drop Todo and Done lists.",
+    "description": "Angular task board with a Node.js API and persistent Cosmos DB storage.",
     "group": "Applications",
     "language": "TypeScript",
     "year": 2023,
     "repository": "https://github.com/GrimSyntaxCloud/nodebucket",
-    "caseStudy": "nodebucket"
+    "caseStudy": "nodebucket",
+    "demo": "https://red-mushroom-0f3c1260f.1.azurestaticapps.net"
   },
   {
     "name": "BCRS",
