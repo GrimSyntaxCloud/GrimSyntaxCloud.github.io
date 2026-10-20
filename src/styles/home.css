@@ -1,4 +1,4 @@
-/* Isolated art direction for local comparisons. Production styles are untouched. */
+/* Two homepage designs share content and accessible controls. */
 :root {
   --paper: #fafaf7;
   --ink: #181a1e;
@@ -84,7 +84,7 @@ img {
   margin: auto;
   padding: 0 5%;
 }
-.preview-bar {
+.design-bar {
   position: sticky;
   top: 0;
   z-index: 50;
@@ -99,14 +99,14 @@ img {
   font: 10px/1.4 var(--mono);
   border-bottom: 1px solid #393b42;
 }
-.preview-label {
+.design-label {
   letter-spacing: 1.5px;
 }
-.preview-bar nav {
+.design-bar nav {
   display: flex;
   gap: 5px;
 }
-.preview-bar a,
+.design-bar a,
 .motion-toggle {
   padding: 7px 12px;
   border: 1px solid #55585f;
@@ -114,7 +114,7 @@ img {
   color: inherit;
   border-radius: 3px;
 }
-.preview-bar a[aria-current] {
+.design-bar a[aria-current] {
   background: #f7f7f7;
   color: #17191e;
   border-color: #f7f7f7;
@@ -809,16 +809,16 @@ footer > a:first-child {
     linear-gradient(90deg, #8e969308 1px, transparent 1px);
   background-size: 64px 64px;
 }
-[data-design='industrial'] .preview-bar {
+[data-design='industrial'] .design-bar {
   background: #e9e9e1;
   color: #16191a;
   border-color: #bbbdb5;
 }
-[data-design='industrial'] .preview-bar a,
+[data-design='industrial'] .design-bar a,
 [data-design='industrial'] .motion-toggle {
   border-color: #a6aaa4;
 }
-[data-design='industrial'] .preview-bar a[aria-current] {
+[data-design='industrial'] .design-bar a[aria-current] {
   background: #16191a;
   color: #fff;
   border-color: #16191a;
@@ -1087,7 +1087,7 @@ html[data-motion='paused'] *:after {
   .page-shell {
     padding-inline: 4%;
   }
-  .preview-bar {
+  .design-bar {
     padding-inline: 4%;
   }
   .hero {
@@ -1168,21 +1168,21 @@ html[data-motion='paused'] *:after {
   html {
     scroll-padding-top: 110px;
   }
-  .preview-bar {
+  .design-bar {
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 8px;
     padding: 8px 5%;
     min-height: 80px;
   }
-  .preview-label {
+  .design-label {
     font-size: 8px;
     grid-column: 1/-1;
   }
-  .preview-bar nav {
+  .design-bar nav {
     gap: 5px;
   }
-  .preview-bar a {
+  .design-bar a {
     font-size: 10px;
     padding: 6px 8px;
   }

@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import type * as Three from 'three';
 
 const root = document.documentElement;
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -9,11 +9,9 @@ let elapsed = 0;
 let lastTime = 0;
 let frame = 0;
 let visible = true;
-let renderer: THREE.WebGLRenderer | undefined;
+let renderer: Three.WebGLRenderer | undefined;
 let renderFrame: ((time: number) => void) | undefined;
 const host = document.querySelector<HTMLElement>('[data-sculpture]');
-const pointer = new THREE.Vector2();
-const smoothPointer = new THREE.Vector2();
 
 function stop() {
   cancelAnimationFrame(frame);
@@ -121,6 +119,10 @@ if (host) {
   const canvas = host.querySelector('canvas')!;
   const industrial = host.dataset.sculpture === 'industrial';
   try {
+    // Keep navigation, filtering, and motion controls independent of the 3D download.
+    const THREE = await import('three');
+    const pointer = new THREE.Vector2();
+    const smoothPointer = new THREE.Vector2();
     renderer = new THREE.WebGLRenderer({
       canvas,
       alpha: true,
@@ -153,8 +155,8 @@ if (host) {
     scene.add(fill);
     const sculpture = new THREE.Group();
     scene.add(sculpture);
-    const materials: THREE.Material[] = [];
-    const geometries: THREE.BufferGeometry[] = [];
+    const materials: Three.Material[] = [];
+    const geometries: Three.BufferGeometry[] = [];
     function material(color: number, metalness = 0.1, roughness = 0.3) {
       const m = new THREE.MeshStandardMaterial({ color, metalness, roughness });
       materials.push(m);
@@ -164,8 +166,8 @@ if (host) {
       w: number,
       h: number,
       d: number,
-      m: THREE.Material,
-      parent: THREE.Object3D = sculpture,
+      m: Three.Material,
+      parent: Three.Object3D = sculpture,
     ) {
       const g = new THREE.BoxGeometry(w, h, d);
       geometries.push(g);
@@ -173,7 +175,7 @@ if (host) {
       parent.add(mesh);
       return mesh;
     }
-    const parts: THREE.Group[] = [];
+    const parts: Three.Group[] = [];
     if (!industrial) {
       // A continuous folded ribbon: three ideas turning into a single physical form.
       const blue = material(0x153bea, 0.32, 0.22);
@@ -182,7 +184,7 @@ if (host) {
         radius: number,
         width: number,
         twists: number,
-        mat: THREE.Material,
+        mat: Three.Material,
       ) => {
         const vertices: number[] = [],
           indices: number[] = [];
@@ -359,18 +361,18 @@ if (host) {
     });
     host.classList.add('is-ready');
     start();
-    addEventListener(
-      'pagehide',
-      () => {
-        stop();
-        resize.disconnect();
-        visibility.disconnect();
-        geometries.forEach((g) => g.dispose());
-        materials.forEach((m) => m.dispose());
-        renderer?.dispose();
-      },
-      { once: true },
-    );
+    addEventListener('pagehide', (event) => {
+      stop();
+      if (event.persisted) return;
+      resize.disconnect();
+      visibility.disconnect();
+      geometries.forEach((g) => g.dispose());
+      materials.forEach((m) => m.dispose());
+      renderer?.dispose();
+    });
+    addEventListener('pageshow', (event) => {
+      if (event.persisted) start();
+    });
   } catch {
     // Typography provides a static composition if GPU rendering is unavailable.
     renderer?.dispose();

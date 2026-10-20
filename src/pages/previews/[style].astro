@@ -1,13 +1,14 @@
 ---
-import DesignPreview from '../../components/previews/DesignPreview.astro';
+import { withBase } from '../../lib/paths';
 
 // These comparisons are local-only unless explicitly included in a preview build.
 // A normal GitHub Pages build generates neither route.
 export function getStaticPaths() {
-  if (!import.meta.env.DEV && import.meta.env.DESIGN_PREVIEWS !== '1') return [];
+  if (!import.meta.env.DEV && import.meta.env.DESIGN_PREVIEWS !== '1')
+    return [];
   return ['editorial', 'industrial'].map((style) => ({ params: { style } }));
 }
-const style = Astro.params.style as 'editorial' | 'industrial';
+return Astro.redirect(
+  withBase(Astro.params.style === 'industrial' ? 'industrial/' : ''),
+);
 ---
-
-<DesignPreview variant={style} />

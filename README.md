@@ -1,6 +1,6 @@
 # AmDev portfolio
 
-A static Astro portfolio for web applications and AI projects. Plain CSS, system fonts, Markdown case studies, and GitHub Pages. No paid service, database, or runtime API is required.
+A static Astro portfolio for web applications and AI projects. Plain CSS, system fonts, Markdown case studies, browser-rendered 3D, and GitHub Pages. No paid service, database, or runtime API is required.
 
 ## Run locally
 
@@ -24,7 +24,10 @@ Run `npm run format` to format Astro, CSS, Markdown, and configuration files.
 ## Personalize
 
 - `src/data/profile.ts`: display name, bio, headline, GitHub URL, optional contact email, and tools.
-- `src/styles/global.css`: colors, typography, layout, and responsive styles.
+- `src/styles/home.css`: Editorial and Industrial homepage designs.
+- `src/styles/global.css`: project-page and archive styles.
+- `src/components/PortfolioHome.astro`: shared homepage content and design switcher.
+- `src/scripts/home.ts`: filters, motion controls, and progressively loaded Three.js scenes.
 - `src/content/projects/*.md`: project entries and case studies.
 - `public/`: images, videos, captions, credits, and favicon.
 
@@ -33,6 +36,12 @@ The collection includes 13 project case studies and a searchable archive of 55 p
 Project entries are based on repository source. BCRS is credited as team work and Loc8r as a learning implementation. Loan Calculator and PIG Dice Game use actual demo screenshots; Trivia Turbo uses a frame from its gameplay trailer. Other covers use decorative illustrations. Trivia Turbo links to its existing live site; its local source is not part of the public GitHub repository archive.
 
 See `docs/repository-review.md` for the review scope, hosting decisions, and known limitations.
+
+## Homepage designs
+
+Editorial is the default at `/`. Industrial is available at `/industrial/`. The “Choose your view” bar switches between them using normal links; opening `/` always starts with Editorial. Both pages use the same profile and project data, with a canonical URL pointing to the main homepage.
+
+Both designs include a motion toggle, reduced-motion support, and a static fallback when WebGL is unavailable. Three.js loads separately from the controls. There are no hosted 3D services or additional recurring costs. See `docs/homepage-designs.md` for implementation and verification details.
 
 ## Add a project
 

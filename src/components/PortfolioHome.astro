@@ -1,9 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
-import { profile } from '../../data/profile';
-import repositories from '../../data/repositories.json';
-import { withBase } from '../../lib/paths';
-import '../../styles/previews/design-preview.css';
+import { profile } from '../data/profile';
+import repositories from '../data/repositories.json';
+import { withBase } from '../lib/paths';
+import '../styles/home.css';
 interface Props {
   variant: 'editorial' | 'industrial';
 }
@@ -14,7 +14,8 @@ const projects = (
 const featuredIds = ['trivia-turbo', 'bcrs', 'nodebucket'];
 const featured = featuredIds.map((id) => projects.find((p) => p.id === id)!);
 const remaining = projects.filter((p) => !featuredIds.includes(p.id));
-const name = variant === 'editorial' ? 'Editorial' : 'Industrial';
+const title = `${profile.name} — Web development & AI`;
+const canonical = new URL(withBase(), Astro.site);
 ---
 
 <!doctype html>
@@ -22,8 +23,17 @@ const name = variant === 'editorial' ? 'Editorial' : 'Industrial';
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex,nofollow" />
-    <title>{name} preview — {profile.name}</title>
+    <title>{title}</title>
+    <link rel="canonical" href={canonical} />
+    <meta
+      name="theme-color"
+      content={variant === 'editorial' ? '#fafaf7' : '#16191a'}
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={profile.intro} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
     <meta name="description" content={profile.intro} />
     <link rel="icon" href={withBase('favicon.svg')} />
   </head>
@@ -31,17 +41,17 @@ const name = variant === 'editorial' ? 'Editorial' : 'Industrial';
     <a class="skip" href="#main">
       Skip to content
     </a>
-    <aside class="preview-bar" aria-label="Design preview controls">
-      <span class="preview-label">LOCAL DESIGN PREVIEW</span>
-      <nav aria-label="Compare designs">
+    <aside class="design-bar" aria-label="Design and motion controls">
+      <span class="design-label">CHOOSE YOUR VIEW</span>
+      <nav aria-label="Homepage design">
         <a
-          href={withBase('previews/editorial/')}
+          href={withBase()}
           aria-current={variant === 'editorial' ? 'page' : undefined}
         >
           01 Editorial
         </a>
         <a
-          href={withBase('previews/industrial/')}
+          href={withBase('industrial/')}
           aria-current={variant === 'industrial' ? 'page' : undefined}
         >
           02 Industrial
@@ -347,7 +357,7 @@ const name = variant === 'editorial' ? 'Editorial' : 'Industrial';
       </footer>
     </div>
     <script>
-      import '../../scripts/previews/design-preview';
+      import '../scripts/home';
     </script>
   </body>
 </html>
