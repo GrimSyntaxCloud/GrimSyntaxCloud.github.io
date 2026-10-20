@@ -12,6 +12,7 @@ draft: true
 # demo: "https://your-live-demo.example"
 # image: "images/your-project.webp"
 # imageAlt: "Describe the actual screenshot."
+# imageFit: "contain" # Keep the full image visible in its card; default is cover.
 ---
 
 ## The problem

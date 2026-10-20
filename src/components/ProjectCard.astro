@@ -20,6 +20,7 @@ const { data } = project;
       <img
         src={withBase(data.image)}
         alt={data.imageAlt || data.title}
+        style={`object-fit: ${data.imageFit}; object-position: ${data.imageFit === 'contain' ? 'center' : 'top center'};`}
         loading="lazy"
         width="720"
         height="480"

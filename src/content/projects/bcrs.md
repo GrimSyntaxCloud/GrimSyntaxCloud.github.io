@@ -37,4 +37,4 @@ The server calculates prices from the fixed catalog, validates adjustments, enfo
 
 The frontend lives in `src`, and the deployed demo API lives in `api`. Original team coursework remains credited in the source and interface. The repository includes setup instructions and a GitHub Actions workflow that tests, builds, deploys, and checks database connectivity.
 
-The original Angular 14 frontend remains legacy software. The Azure deployment uses free service tiers with the trial spending limit enabled; availability depends on the subscription remaining active.
+The frontend runs Angular 21 LTS with compatible Material and PrimeNG libraries, and CI checks dependency advisories. The Azure deployment uses free service tiers with the trial spending limit enabled; availability depends on the subscription remaining active.
