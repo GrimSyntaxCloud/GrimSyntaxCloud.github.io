@@ -28,7 +28,11 @@ Run `npm run format` to format Astro, CSS, Markdown, and configuration files.
 - `src/content/projects/*.md`: project entries and case studies.
 - `public/`: images and favicon.
 
-The initial entries describe this portfolio, BCRS, and Nodebucket. The latter two are source-based summaries of public repositories; their live deployments are unverified. Cover graphics are decorative illustrations, not application screenshots. Replace them with your own screenshots when available.
+The collection includes 12 project case studies and a searchable archive of 55 public repositories. `src/data/repositories.json` contains the archive entries, optional case-study slugs, and verified demo URLs. Update this file when adding a repository to the archive; it is a curated static snapshot, not a live GitHub API feed.
+
+Project entries are based on repository source. BCRS is credited as team work and Loc8r as a learning implementation. Loan Calculator and PIG Dice Game use actual demo screenshots; other covers use decorative illustrations.
+
+See `docs/repository-review.md` for the review scope, hosting decisions, and known limitations.
 
 ## Add a project
 

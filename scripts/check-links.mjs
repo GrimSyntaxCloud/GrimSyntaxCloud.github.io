@@ -5,6 +5,20 @@ import config from '../astro.config.mjs';
 // Check the generated output, including GitHub Pages repository prefixes.
 const base = `${(config.base || '/').replace(/\/$/, '')}/`;
 const site = new URL(config.site);
+// Other project deployments share the github.io origin but are not files in
+// this portfolio's build. Only explicitly catalogued absolute demo URLs are
+// exempt; relative portfolio links and assets must still resolve locally.
+const repositories = JSON.parse(
+  await readFile(
+    new URL('../src/data/repositories.json', import.meta.url),
+    'utf8',
+  ),
+);
+const projectDemos = new Set(
+  repositories
+    .filter((repo) => repo.demo)
+    .map((repo) => new URL(repo.demo).href),
+);
 const failures = [];
 let checked = 0;
 async function walk(directory) {
@@ -40,6 +54,7 @@ for (const file of files) {
       url.origin !== site.origin
     )
       continue;
+    if (/^https?:\/\//.test(value) && projectDemos.has(url.href)) continue;
     checked++;
     if (!url.pathname.startsWith(base)) {
       failures.push(`${file}: ${value} is outside the base path ${base}`);

@@ -46,4 +46,8 @@ const { data } = project;
       <li>{tag}</li>
     ))}
   </ul>
+  <div class="card-links">
+    {data.demo && <a href={data.demo}>Live demo ↗</a>}
+    {data.repository && <a href={data.repository}>Source code ↗</a>}
+  </div>
 </article>

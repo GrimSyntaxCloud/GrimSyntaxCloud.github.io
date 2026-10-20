@@ -1,0 +1,525 @@
+[
+  {
+    "name": "GrimSyntaxCloud.github.io",
+    "title": "AmDev Portfolio",
+    "description": "Static Astro portfolio with Markdown case studies and automated deployment.",
+    "group": "Applications",
+    "language": "CSS",
+    "year": 2026,
+    "repository": "https://github.com/GrimSyntaxCloud/GrimSyntaxCloud.github.io",
+    "caseStudy": "portfolio"
+  },
+  {
+    "name": "personal-portfolio",
+    "title": "Earlier Personal Portfolio",
+    "description": "Earlier portfolio containing project, database, API test, and resume pages.",
+    "group": "Design studies",
+    "language": "HTML",
+    "year": 2023,
+    "repository": "https://github.com/GrimSyntaxCloud/personal-portfolio",
+    "demo": "https://grimsyntaxcloud.github.io/personal-portfolio/"
+  },
+  {
+    "name": "nodebucket",
+    "title": "Nodebucket",
+    "description": "Angular task management with drag-and-drop Todo and Done lists.",
+    "group": "Applications",
+    "language": "TypeScript",
+    "year": 2023,
+    "repository": "https://github.com/GrimSyntaxCloud/nodebucket",
+    "caseStudy": "nodebucket"
+  },
+  {
+    "name": "BCRS",
+    "title": "Bob’s Computer Repair Shop",
+    "description": "Angular application with an Express backend and MongoDB data layer.",
+    "group": "Applications",
+    "language": "TypeScript",
+    "year": 2023,
+    "repository": "https://github.com/GrimSyntaxCloud/BCRS",
+    "caseStudy": "bcrs",
+    "demo": "https://bcrs-h9au.onrender.com"
+  },
+  {
+    "name": "loc8r",
+    "title": "Loc8r",
+    "description": "Express and Pug application with location listings, detail pages, and a review form.",
+    "group": "Applications",
+    "language": "Pug",
+    "year": 2023,
+    "repository": "https://github.com/GrimSyntaxCloud/loc8r",
+    "caseStudy": "loc8r",
+    "demo": "https://loc8r.onrender.com"
+  },
+  {
+    "name": "loan-app",
+    "title": "Loan Calculator",
+    "description": "Angular calculator for monthly loan payments and total interest.",
+    "group": "Applications",
+    "language": "TypeScript",
+    "year": 2022,
+    "repository": "https://github.com/GrimSyntaxCloud/loan-app",
+    "caseStudy": "loan-calculator",
+    "demo": "https://grimsyntaxcloud.github.io/loan-app/"
+  },
+  {
+    "name": "web-425",
+    "title": "Angular Coursework",
+    "description": "Collection of Angular and TypeScript coursework and exercises.",
+    "group": "Coursework",
+    "language": "TypeScript",
+    "year": 2022,
+    "repository": "https://github.com/GrimSyntaxCloud/web-425",
+    "demo": "https://grimsyntaxcloud.github.io/web-425/"
+  },
+  {
+    "name": "web-420",
+    "title": "RESTful API Coursework",
+    "description": "Express API coursework with server-side routes and models.",
+    "group": "Coursework",
+    "language": "JavaScript",
+    "year": 2022,
+    "repository": "https://github.com/GrimSyntaxCloud/web-420"
+  },
+  {
+    "name": "web-335",
+    "title": "Introduction to NoSQL",
+    "description": "NoSQL coursework and database exercises.",
+    "group": "Coursework",
+    "language": "JavaScript",
+    "year": 2022,
+    "repository": "https://github.com/GrimSyntaxCloud/web-335"
+  },
+  {
+    "name": "pets-r-us",
+    "title": "Pets-R-Us",
+    "description": "Pet-service website with account, profile, and appointment routes.",
+    "group": "Applications",
+    "language": "HTML",
+    "year": 2022,
+    "repository": "https://github.com/GrimSyntaxCloud/pets-r-us",
+    "caseStudy": "pets-r-us"
+  },
+  {
+    "name": "web-340",
+    "title": "Node.js Coursework",
+    "description": "Node.js learning exercises from WEB 340.",
+    "group": "Coursework",
+    "language": "JavaScript",
+    "year": 2022,
+    "repository": "https://github.com/GrimSyntaxCloud/web-340"
+  },
+  {
+    "name": "web-330",
+    "title": "Enterprise JavaScript II",
+    "description": "JavaScript coursework with a browser-based assignment index.",
+    "group": "Coursework",
+    "language": "HTML",
+    "year": 2022,
+    "repository": "https://github.com/GrimSyntaxCloud/web-330",
+    "demo": "https://grimsyntaxcloud.github.io/web-330/"
+  },
+  {
+    "name": "web-231",
+    "title": "Enterprise JavaScript I",
+    "description": "JavaScript fundamentals coursework and browser exercises.",
+    "group": "Coursework",
+    "language": "HTML",
+    "year": 2022,
+    "repository": "https://github.com/GrimSyntaxCloud/web-231",
+    "demo": "https://grimsyntaxcloud.github.io/web-231/"
+  },
+  {
+    "name": "bioSite",
+    "title": "BioSite",
+    "description": "Multi-page biography website with about and hobbies pages.",
+    "group": "Design studies",
+    "language": "HTML",
+    "year": 2022,
+    "repository": "https://github.com/GrimSyntaxCloud/bioSite",
+    "demo": "https://grimsyntaxcloud.github.io/bioSite/"
+  },
+  {
+    "name": "todo-list",
+    "title": "Todo List",
+    "description": "Browser task-list exercise with storage, edit, delete, and filter controls.",
+    "group": "Browser experiments",
+    "language": "JavaScript",
+    "year": 2021,
+    "repository": "https://github.com/GrimSyntaxCloud/todo-list"
+  },
+  {
+    "name": "invoice-calculator",
+    "title": "Invoice Calculator Prototype",
+    "description": "Invoice form prototype; its calculation script is currently empty.",
+    "group": "Browser experiments",
+    "language": "HTML",
+    "year": 2021,
+    "repository": "https://github.com/GrimSyntaxCloud/invoice-calculator"
+  },
+  {
+    "name": "investment-estimator",
+    "title": "Investment Estimator",
+    "description": "Browser calculator with annual growth estimates and randomized example inputs.",
+    "group": "Browser experiments",
+    "language": "JavaScript",
+    "year": 2021,
+    "repository": "https://github.com/GrimSyntaxCloud/investment-estimator",
+    "caseStudy": "investment-estimator",
+    "demo": "https://grimsyntaxcloud.github.io/investment-estimator/"
+  },
+  {
+    "name": "registration-form",
+    "title": "Registration Form",
+    "description": "HTML registration form exercise with a confirmation page.",
+    "group": "Browser experiments",
+    "language": "HTML",
+    "year": 2021,
+    "repository": "https://github.com/GrimSyntaxCloud/registration-form"
+  },
+  {
+    "name": "email-list",
+    "title": "Email List Form",
+    "description": "Client-side email form exercise and confirmation page.",
+    "group": "Browser experiments",
+    "language": "HTML",
+    "year": 2021,
+    "repository": "https://github.com/GrimSyntaxCloud/email-list"
+  },
+  {
+    "name": "practice-projects",
+    "title": "JavaScript Practice",
+    "description": "Small browser exercises, including an MPG calculator.",
+    "group": "Coursework",
+    "language": "JavaScript",
+    "year": 2021,
+    "repository": "https://github.com/GrimSyntaxCloud/practice-projects",
+    "demo": "https://grimsyntaxcloud.github.io/practice-projects/"
+  },
+  {
+    "name": "TaskManager-callbacks-and-closures",
+    "title": "Task Manager: Callbacks & Closures",
+    "description": "Task-list implementation exploring callbacks, closures, and browser storage.",
+    "group": "Browser experiments",
+    "language": "JavaScript",
+    "year": 2020,
+    "repository": "https://github.com/GrimSyntaxCloud/TaskManager-callbacks-and-closures"
+  },
+  {
+    "name": "closures-slideshow",
+    "title": "Slideshow with Closures",
+    "description": "Image slideshow exercise organized around JavaScript closures.",
+    "group": "Browser experiments",
+    "language": "JavaScript",
+    "year": 2020,
+    "repository": "https://github.com/GrimSyntaxCloud/closures-slideshow"
+  },
+  {
+    "name": "slideshow",
+    "title": "JavaScript Slideshow",
+    "description": "Image slideshow with separate event and slideshow modules.",
+    "group": "Browser experiments",
+    "language": "JavaScript",
+    "year": 2020,
+    "repository": "https://github.com/GrimSyntaxCloud/slideshow"
+  },
+  {
+    "name": "rollover-images",
+    "title": "Image Rollovers",
+    "description": "JavaScript image rollover and event-handling exercise.",
+    "group": "Browser experiments",
+    "language": "JavaScript",
+    "year": 2020,
+    "repository": "https://github.com/GrimSyntaxCloud/rollover-images"
+  },
+  {
+    "name": "taskManager-OOP",
+    "title": "Object-Oriented Task Manager",
+    "description": "Task list with local storage, sorting, and object-based JavaScript modules.",
+    "group": "Browser experiments",
+    "language": "JavaScript",
+    "year": 2020,
+    "repository": "https://github.com/GrimSyntaxCloud/taskManager-OOP",
+    "caseStudy": "task-manager",
+    "demo": "https://grimsyntaxcloud.github.io/taskManager-OOP/"
+  },
+  {
+    "name": "todolist",
+    "title": "Task List with Storage",
+    "description": "Task-list exercise with separate browser-storage and list modules.",
+    "group": "Browser experiments",
+    "language": "JavaScript",
+    "year": 2020,
+    "repository": "https://github.com/GrimSyntaxCloud/todolist"
+  },
+  {
+    "name": "taskManager",
+    "title": "Task Manager",
+    "description": "Earlier JavaScript task-list interface and event-handling exercise.",
+    "group": "Browser experiments",
+    "language": "JavaScript",
+    "year": 2020,
+    "repository": "https://github.com/GrimSyntaxCloud/taskManager"
+  },
+  {
+    "name": "invoice-total-calculator",
+    "title": "Invoice Total Calculator",
+    "description": "JavaScript invoice-total calculation exercise.",
+    "group": "Browser experiments",
+    "language": "JavaScript",
+    "year": 2020,
+    "repository": "https://github.com/GrimSyntaxCloud/invoice-total-calculator"
+  },
+  {
+    "name": "prime-numbers",
+    "title": "Prime Number Finder",
+    "description": "Browser exercise for finding prime numbers.",
+    "group": "Browser experiments",
+    "language": "JavaScript",
+    "year": 2020,
+    "repository": "https://github.com/GrimSyntaxCloud/prime-numbers"
+  },
+  {
+    "name": "countdown",
+    "title": "Event Countdown",
+    "description": "Date-based calculator that reports days until or since an event.",
+    "group": "Browser experiments",
+    "language": "JavaScript",
+    "year": 2020,
+    "repository": "https://github.com/GrimSyntaxCloud/countdown",
+    "caseStudy": "event-countdown",
+    "demo": "https://grimsyntaxcloud.github.io/countdown/"
+  },
+  {
+    "name": "Dice-game",
+    "title": "PIG Dice Game",
+    "description": "Two-player dice game with turn scores, hold actions, and a race to 100.",
+    "group": "Browser experiments",
+    "language": "JavaScript",
+    "year": 2020,
+    "repository": "https://github.com/GrimSyntaxCloud/Dice-game",
+    "caseStudy": "pig-dice",
+    "demo": "https://grimsyntaxcloud.github.io/Dice-game/"
+  },
+  {
+    "name": "FAQs",
+    "title": "FAQ Interface",
+    "description": "Expandable FAQ exercise for practicing DOM scripting.",
+    "group": "Browser experiments",
+    "language": "HTML",
+    "year": 2020,
+    "repository": "https://github.com/GrimSyntaxCloud/FAQs"
+  },
+  {
+    "name": "register-application",
+    "title": "Registration Validation",
+    "description": "Form-control and input-validation exercise with a confirmation page.",
+    "group": "Browser experiments",
+    "language": "HTML",
+    "year": 2020,
+    "repository": "https://github.com/GrimSyntaxCloud/register-application"
+  },
+  {
+    "name": "Signup-form",
+    "title": "Signup Form",
+    "description": "JavaScript form-validation practice with a signup page.",
+    "group": "Browser experiments",
+    "language": "HTML",
+    "year": 2020,
+    "repository": "https://github.com/GrimSyntaxCloud/Signup-form",
+    "demo": "https://grimsyntaxcloud.github.io/Signup-form/"
+  },
+  {
+    "name": "savings-calculator-app",
+    "title": "Savings Calculator",
+    "description": "JavaScript exercise in compound-growth calculations and form validation.",
+    "group": "Browser experiments",
+    "language": "JavaScript",
+    "year": 2020,
+    "repository": "https://github.com/GrimSyntaxCloud/savings-calculator-app",
+    "caseStudy": "savings-calculator",
+    "demo": "https://grimsyntaxcloud.github.io/savings-calculator-app/"
+  },
+  {
+    "name": "test-scores",
+    "title": "Test Score Calculator",
+    "description": "Browser exercise for calculating average test scores.",
+    "group": "Browser experiments",
+    "language": "HTML",
+    "year": 2020,
+    "repository": "https://github.com/GrimSyntaxCloud/test-scores",
+    "demo": "https://grimsyntaxcloud.github.io/test-scores/"
+  },
+  {
+    "name": "mpgApplication",
+    "title": "MPG Calculator",
+    "description": "Browser exercise that calculates mileage from distance and fuel used.",
+    "group": "Browser experiments",
+    "language": "HTML",
+    "year": 2020,
+    "repository": "https://github.com/GrimSyntaxCloud/mpgApplication"
+  },
+  {
+    "name": "rainbowbowling",
+    "title": "Rainbow Bowling",
+    "description": "Bowling website concept with a PHP entry point and visual assets.",
+    "group": "Design studies",
+    "language": "CSS",
+    "year": 2019,
+    "repository": "https://github.com/GrimSyntaxCloud/rainbowbowling"
+  },
+  {
+    "name": "javaScript",
+    "title": "JavaScript Learning Projects",
+    "description": "Collection of JavaScript learning projects and practice files.",
+    "group": "Coursework",
+    "language": "JavaScript",
+    "year": 2018,
+    "repository": "https://github.com/GrimSyntaxCloud/javaScript"
+  },
+  {
+    "name": "bootstrap-projects",
+    "title": "Bootstrap Studies",
+    "description": "Bootstrap layout and form exercises, plus a photo-page project.",
+    "group": "Coursework",
+    "language": "HTML",
+    "year": 2018,
+    "repository": "https://github.com/GrimSyntaxCloud/bootstrap-projects"
+  },
+  {
+    "name": "portfolio",
+    "title": "Earlier Portfolio Designs",
+    "description": "Earlier PHP portfolio designs, styling, and project presentation assets.",
+    "group": "Design studies",
+    "language": "CSS",
+    "year": 2018,
+    "repository": "https://github.com/GrimSyntaxCloud/portfolio"
+  },
+  {
+    "name": "Emerging-tech",
+    "title": "Emerging Technology Studies",
+    "description": "Experiments with data visualization, Flask, build tooling, and browser testing.",
+    "group": "Coursework",
+    "language": "HTML",
+    "year": 2018,
+    "repository": "https://github.com/GrimSyntaxCloud/Emerging-tech"
+  },
+  {
+    "name": "advancedPHP",
+    "title": "Advanced PHP Coursework",
+    "description": "PHP coursework with classes and server-side exercises.",
+    "group": "Coursework",
+    "language": "PHP",
+    "year": 2018,
+    "repository": "https://github.com/GrimSyntaxCloud/advancedPHP"
+  },
+  {
+    "name": "wdv495",
+    "title": "Emerging Technology Coursework",
+    "description": "Small collection of emerging-technology course files.",
+    "group": "Coursework",
+    "language": "HTML",
+    "year": 2018,
+    "repository": "https://github.com/GrimSyntaxCloud/wdv495"
+  },
+  {
+    "name": "rentalApplication",
+    "title": "Rental Application Prototype",
+    "description": "Rental application form with JavaScript validation and a PHP helper.",
+    "group": "Applications",
+    "language": "HTML",
+    "year": 2018,
+    "repository": "https://github.com/GrimSyntaxCloud/rentalApplication"
+  },
+  {
+    "name": "videoplayers",
+    "title": "Video Player Studies",
+    "description": "HTML video and YouTube player interface exercises.",
+    "group": "Browser experiments",
+    "language": "HTML",
+    "year": 2018,
+    "repository": "https://github.com/GrimSyntaxCloud/videoplayers"
+  },
+  {
+    "name": "portfolio-day-splash-page-entry",
+    "title": "Portfolio Day Splash Page",
+    "description": "Visual splash-page concept for a portfolio event.",
+    "group": "Design studies",
+    "language": "CSS",
+    "year": 2018,
+    "repository": "https://github.com/GrimSyntaxCloud/portfolio-day-splash-page-entry"
+  },
+  {
+    "name": "Paypal",
+    "title": "Payment Integration Studies",
+    "description": "Earlier PayPal integration experiments; source reference only.",
+    "group": "Coursework",
+    "language": "HTML",
+    "year": 2018,
+    "repository": "https://github.com/GrimSyntaxCloud/Paypal"
+  },
+  {
+    "name": "Form-validation-project",
+    "title": "Form Validation Project",
+    "description": "Complaint-form interface and client-side validation exercise.",
+    "group": "Browser experiments",
+    "language": "CSS",
+    "year": 2018,
+    "repository": "https://github.com/GrimSyntaxCloud/Form-validation-project"
+  },
+  {
+    "name": "Dynamic-recipe-project",
+    "title": "Dynamic Recipes",
+    "description": "Recipe pages with adjustable ingredient quantities and print controls.",
+    "group": "Applications",
+    "language": "HTML",
+    "year": 2018,
+    "repository": "https://github.com/GrimSyntaxCloud/Dynamic-recipe-project",
+    "caseStudy": "dynamic-recipes"
+  },
+  {
+    "name": "php_git_folder",
+    "title": "PHP Fundamentals",
+    "description": "Introductory PHP homework and server-side practice files.",
+    "group": "Coursework",
+    "language": "PHP",
+    "year": 2018,
+    "repository": "https://github.com/GrimSyntaxCloud/php_git_folder"
+  },
+  {
+    "name": "seleniumTest",
+    "title": "Selenium Testing Exercises",
+    "description": "Browser automation and form assertion exercises using Selenium.",
+    "group": "Coursework",
+    "language": "JavaScript",
+    "year": 2018,
+    "repository": "https://github.com/GrimSyntaxCloud/seleniumTest"
+  },
+  {
+    "name": "phpPractice",
+    "title": "PHP Practice",
+    "description": "Collection of PHP learning and practice files.",
+    "group": "Coursework",
+    "language": "PHP",
+    "year": 2018,
+    "repository": "https://github.com/GrimSyntaxCloud/phpPractice"
+  },
+  {
+    "name": "photoblogone",
+    "title": "Drupal Photo Blog",
+    "description": "Drupal photo-blog project with custom theme and template files.",
+    "group": "Applications",
+    "language": "PHP",
+    "year": 2018,
+    "repository": "https://github.com/GrimSyntaxCloud/photoblogone"
+  },
+  {
+    "name": "wdv446",
+    "title": "Drupal Coursework",
+    "description": "Drupal CMS course project and application files.",
+    "group": "Coursework",
+    "language": "PHP",
+    "year": 2018,
+    "repository": "https://github.com/GrimSyntaxCloud/wdv446"
+  }
+]

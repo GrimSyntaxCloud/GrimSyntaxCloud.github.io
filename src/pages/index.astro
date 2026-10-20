@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { profile } from '../data/profile';
+import repositories from '../data/repositories.json';
+import { withBase } from '../lib/paths';
 const projects = (
   await getCollection('projects', ({ data }) => !data.draft)
 ).sort((a, b) => a.data.order - b.data.order);
@@ -85,8 +87,7 @@ const projects = (
       </div>
       <p>
         From a first idea to a working project.
-        <br />{' '}
-        Here’s what I’ve been building.
+        <br /> Here’s what I’ve been building.
       </p>
     </div>
     <div
@@ -122,8 +123,9 @@ const projects = (
       No projects in this category yet. More experiments are on the way.
     </p>
     <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
-    <a class="text-link collection-link" href={profile.github}>
-      More code on GitHub <span aria-hidden="true">↗</span>
+    <a class="text-link collection-link" href={withBase('archive/')}>
+      Browse all {repositories.length} repositories{' '}
+      <span aria-hidden="true">↗</span>
     </a>
   </section>
 

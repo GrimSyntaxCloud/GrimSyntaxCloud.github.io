@@ -5,7 +5,7 @@ category: 'Web app'
 tags: ['Astro', 'CSS', 'GitHub Actions']
 year: 2026
 order: 1
-status: 'In progress'
+status: 'Live'
 visual: 'web'
 repository: 'https://github.com/GrimSyntaxCloud/GrimSyntaxCloud.github.io'
 ---
