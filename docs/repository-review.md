@@ -29,7 +29,11 @@ The portfolio keeps its separate Astro GitHub Actions workflow.
 
 Verified the renamed `grimsyntaxcloud.github.io` URLs for the loan app, BioSite, earlier personal portfolio, signup form, practice projects, savings calculator, test scores, WEB 231, WEB 330, and WEB 425. WEB 425 currently serves an In-N-Out Books Angular exercise.
 
-BCRS and Loc8r have existing Render deployments. Their public pages loaded. BCRS initially timed out, then responded on a later check; its account/database flows were not tested. Loc8r is a _Getting MEAN_ learning implementation with sample location data.
+Loc8r is a _Getting MEAN_ learning implementation with fixed sample location data. Its Pug templates now build to four static pages on GitHub Pages; no running backend or database is needed. The sample review form does not submit or save information, and its map links to OpenStreetMap without an API key.
+
+BCRS now uses Azure Static Web Apps Free and an included Node.js Functions API. Its isolated demo stores the latest 50 sample invoices in a new Cosmos database and presents read-only fictional users, roles, and security questions. Registration and account recovery are disabled. No original MongoDB Atlas data was accessed or copied. Both backend demos share the same Cosmos free-tier account: 400 RU/s each, 800 RU/s total, under the existing 1,000 RU/s cap. The trial spending limit remains enabled; the trial can disable services on expiry. The portfolio and other existing static demos remain on GitHub Pages.
+
+Render auto-deploy is off for Loc8r and BCRS. Their old services were not deleted. Nodebucket did not appear in the current Render workspace.
 
 Nodebucket now runs on Azure Static Web Apps Free, with a managed Node.js Functions API and Cosmos DB's MongoDB interface. The shared demo uses employee ID 1007 and holds at most 50 sample tasks. Cosmos free tier is enabled with one region, 400 RU/s collection throughput, and a 1,000 RU/s account cap. The Azure trial spending limit remains on. GitHub Actions tests and deploys changes from `main`, then checks database connectivity.
 
@@ -62,5 +66,7 @@ The loan calculator needs more input handling for edge cases such as zero intere
 - Loan Calculator: 10,000 at 5% for three years displayed 299.71 monthly and 789.56 total interest.
 - Savings Calculator: the same growth inputs displayed 11,576.25.
 - Nodebucket: Azure deployment and database health check passed. Added a task through the live browser, reloaded to confirm Cosmos persistence, dragged it to Done, reloaded again, and deleted the temporary task. Seven backend integration tests passed before deployment.
+- Loc8r: GitHub Pages build and deployment passed. Verified the sample listing, location detail page, OpenStreetMap link, and generated local asset links.
+- BCRS: five backend integration tests passed, covering fictional accounts, blocked account mutations, invoice validation, canonical prices, concurrent storage limits, request limits, and sanitized errors. Azure deployment and Cosmos connectivity checks passed. Opened the live demo, added a service, saved an invoice, and confirmed its purchase count after a browser reload. Removed the temporary test invoices, retaining the fictional seed data.
 
 Demo availability checks are not a full audit of legacy projects. Portfolio CI validates the portfolio build and its internal links. Explicit demo URLs in the repository catalog are treated as separate deployments even when they share the `github.io` origin.

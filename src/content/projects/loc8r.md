@@ -1,30 +1,30 @@
 ---
 title: 'Loc8r'
-description: 'A location-directory prototype with listings, location details, and review forms.'
+description: 'A location-directory learning project with sample listings, Pug templates, and free static hosting.'
 category: 'Web app'
-tags: ['Express', 'Node.js', 'Pug']
+tags: ['Pug', 'Node.js', 'GitHub Pages']
 year: 2023
 order: 5
 status: 'Live'
 visual: 'web'
 repository: 'https://github.com/GrimSyntaxCloud/loc8r'
-demo: 'https://loc8r.onrender.com'
+demo: 'https://grimsyntaxcloud.github.io/loc8r/'
 ---
 
 ## The project
 
-Loc8r is a server-rendered web application with location listings, detail pages, and an add-review form.
+Loc8r is a location-directory learning project with sample listings, detail pages, and a sample review form.
 
 This is a learning implementation of the Loc8r example from _Getting MEAN_, which is credited in the application's footer. The current listings use sample content.
 
 ## The implementation
 
-Express routes requests to controller functions, which render Pug templates. The presentation uses Bootstrap and shared layout styles.
+The original Express application renders Pug templates. Because its current pages use fixed sample content, the deployment now renders those templates during the build and serves static HTML. The presentation uses Bootstrap and shared layout styles.
 
 ## Scope
 
-The repository demonstrates page routing and server-rendered views. The presence of a review form does not imply that reviews are persisted; a production review system would need storage and validation.
+The repository demonstrates page routing and template-based views. Reviews are fixed examples; the review form is clearly labeled and does not submit or save information. The location page links to OpenStreetMap without an API key.
 
 ## Deployment
 
-The existing Render deployment is linked here. This app needs a Node.js server, so GitHub Pages cannot host the application itself.
+GitHub Actions builds and publishes the four sample pages to GitHub Pages when `main` changes. The deployed site needs no running Node.js server, database, or Azure subscription.

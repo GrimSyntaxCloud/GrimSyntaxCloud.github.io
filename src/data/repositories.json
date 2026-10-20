@@ -33,24 +33,24 @@
   {
     "name": "BCRS",
     "title": "Bob’s Computer Repair Shop",
-    "description": "Angular application with an Express backend and MongoDB data layer.",
+    "description": "Fictional Angular repair-shop demo with sample invoices stored in Cosmos DB.",
     "group": "Applications",
     "language": "TypeScript",
     "year": 2023,
     "repository": "https://github.com/GrimSyntaxCloud/BCRS",
     "caseStudy": "bcrs",
-    "demo": "https://bcrs-h9au.onrender.com"
+    "demo": "https://brave-river-09cd8f10f.6.azurestaticapps.net"
   },
   {
     "name": "loc8r",
     "title": "Loc8r",
-    "description": "Express and Pug application with location listings, detail pages, and a review form.",
+    "description": "Pug location-directory sample exported to static HTML on GitHub Pages.",
     "group": "Applications",
     "language": "Pug",
     "year": 2023,
     "repository": "https://github.com/GrimSyntaxCloud/loc8r",
     "caseStudy": "loc8r",
-    "demo": "https://loc8r.onrender.com"
+    "demo": "https://grimsyntaxcloud.github.io/loc8r/"
   },
   {
     "name": "loan-app",
