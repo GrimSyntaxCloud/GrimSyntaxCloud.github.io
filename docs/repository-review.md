@@ -5,7 +5,7 @@ Reviewed the public repository metadata, README files, recursive file lists, and
 ## Portfolio coverage
 
 - 55 public repositories in the searchable archive.
-- 12 selected projects with Markdown case studies.
+- 13 selected projects with Markdown case studies, including the locally reviewed Trivia Turbo game.
 - 17 existing or newly enabled demo links, checked for HTTP availability.
 - No public AI application identified in this review. The AI category remains ready for future entries.
 - Private repositories were not published or described.
@@ -70,3 +70,9 @@ The loan calculator needs more input handling for edge cases such as zero intere
 - BCRS: eleven backend integration tests passed, covering registration, password hashing, sessions, ownership, profile editing, password changes, account deletion, guest isolation, concurrent quotas, request limits, and sanitized errors. Azure deployment and Cosmos connectivity checks passed. Opened the live demo, added a service, saved an invoice, and confirmed its purchase count after a browser reload. Verified live registration, sign-in, profile persistence, invoice ownership, password-change session revocation, guest isolation, and account deletion against Azure Cosmos. Temporary QA accounts and invoices were removed; fictional guest seed data was retained.
 
 Demo availability checks are not a full audit of legacy projects. Portfolio CI validates the portfolio build and its internal links. Explicit demo URLs in the repository catalog are treated as separate deployments even when they share the `github.io` origin.
+
+## Trivia Turbo addition
+
+Reviewed the user-provided Trivia Turbo source, README, architecture, and release notes on October 20, 2026. Verified its existing public homepage at https://trivia-turbo-race.grassyape5.chatgpt.site/. Added a featured case study with a frame from its existing gameplay trailer. The game uses React/Canvas, a Sites gateway, Cloudflare Durable Objects and WebSockets, and D1. Its running multiplayer backend remains on its existing host. No game source, credentials, new cloud resources, or paid services were published by this portfolio update.
+
+The local game checkout has no GitHub remote, and no matching GitHub repository was found. It is therefore a selected project, not an invented entry in the repository archive. Also corrected the BCRS and Nodebucket case studies to reflect their completed Angular 21 upgrades.

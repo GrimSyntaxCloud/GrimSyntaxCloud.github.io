@@ -28,9 +28,9 @@ Run `npm run format` to format Astro, CSS, Markdown, and configuration files.
 - `src/content/projects/*.md`: project entries and case studies.
 - `public/`: images and favicon.
 
-The collection includes 12 project case studies and a searchable archive of 55 public repositories. `src/data/repositories.json` contains the archive entries, optional case-study slugs, and verified demo URLs. Update this file when adding a repository to the archive; it is a curated static snapshot, not a live GitHub API feed.
+The collection includes 13 project case studies and a searchable archive of 55 public repositories. `src/data/repositories.json` contains the archive entries, optional case-study slugs, and verified demo URLs. Update this file when adding a repository to the archive; it is a curated static snapshot, not a live GitHub API feed.
 
-Project entries are based on repository source. BCRS is credited as team work and Loc8r as a learning implementation. Loan Calculator and PIG Dice Game use actual demo screenshots; other covers use decorative illustrations.
+Project entries are based on repository source. BCRS is credited as team work and Loc8r as a learning implementation. Loan Calculator and PIG Dice Game use actual demo screenshots; Trivia Turbo uses a frame from its gameplay trailer. Other covers use decorative illustrations. Trivia Turbo links to its existing live site; its local source is not part of the public GitHub repository archive.
 
 See `docs/repository-review.md` for the review scope, hosting decisions, and known limitations.
 

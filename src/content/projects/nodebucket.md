@@ -31,4 +31,4 @@ Azure Static Web Apps serves the frontend and a managed Node.js Functions API. T
 
 The backend validates task input, limits stored tasks, and detects conflicting updates. GitHub Actions runs integration tests, builds the frontend and API, deploys changes from the main branch, and checks database connectivity afterward.
 
-The demo uses Azure's free service tiers. The original Angular 14 frontend remains a learning project; a full framework upgrade is separate work.
+The demo uses Azure's free service tiers. The frontend runs Angular 21 LTS with compatible Material and PrimeNG libraries. CI checks dependency advisories alongside the automated tests and production build.
