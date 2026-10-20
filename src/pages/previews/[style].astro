@@ -1,0 +1,14 @@
+---
+import { withBase } from '../../lib/paths';
+
+// These comparisons are local-only unless explicitly included in a preview build.
+// A normal GitHub Pages build generates neither route.
+export function getStaticPaths() {
+  if (!import.meta.env.DEV && import.meta.env.DESIGN_PREVIEWS !== '1')
+    return [];
+  return ['editorial', 'industrial'].map((style) => ({ params: { style } }));
+}
+return Astro.redirect(
+  withBase(Astro.params.style === 'industrial' ? 'industrial/' : ''),
+);
+---

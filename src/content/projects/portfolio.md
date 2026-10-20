@@ -18,7 +18,7 @@ Give my projects a home that is easy to browse and easy to maintain. Each projec
 
 Astro turns Markdown project entries into static pages. The homepage lists the projects and lets visitors filter between web apps and AI projects.
 
-The site uses system fonts, plain CSS, and a small filtering script. There is no database, paid API, or external font service.
+The site offers two homepage designs: Editorial by default and an Industrial alternative. Both share the same content and include custom Three.js sculptures, project filters, and motion controls. The 3D renderer loads separately, respects reduced-motion preferences, and has a static fallback. The site uses system fonts and plain CSS, with no database, paid API, or external font service.
 
 ## Delivery
 
