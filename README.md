@@ -26,7 +26,7 @@ Run `npm run format` to format Astro, CSS, Markdown, and configuration files.
 - `src/data/profile.ts`: display name, bio, headline, GitHub URL, optional contact email, and tools.
 - `src/styles/global.css`: colors, typography, layout, and responsive styles.
 - `src/content/projects/*.md`: project entries and case studies.
-- `public/`: images and favicon.
+- `public/`: images, videos, captions, credits, and favicon.
 
 The collection includes 13 project case studies and a searchable archive of 55 public repositories. `src/data/repositories.json` contains the archive entries, optional case-study slugs, and verified demo URLs. Update this file when adding a repository to the archive; it is a curated static snapshot, not a live GitHub API feed.
 
@@ -43,6 +43,8 @@ See `docs/repository-review.md` for the review scope, hosting decisions, and kno
 5. Run `npm run validate`, then commit and push.
 
 The filename becomes `/projects/your-project/`. Lower `order` numbers appear first. Projects stay in their existing repositories; add their URLs in `repository`. A `demo` URL is optional. Each project app keeps its own deployment configuration.
+
+Trivia Turbo embeds its 20-second MP4 directly on its case-study page, with native playback controls, English WebVTT captions, and no autoplay. The video, captions, and credits live in `public/video/` and deploy with the portfolio to GitHub Pages; no external video service is needed. Its `trailer` frontmatter provides the asset paths and description, while `image` supplies the poster. Keep media attribution with any replacement trailer and update the player’s visible music credit if the music changes.
 
 ## GitHub Pages and CI/CD
 

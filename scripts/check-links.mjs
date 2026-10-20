@@ -45,7 +45,7 @@ for (const file of files) {
   const html = await readFile(file, 'utf8');
   const pagePath = base + file.slice(5).replace(/index\.html$/, '');
   for (const match of html.matchAll(
-    /<(?:a|link|script|img)\b[^>]*?\b(?:href|src)="([^"]+)"[^>]*>/g,
+    /<(?:a|link|script|img|video|source|track)\b[^>]*?\b(?:href|src|poster)="([^"]+)"[^>]*>/g,
   )) {
     const value = match[1].replaceAll('&amp;', '&');
     const url = new URL(value, new URL(pagePath, site));

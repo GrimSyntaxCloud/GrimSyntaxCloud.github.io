@@ -11,6 +11,11 @@ demo: 'https://trivia-turbo-race.grassyape5.chatgpt.site/'
 image: 'images/trivia-turbo.jpg'
 imageAlt: 'Gameplay frame from the Trivia Turbo trailer showing an orange race car, lap counter, and active three-second turbo boost.'
 imageFit: 'contain'
+trailer:
+  src: 'video/trivia-turbo-promo-v5.mp4'
+  captions: 'video/trivia-turbo-promo-v5.vtt'
+  credits: 'video/trivia-turbo-credits.txt'
+  description: 'Watch 20 seconds of real multiplayer gameplay: shared trivia, turbo boosts, and a race to the finish.'
 ---
 
 ## The game
@@ -25,7 +30,7 @@ Open the **Live demo** and choose **Solo practice** for a quick look. For multip
 
 Use the arrow keys, A/D, or touch controls to change lanes. Everyone gets the same trivia question when a racer reaches a checkpoint. The host can select categories, a track, and the answer time before starting.
 
-The home screen includes a **20-second gameplay trailer** showing real multiplayer footage. The image above is a frame from that trailer.
+Watch the **20-second gameplay trailer** above for a quick preview without opening the game. Playback controls include English captions and fullscreen viewing.
 
 ## How the multiplayer works
 
