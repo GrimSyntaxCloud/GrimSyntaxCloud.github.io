@@ -12,7 +12,7 @@ Both retain the original project descriptions, tagline, calls to action, and but
 
 ## Motion and cost
 
-Three.js is MIT-licensed and runs in the browser. Geometry is generated locally; there are no paid assets, hosted 3D services, AI API calls, or new accounts.
+Three.js is MIT-licensed and runs in the browser. Its license is distributed at `public/licenses/three.txt`. Geometry is generated locally; there are no paid assets, hosted 3D services, AI API calls, or new accounts.
 
 - The renderer loads through a separate dynamic import after filters and motion controls are initialized.
 - Pointer position adjusts the scene's orientation; industrial layers gently separate and settle.
