@@ -20,6 +20,14 @@ const projects = defineCollection({
     image: z.string().optional(),
     imageAlt: z.string().optional(),
     imageFit: z.enum(['cover', 'contain']).default('cover'),
+    trailer: z
+      .object({
+        src: z.string(),
+        captions: z.string(),
+        credits: z.string(),
+        description: z.string(),
+      })
+      .optional(),
     draft: z.boolean().default(false),
   }),
 });

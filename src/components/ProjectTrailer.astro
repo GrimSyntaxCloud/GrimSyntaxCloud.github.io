@@ -1,0 +1,83 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { withBase } from '../lib/paths';
+
+interface Props {
+  title: string;
+  trailer: NonNullable<CollectionEntry<'projects'>['data']['trailer']>;
+  poster?: string;
+}
+const { title, trailer, poster } = Astro.props;
+---
+
+<section class="project-trailer" aria-labelledby="trailer-heading">
+  <h2 id="trailer-heading">Gameplay trailer</h2>
+  <p id="trailer-description">{trailer.description}</p>
+  <video
+    controls
+    playsinline
+    preload="metadata"
+    poster={poster ? withBase(poster) : undefined}
+    aria-label={`${title} gameplay trailer`}
+    aria-describedby="trailer-description"
+    width="1280"
+    height="720"
+  >
+    <source src={withBase(trailer.src)} type="video/mp4" />
+    <track
+      kind="captions"
+      src={withBase(trailer.captions)}
+      srclang="en"
+      label="English"
+      default
+    />
+    Your browser does not support embedded video.
+  </video>
+  <p class="trailer-links">
+    <a href={withBase(trailer.src)}>Open video directly</a>
+    <span aria-hidden="true"> · </span>
+    <a href={withBase(trailer.credits)}>Trailer credits</a>
+  </p>
+  <p class="trailer-credit">
+    Music: “Raving Energy” by Kevin MacLeod (
+    <a href="https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1900013">
+      incompetech.com
+    </a>
+    ),
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+    Excerpt trimmed, faded, and mixed with sound effects.
+  </p>
+</section>
+
+<style>
+  .project-trailer {
+    margin-block: 1rem 3rem;
+  }
+  h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    line-height: 1.6;
+  }
+  video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background: #101829;
+    border-radius: 7px;
+    margin-top: 1rem;
+  }
+  .trailer-links {
+    margin-block: 0.8rem 0.4rem;
+  }
+  .trailer-credit {
+    font-size: 0.85rem;
+    max-width: 75ch;
+  }
+  a {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+</style>

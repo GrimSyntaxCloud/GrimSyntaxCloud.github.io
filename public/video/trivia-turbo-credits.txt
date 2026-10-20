@@ -1,0 +1,46 @@
+TRIVIA TURBO — THINK FAST / 20-second promo, version 5
+
+MUSIC CREDIT (also embedded in the closing card)
+“Raving Energy” Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+https://creativecommons.org/licenses/by/4.0/
+Source: https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1900013
+Changes: excerpt from approximately 00:24.13, trimmed, faded and mixed with sound effects.
+The source's track page provided the CC BY 4.0 attribution notice on October 13, 2026.
+Keep this credit with the video when submitting or publishing; it may also be copied into the post or submission description.
+
+GAME SOUND EFFECTS
+Kenney, CC0 1.0. https://creativecommons.org/publicdomain/zero/1.0/
+Correct answer: confirmation_004.ogg
+Lane change: maximize_003.ogg
+Question: question_002.ogg
+Finish: Pizzicato jingles/jingles_PIZZI01.ogg — https://kenney.nl/assets/music-jingles
+https://kenney.nl/assets/interface-sounds
+Boost: thrusterFire_000.ogg
+https://kenney.nl/assets/sci-fi-sounds
+Additional transition whooshes, sub impacts and rise were synthesized for this edit.
+
+FOOTAGE AND EDIT
+Fresh footage captured October 14, 2026 from the live version 30 game at
+https://trivia-turbo-race.grassyape5.chatgpt.site/ using two browser player sessions
+controlled for demonstration (Turbo Ace and Neon Rival).
+Tracks shown: Cosmic Speedway and Neon City. The Neon City finish and podium
+come from the same recorded race as the answer/boost/steering sequence.
+Gameplay is cropped, rearranged, and briefly held on the question for readability.
+No results or game UI were fabricated. Promotional typography and animated
+presentation panels were added in editing. Source frames are timestamped,
+with approximately 15–18 frames/second during the continuous action takes.
+The 30 fps export interpolates no gameplay frames; motion graphics render at 30 fps.
+Music and game effects were mixed in editing, not recorded from browser audio.
+
+EXPORTS
+Master: 1920 × 1080, H.264 MP4, AAC stereo, exactly 20 seconds.
+Website v5: 1280 × 720, 30 fps, H.264/AAC, fast-start metadata, 20 seconds.
+Playback remains click-to-start. No autoplay.
+
+EDIT SOURCES
+work/promo-v5/render.py — motion graphics and actual-footage edit
+work/promo-v5/audio.py — music and effects mix
+work/promo-v5/record.json — original frame timestamps and capture events
+work/promo-v5/frames/ — original screenshots
+work/promo-v4/render.py — shared title cards and motion-graphics helpers

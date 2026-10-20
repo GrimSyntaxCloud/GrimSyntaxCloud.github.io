@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import ProjectArt from '../../components/ProjectArt.astro';
+import ProjectTrailer from '../../components/ProjectTrailer.astro';
 import { withBase } from '../../lib/paths';
 import { profile } from '../../data/profile';
 export async function getStaticPaths() {
@@ -41,18 +42,26 @@ const { data } = project;
         )}
       </div>
     </header>
-    <div class="case-cover">
-      {data.image ? (
-        <img
-          src={withBase(data.image)}
-          alt={data.imageAlt || data.title}
-          width="1200"
-          height="700"
-        />
-      ) : (
-        <ProjectArt kind={data.visual} />
-      )}
-    </div>
+    {data.trailer ? (
+      <ProjectTrailer
+        title={data.title}
+        trailer={data.trailer}
+        poster={data.image}
+      />
+    ) : (
+      <div class="case-cover">
+        {data.image ? (
+          <img
+            src={withBase(data.image)}
+            alt={data.imageAlt || data.title}
+            width="1200"
+            height="700"
+          />
+        ) : (
+          <ProjectArt kind={data.visual} />
+        )}
+      </div>
+    )}
     <div class="case-body">
       <aside class="case-facts">
         <div>
