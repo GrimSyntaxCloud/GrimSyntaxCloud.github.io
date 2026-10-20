@@ -1,6 +1,6 @@
 ---
 title: 'Bob’s Computer Repair Shop'
-description: 'A fictional repair-shop demo with a service catalog, sample invoices, and a purchases chart backed by Cosmos DB.'
+description: 'A full-stack repair-shop demo with registration, secure sign-in, editable profiles, invoices, and a purchases chart backed by Cosmos DB.'
 category: 'Web app'
 tags: ['Angular', 'Node.js', 'Azure', 'Cosmos DB']
 year: 2023
@@ -17,17 +17,21 @@ Bob’s Computer Repair Shop is a web development project built around a compute
 
 The deployed application credits Andres Macias, Patrick Wolff, and April Yang. This entry describes the team application rather than attributing every feature to one contributor.
 
-## Try the shared demo
+## Try the full-stack demo
 
-Choose **Open demo**, then **Open shared demo**. Pick repair services, preview and save a sample invoice, and open **Configurations → Chart** from the demo account menu to see the purchase counts.
+Choose **Register** to create an account using fictional details and a unique demo password. Sign out and back in to verify persistence, edit your profile from the account menu, choose repair services, and save invoices. **My invoices** and **Purchases chart** show your account's saved records.
 
-This is a public fictional demo. It retains the latest 50 shared sample invoices and places no real orders or payments. User, role, and security-question screens show read-only examples; registration, recovery, and account editing are disabled. No original customer or account data was migrated.
+For a quick preview, choose **Sign in → Try guest demo**. The guest account shares sample invoices and previews fictional administration screens. It cannot access registered accounts.
+
+Registration, login, profile editing, password changes, account deletion, and invoice creation, viewing, and deletion use the backend and Cosmos DB. Passwords are hashed and sessions use secure HttpOnly cookies; the server checks ownership independently of the interface.
+
+This portfolio demo places no real orders or payments. Use fictional profile details. Each account retains its latest 50 invoices, with capacity for 100 registered accounts. No original customer data was migrated. Email recovery is not configured, so keep your demo password.
 
 ## The stack
 
 Angular Material and PrimeNG provide interface components, and Chart.js displays service counts. Azure Static Web Apps Free serves the frontend and an included Node.js Functions API. The API uses Mongoose to access Cosmos DB's MongoDB-compatible interface.
 
-The server calculates prices from the fixed catalog, validates adjustments, and bounds invoice storage. BCRS and Nodebucket share one Cosmos free-tier account, with a separate database for each app.
+The server calculates prices from the fixed catalog, validates adjustments, enforces account ownership, and bounds account and invoice storage. BCRS and Nodebucket share one Cosmos free-tier account, with a separate database for each app.
 
 ## Explore the code
 

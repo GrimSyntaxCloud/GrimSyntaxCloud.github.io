@@ -33,7 +33,7 @@
   {
     "name": "BCRS",
     "title": "Bob’s Computer Repair Shop",
-    "description": "Fictional Angular repair-shop demo with sample invoices stored in Cosmos DB.",
+    "description": "Full-stack Angular repair-shop demo with registration, sign-in, profiles, and account-specific invoices in Cosmos DB.",
     "group": "Applications",
     "language": "TypeScript",
     "year": 2023,
