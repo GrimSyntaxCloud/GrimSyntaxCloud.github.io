@@ -1,0 +1,59 @@
+---
+interface Props {
+  kind?: 'web' | 'ai' | 'code';
+}
+const { kind = 'web' } = Astro.props;
+---
+
+<div class:list={['project-art', `art-${kind}`]} aria-hidden="true">
+  {kind === 'web' ? (
+    <div class="mini-browser">
+      <div class="mini-toolbar">
+        <i></i>
+        <i></i>
+        <i></i>
+        <span>BUILD / EXPLORE / REPEAT</span>
+      </div>
+      <div class="mini-page">
+        <span class="mini-eyebrow">A PLACE FOR IDEAS</span>
+        <strong>
+          Hello,
+          <br />
+          possibility<span>↗</span>
+        </strong>
+        <div class="mini-grid">
+          <i></i>
+          <i></i>
+          <i></i>
+        </div>
+      </div>
+    </div>
+  ) : kind === 'code' ? (
+    <div class="code-art">
+      <span class="code-caption">FROM IDEA TO INTERFACE</span>
+      <div class="code-stack">
+        <span>
+          01 <b>interface</b>
+          <em>↗</em>
+        </span>
+        <span>
+          02 <b>logic</b>
+          <em>↗</em>
+        </span>
+        <span>
+          03 <b>data</b>
+          <em>↗</em>
+        </span>
+      </div>
+      <span class="code-bottom">CONNECTED BY CODE.</span>
+    </div>
+  ) : (
+    <div class="ai-art">
+      <span class="ai-orbit orbit-one"></span>
+      <span class="ai-orbit orbit-two"></span>
+      <span class="ai-orbit orbit-three"></span>
+      <span class="ai-core">✳</span>
+      <span class="ai-caption">EXPERIMENT → LEARN → ITERATE</span>
+    </div>
+  )}
+</div>

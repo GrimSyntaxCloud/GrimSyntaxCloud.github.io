@@ -1,0 +1,49 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ProjectArt from './ProjectArt.astro';
+import { withBase } from '../lib/paths';
+interface Props {
+  project: CollectionEntry<'projects'>;
+  index: number;
+}
+const { project, index } = Astro.props;
+const { data } = project;
+---
+
+<article class="project-card" data-category={data.category}>
+  <a
+    class="project-cover"
+    href={withBase(`projects/${project.id}/`)}
+    aria-label={`Read about ${data.title}`}
+  >
+    {data.image ? (
+      <img
+        src={withBase(data.image)}
+        alt={data.imageAlt || data.title}
+        loading="lazy"
+        width="720"
+        height="480"
+      />
+    ) : (
+      <ProjectArt kind={data.visual} />
+    )}
+    <span class="cover-arrow" aria-hidden="true">
+      ↗
+    </span>
+  </a>
+  <div class="project-meta">
+    <span>
+      {String(index + 1).padStart(2, '0')} / {data.category}
+    </span>
+    <span>{data.year}</span>
+  </div>
+  <h3>
+    <a href={withBase(`projects/${project.id}/`)}>{data.title}</a>
+  </h3>
+  <p>{data.description}</p>
+  <ul class="tags" aria-label="Technologies">
+    {data.tags.map((tag) => (
+      <li>{tag}</li>
+    ))}
+  </ul>
+</article>
