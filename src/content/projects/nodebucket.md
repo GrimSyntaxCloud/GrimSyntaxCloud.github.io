@@ -19,7 +19,13 @@ Nodebucket is a task management project with a straightforward workflow: add a t
 
 Open the demo and use employee ID **1007**. Add a sample task, drag it between **Todo** and **Done**, and reload the page to see it persist.
 
-Everyone shares this board and can change its tasks. It holds up to 50 tasks and is intended for sample data, so please do not enter personal information. The employee number opens the demo; it is not private account authentication.
+Everyone shares this board and can change visitor-created tasks. A permanent fictional sample task is protected from deletion. It holds up to 50 tasks and is intended for sample data, so please do not enter personal information. The employee number opens the demo; it is not private account authentication.
+
+## Demo data and cleanup
+
+Visitor-created tasks expire 96 hours after creation. Editing a task or moving it between lists does not restart that clock. The shared employee board and permanent sample task remain available.
+
+The API filters expired tasks immediately. Cleanup on API access and an hourly GitHub Actions workflow remove expired records; delayed scheduled runs may postpone physical deletion. Nodebucket shares a 400 RU/s Cosmos database pool with BCRS and Pets-R-Us, using collections and credentials scoped to the app.
 
 ## The interface
 

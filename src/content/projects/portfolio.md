@@ -17,13 +17,13 @@ Give my projects a home that is easy to browse and easy to maintain. Each projec
 
 ## How it works
 
-Astro turns Markdown project entries into static pages. Visitors can browse all projects or filter by Web apps and Built with AI. These filters overlap: this portfolio and Trivia Turbo are web apps developed with AI assistance.
+Astro turns Markdown project entries into static pages. Visitors can browse all projects or filter by Web apps and Built with AI. These filters overlap: web apps can also appear under Built with AI. The project stories explain where AI contributed, including the portfolio, Trivia Turbo, and the recent Pets-R-Us and Prism Lanes redesigns.
 
-The site offers two designs across the homepage, project stories, and archive: Editorial by default and an Industrial alternative. Both share the same content, navigation, and motion controls. The homepages include custom Three.js sculptures and project filters; project stories and the archive carry the same typography, colors, and visual details into a reading-focused layout. The 3D renderer loads separately, respects reduced-motion preferences, and has a static fallback. The site uses system fonts and plain CSS, with no database, paid API, or external font service.
+The site offers two designs across the homepage, project stories, and archive: Editorial by default and an Industrial alternative. Both share the same content, navigation, and motion controls. The site remembers a visitor’s design choice for their next visit when browser storage is available. The homepages include custom Three.js sculptures and project filters; project stories and the archive carry the same typography, colors, and visual details into a reading-focused layout. The 3D renderer loads separately, respects reduced-motion preferences, and has a static fallback. The site uses system fonts and plain CSS, with no database, paid API, or external font service.
 
 ## Delivery
 
-The GitHub Actions workflow checks the site and builds it for each pull request. Pushes to `main` also deploy the generated files to GitHub Pages once Pages is enabled.
+The GitHub Actions workflow checks the site and builds it for each pull request. Pushes to `main` deploy the generated files to GitHub Pages after the checks pass.
 
 ## Built with AI
 
@@ -35,4 +35,4 @@ AI helped implement the layouts, interactive 3D scenes, project filters, deploym
 
 ## Next steps
 
-Add more project write-ups, screenshots, and lessons learned as the collection grows.
+Keep the collection current as the projects evolve. The latest refresh adds live-demo screenshots and galleries, the warm Pets-R-Us clubhouse, and Prism Lanes’ After Dark design.

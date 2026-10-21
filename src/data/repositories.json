@@ -2,7 +2,7 @@
   {
     "name": "GrimSyntaxCloud.github.io",
     "title": "AmDev Portfolio",
-    "description": "Static Astro portfolio with Markdown case studies and automated deployment.",
+    "description": "Astro portfolio with remembered Editorial and Industrial designs, project galleries, and automated GitHub Pages deployment.",
     "group": "Applications",
     "language": "CSS",
     "year": 2026,
@@ -94,7 +94,7 @@
   {
     "name": "pets-r-us",
     "title": "Pets-R-Us",
-    "description": "Pet-service demo with registration, private appointments, and persistent storage on free Azure hosting.",
+    "description": "Warm, illustrated pet clubhouse with secure accounts, private appointment requests, and a free Azure/Cosmos DB backend.",
     "group": "Applications",
     "language": "HTML",
     "year": 2022,
@@ -364,12 +364,13 @@
   {
     "name": "prism-lanes",
     "title": "Prism Lanes",
-    "description": "A fictional bowling venue with league, event, and food pages, rebuilt as a static demo.",
+    "description": "After Dark bowling-venue design with an interactive Three.js lane and sample visit planner on GitHub Pages.",
     "group": "Design studies",
-    "language": "CSS",
+    "language": "JavaScript",
     "year": 2019,
     "repository": "https://github.com/GrimSyntaxCloud/prism-lanes",
-    "demo": "https://grimsyntaxcloud.github.io/prism-lanes/"
+    "demo": "https://grimsyntaxcloud.github.io/prism-lanes/",
+    "caseStudy": "prism-lanes"
   },
   {
     "name": "javaScript",

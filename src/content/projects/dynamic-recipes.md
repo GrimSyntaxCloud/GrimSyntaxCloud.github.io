@@ -8,6 +8,9 @@ order: 12
 status: 'Live'
 demo: 'https://grimsyntaxcloud.github.io/Dynamic-recipe-project/'
 visual: 'web'
+image: 'images/projects/dynamic-recipes-home.webp'
+imageAlt: 'The Dynamic Recipes homepage with a food-photo banner and cards for its three sample recipes.'
+imageFit: 'contain'
 repository: 'https://github.com/GrimSyntaxCloud/Dynamic-recipe-project'
 ---
 

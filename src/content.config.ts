@@ -21,6 +21,17 @@ const projects = defineCollection({
     image: z.string().optional(),
     imageAlt: z.string().optional(),
     imageFit: z.enum(['cover', 'contain']).default('cover'),
+    screenshots: z
+      .array(
+        z.object({
+          src: z.string(),
+          alt: z.string(),
+          caption: z.string(),
+          width: z.number().int().positive(),
+          height: z.number().int().positive(),
+        }),
+      )
+      .default([]),
     trailer: z
       .object({
         src: z.string(),
