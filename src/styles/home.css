@@ -475,6 +475,12 @@ h2 {
 .project-trivia-turbo .project-visual {
   background: #101c16;
 }
+.project-pets-r-us .project-visual {
+  background: #fff5e4;
+}
+.project-prism-lanes .project-visual {
+  background: #101012;
+}
 .visual-caption {
   position: absolute;
   left: 20px;

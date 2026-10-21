@@ -12,7 +12,7 @@ const { variant } = Astro.props;
 const projects = (
   await getCollection('projects', ({ data }) => !data.draft)
 ).sort((a, b) => a.data.order - b.data.order);
-const featuredIds = ['trivia-turbo', 'bcrs', 'nodebucket'];
+const featuredIds = ['pets-r-us', 'prism-lanes', 'trivia-turbo'];
 const featured = featuredIds.map((id) => projects.find((p) => p.id === id)!);
 const remaining = projects.filter((p) => !featuredIds.includes(p.id));
 const projectFilters = [
@@ -154,9 +154,9 @@ const pageLink = (path = '') => designPath(variant, path);
               </div>
             )}
             <span class="visual-caption">
-              {project.data.image
+              {project.id === 'trivia-turbo'
                 ? 'GAMEPLAY / TRIVIA TURBO'
-                : 'PROJECT / ' + project.data.title}
+                : 'LIVE WEBSITE / ' + project.data.title}
             </span>
             <span class="cover-arrow" aria-hidden="true">
               ↗
@@ -201,7 +201,9 @@ const pageLink = (path = '') => designPath(variant, path);
           data-category={project.data.category}
           data-built-with-ai={String(project.data.builtWithAI)}
         >
-          <span class="index-number">{String(i + 4).padStart(2, '0')}</span>
+          <span class="index-number">
+            {String(i + featured.length + 1).padStart(2, '0')}
+          </span>
           <div>
             <h3>
               <a href={pageLink(`projects/${project.id}/`)}>
