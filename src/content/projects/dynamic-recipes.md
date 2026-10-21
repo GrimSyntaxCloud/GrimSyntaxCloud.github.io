@@ -5,7 +5,8 @@ category: 'Web app'
 tags: ['JavaScript', 'Bootstrap', 'CSS']
 year: 2018
 order: 12
-status: 'Source available'
+status: 'Live'
+demo: 'https://grimsyntaxcloud.github.io/Dynamic-recipe-project/'
 visual: 'web'
 repository: 'https://github.com/GrimSyntaxCloud/Dynamic-recipe-project'
 ---
@@ -24,4 +25,4 @@ Coordinating content across multiple pages, updating recipe quantities in the DO
 
 ## Current status
 
-This is presented as a source project. Some navigation choices are placeholders, and older visitor-tracking experiments need cleanup before it is suitable for a public demo.
+The refreshed demo runs entirely on GitHub Pages. Broken navigation and old visitor-tracking experiments have been removed. Explore three recipes, adjust portions, or print the instructions—no account or backend is needed.
