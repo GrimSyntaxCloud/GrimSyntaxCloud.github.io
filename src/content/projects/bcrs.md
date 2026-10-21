@@ -27,11 +27,17 @@ Registration, login, profile editing, password changes, account deletion, and in
 
 This portfolio demo places no real orders or payments. Use fictional profile details. Each account retains its latest 50 invoices, with capacity for 100 registered accounts. No original customer data was migrated. Email recovery is not configured, so keep your demo password.
 
+## Demo data and cleanup
+
+Registered accounts expire 96 hours after creation, and their invoices expire with them. Editing an account does not extend its lifetime. Visitor-added invoices in the shared guest demo have their own 96-hour deadline. Permanent fictional samples remain available.
+
+The API rejects expired data immediately. An hourly cleanup workflow and cleanup on API access remove expired records; scheduled runs can be delayed, so physical deletion may happen after the deadline. The demo keeps full database-backed registration and invoice persistence during that window.
+
 ## The stack
 
 Angular Material and PrimeNG provide interface components, and Chart.js displays service counts. Azure Static Web Apps Free serves the frontend and an included Node.js Functions API. The API uses Mongoose to access Cosmos DB's MongoDB-compatible interface.
 
-The server calculates prices from the fixed catalog, validates adjustments, enforces account ownership, and bounds account and invoice storage. BCRS and Nodebucket share one Cosmos free-tier account, with a separate database for each app.
+The server calculates prices from the fixed catalog, validates adjustments, enforces account ownership, and bounds account and invoice storage. BCRS, Nodebucket, and Pets-R-Us share one 400 RU/s database pool in the Cosmos free-tier account. Each app uses its own collections and scoped database credentials.
 
 ## Explore the code
 

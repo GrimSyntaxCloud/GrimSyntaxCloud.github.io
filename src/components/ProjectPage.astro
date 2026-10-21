@@ -92,6 +92,35 @@ const { data } = project;
         <Content />
       </div>
     </div>
+    {data.screenshots.length > 0 && (
+      <section class="case-gallery" aria-labelledby="screenshots-title">
+        <div class="gallery-heading">
+          <p class="eyebrow">FROM THE LIVE DEMO</p>
+          <h2 id="screenshots-title">A closer look.</h2>
+          <p>Open a screenshot to see it at full size.</p>
+        </div>
+        <div class="screenshot-grid">
+          {data.screenshots.map((shot) => (
+            <figure>
+              <a
+                href={withBase(shot.src)}
+                aria-label={`Open full-size screenshot: ${shot.alt}`}
+              >
+                <img
+                  src={withBase(shot.src)}
+                  alt={shot.alt}
+                  width={shot.width}
+                  height={shot.height}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <figcaption>{shot.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+    )}
     <div class="case-end">
       <span>Thanks for taking a look.</span>
       <a class="text-link" href={pageLink('#work')}>
