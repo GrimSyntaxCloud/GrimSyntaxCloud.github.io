@@ -16,6 +16,11 @@ const {
   pagePath = '',
 } = Astro.props;
 const pageLink = (path = '') => designPath(variant, path);
+const designRoutes = {
+  editorial: designPath('editorial', pagePath),
+  industrial: designPath('industrial', pagePath),
+};
+const preferenceKey = `amdev:design:${withBase()}`;
 const canonical = new URL(withBase(pagePath), Astro.site);
 ---
 
@@ -24,6 +29,47 @@ const canonical = new URL(withBase(pagePath), Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline define:vars={{ variant, designRoutes, preferenceKey }}>
+      // Apply the preference before rendering; only redirect known portfolio routes.
+      try {
+        const saved = localStorage.getItem(preferenceKey);
+        const currentPath = location.pathname.replace(/\/$/, '');
+        const expectedPath = designRoutes[variant].replace(/\/$/, '');
+        if (
+          (saved === 'editorial' || saved === 'industrial') &&
+          saved !== variant &&
+          currentPath === expectedPath
+        ) {
+          location.replace(
+            designRoutes[saved] + location.search + location.hash,
+          );
+        }
+      } catch {
+        // Navigation still works when browser storage is unavailable.
+      }
+      document.addEventListener('click', (event) => {
+        if (
+          event.defaultPrevented ||
+          event.button !== 0 ||
+          event.metaKey ||
+          event.ctrlKey ||
+          event.shiftKey ||
+          event.altKey
+        )
+          return;
+        const link =
+          event.target instanceof Element
+            ? event.target.closest('a[data-design-choice]')
+            : null;
+        const choice = link?.dataset.designChoice;
+        if (choice !== 'editorial' && choice !== 'industrial') return;
+        try {
+          localStorage.setItem(preferenceKey, choice);
+        } catch {}
+        // Keep the same section when switching a project story or homepage.
+        link.href = designRoutes[choice] + location.search + location.hash;
+      });
+    </script>
     <meta name="description" content={description} />
     <meta
       name="theme-color"
@@ -46,13 +92,15 @@ const canonical = new URL(withBase(pagePath), Astro.site);
       <span class="design-label">CHOOSE YOUR VIEW</span>
       <nav aria-label="Site design">
         <a
-          href={designPath('editorial', pagePath)}
+          href={designRoutes.editorial}
+          data-design-choice="editorial"
           aria-current={variant === 'editorial' ? 'page' : undefined}
         >
           <span class="design-index">01 </span>Editorial
         </a>
         <a
-          href={designPath('industrial', pagePath)}
+          href={designRoutes.industrial}
+          data-design-choice="industrial"
           aria-current={variant === 'industrial' ? 'page' : undefined}
         >
           <span class="design-index">02 </span>Industrial

@@ -93,6 +93,6 @@ Reference: [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-
 
 ### Site designs
 
-Editorial is the default design. Industrial is available under `/industrial/`, including matching archive and project pages. The “Choose your view” links switch between designs on the same page; navigation keeps the current design without cookies or browser storage. All variants use one shared layout and the same project content. Industrial pages point their canonical URL to the Editorial equivalent.
+Editorial is the default design. Industrial is available under `/industrial/`, including matching archive and project pages. The “Choose your view” links switch between designs on the same page; navigation keeps the current design. Choosing a design saves that preference in localStorage on that browser, so later visits open the matching view. First-time visitors start with Editorial. The preference stays on the device, uses no cookies or backend, and gracefully falls back to normal links if storage is unavailable. All variants use one shared layout and the same project content. Industrial pages point their canonical URL to the Editorial equivalent.
 
 Shared navigation and design controls live in `src/layouts/Layout.astro`. Homepage styling is in `src/styles/home.css`; reading, archive, and 404 layouts are in `src/styles/pages.css`. The archive and project route files render shared components so content and filtering stay consistent across both designs. The GitHub Pages 404 fallback defaults to Editorial.
