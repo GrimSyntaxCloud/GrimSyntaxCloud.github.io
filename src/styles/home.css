@@ -669,7 +669,7 @@ h2 {
 .about-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10%;
+  gap: 40px 10%;
   margin: 110px 0;
   padding-top: 55px;
   border-top: 1px solid var(--ink);
@@ -696,20 +696,46 @@ h2 {
   letter-spacing: -0.4px;
 }
 .toolbox {
-  margin: 35px 0;
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+.toolbox-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 32px;
+  margin-top: 24px;
+}
+.toolbox-group {
+  min-width: 0;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+.toolbox-group h4 {
+  margin: 0 0 12px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+.toolbox-group p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
 }
 .toolbox ul {
   display: flex;
-  gap: 12px;
+  gap: 8px;
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
-  margin-top: 18px;
+  margin: 18px 0 0;
   font: 11px var(--mono);
 }
 .toolbox li {
   padding: 9px 12px;
   border: 1px solid var(--line);
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
 }
 .about-copy .ai-note {
   font-size: 12px;
