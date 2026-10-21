@@ -252,18 +252,26 @@ const pageLink = (path = '') => designPath(variant, path);
         Some projects solve everyday problems. Others start with a simple “what
         if?”
       </p>
-      <div class="toolbox">
-        <p class="eyebrow">IN MY TOOLBOX</p>
-        <ul>
-          {profile.tools.map((tool) => (
-            <li>{tool}</li>
-          ))}
-        </ul>
-      </div>
       <p class="ai-note">
         AI is part of my development process. The project write-ups are a place
         to document the tools, decisions, and lessons behind the code.
       </p>
+    </div>
+    <div class="toolbox">
+      <h3 class="eyebrow">IN MY TOOLBOX</h3>
+      <div class="toolbox-groups">
+        {profile.toolbox.map((group) => (
+          <div class="toolbox-group">
+            <h4>{group.title}</h4>
+            <p>{group.description}</p>
+            <ul aria-label={group.title}>
+              {group.tools.map((tool) => (
+                <li>{tool}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
   <section class="contact-section reveal" aria-labelledby="contact-title">
