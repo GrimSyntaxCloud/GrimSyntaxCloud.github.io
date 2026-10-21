@@ -49,13 +49,13 @@ const canonical = new URL(withBase(pagePath), Astro.site);
           href={designPath('editorial', pagePath)}
           aria-current={variant === 'editorial' ? 'page' : undefined}
         >
-          01 Editorial
+          <span class="design-index">01 </span>Editorial
         </a>
         <a
           href={designPath('industrial', pagePath)}
           aria-current={variant === 'industrial' ? 'page' : undefined}
         >
-          02 Industrial
+          <span class="design-index">02 </span>Industrial
         </a>
       </nav>
       <button class="motion-toggle" type="button" aria-pressed="false" hidden>
