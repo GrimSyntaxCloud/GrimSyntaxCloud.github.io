@@ -1562,3 +1562,92 @@ html[data-motion='paused'] *:after {
     display: none;
   }
 }
+
+/* Phone controls need room for fingers as well as readable labels. */
+@media (max-width: 680px) {
+  html {
+    scroll-padding-top: 76px;
+  }
+  .design-bar {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    padding: 8px 4%;
+    min-height: 60px;
+  }
+  .design-label,
+  .design-index {
+    display: none;
+  }
+  .design-bar nav {
+    display: contents;
+  }
+  .design-bar a,
+  .motion-toggle {
+    min-width: 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 4px;
+    font: 11px/1.3 var(--mono);
+    text-align: center;
+  }
+  .reading-progress {
+    top: 61px;
+  }
+  .site-header,
+  [data-design='industrial'] .site-header {
+    height: auto;
+    padding: 16px 0 12px;
+    row-gap: 12px;
+  }
+  .site-header nav,
+  [data-design='industrial'] .site-header nav {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+    font-size: 12px;
+  }
+  .site-header nav a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-github {
+    gap: 4px;
+    padding: 8px 4px;
+  }
+  .project-filters {
+    flex-wrap: wrap;
+  }
+  .project-filters button {
+    min-height: 44px;
+    font-size: 12px;
+  }
+  .project-filters button span {
+    margin-left: 4px;
+  }
+  .card-links a,
+  .index-links a,
+  .archive-link,
+  footer a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .index-links {
+    flex-wrap: wrap;
+    gap: 4px 18px;
+    font-size: 12px;
+  }
+  .hero-bottom p,
+  .project-description,
+  .index-row p {
+    font-size: 14px;
+  }
+  .type-art strong {
+    font-size: clamp(68px, 23vw, 100px);
+  }
+}

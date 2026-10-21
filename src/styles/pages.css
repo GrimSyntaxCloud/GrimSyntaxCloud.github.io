@@ -494,3 +494,46 @@
 .case-facts .tags li:after {
   content: none;
 }
+
+@media (max-width: 760px) {
+  .archive-controls input,
+  .archive-controls select {
+    font-size: 16px;
+  }
+  .back-link,
+  .case-end a,
+  .repo-links a,
+  .trailer-links a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+  }
+  .repo-links {
+    gap: 4px 20px;
+    font-size: 14px;
+  }
+  .case-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .case-facts > div {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .story-art strong {
+    overflow-wrap: anywhere;
+  }
+}
+@media (max-width: 440px) {
+  .story-art strong {
+    max-width: 100%;
+  }
+  .story-art .story-art-arrow {
+    display: none;
+  }
+  .archive-controls > div:nth-child(2) {
+    flex-basis: 100%;
+  }
+  .archive-controls button {
+    width: 100%;
+  }
+}
