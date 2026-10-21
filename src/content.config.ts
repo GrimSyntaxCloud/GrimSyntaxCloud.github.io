@@ -8,6 +8,7 @@ const projects = defineCollection({
     title: z.string(),
     description: z.string(),
     category: z.enum(['Web app', 'AI project']),
+    builtWithAI: z.boolean().default(false),
     tags: z.array(z.string()),
     year: z.number(),
     order: z.number().default(99),

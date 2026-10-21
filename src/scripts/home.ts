@@ -72,8 +72,10 @@ filterButtons.forEach((button) =>
     );
     cards.forEach((card) => {
       card.hidden =
-        button.dataset.filter !== 'all' &&
-        card.dataset.category !== button.dataset.filter;
+        button.dataset.filter === 'built-with-ai'
+          ? card.dataset.builtWithAi !== 'true'
+          : button.dataset.filter !== 'all' &&
+            card.dataset.category !== button.dataset.filter;
       if (!card.hidden) count++;
     });
     const empty = document.querySelector<HTMLElement>('.filter-empty');

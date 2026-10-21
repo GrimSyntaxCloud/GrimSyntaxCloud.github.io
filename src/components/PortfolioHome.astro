@@ -14,6 +14,19 @@ const projects = (
 const featuredIds = ['trivia-turbo', 'bcrs', 'nodebucket'];
 const featured = featuredIds.map((id) => projects.find((p) => p.id === id)!);
 const remaining = projects.filter((p) => !featuredIds.includes(p.id));
+const projectFilters = [
+  { label: 'All projects', value: 'all', count: projects.length },
+  {
+    label: 'Web apps',
+    value: 'Web app',
+    count: projects.filter((p) => p.data.category === 'Web app').length,
+  },
+  {
+    label: 'Built with AI',
+    value: 'built-with-ai',
+    count: projects.filter((p) => p.data.builtWithAI).length,
+  },
+];
 const title = `${profile.name} — Web development & AI`;
 const canonical = new URL(withBase(), Astro.site);
 ---
@@ -161,21 +174,14 @@ const canonical = new URL(withBase(), Astro.site);
             aria-label="Filter projects"
             hidden
           >
-            {['All projects', 'Web apps', 'AI projects'].map((label, i) => (
+            {projectFilters.map((filter, i) => (
               <button
                 type="button"
-                data-filter={['all', 'Web app', 'AI project'][i]}
+                data-filter={filter.value}
                 aria-pressed={i === 0}
               >
-                {label}
-                <span>
-                  {i === 0
-                    ? projects.length
-                    : projects.filter(
-                        (p) =>
-                          p.data.category === ['Web app', 'AI project'][i - 1],
-                      ).length}
-                </span>
+                {filter.label}
+                <span>{filter.count}</span>
               </button>
             ))}
           </div>
@@ -184,6 +190,7 @@ const canonical = new URL(withBase(), Astro.site);
               <article
                 class={`featured-project reveal project-${project.id}`}
                 data-category={project.data.category}
+                data-built-with-ai={String(project.data.builtWithAI)}
               >
                 <a
                   class="project-visual"
@@ -258,6 +265,7 @@ const canonical = new URL(withBase(), Astro.site);
               <article
                 class="index-row reveal"
                 data-category={project.data.category}
+                data-built-with-ai={String(project.data.builtWithAI)}
               >
                 <span class="index-number">
                   {String(i + 4).padStart(2, '0')}

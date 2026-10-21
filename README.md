@@ -53,6 +53,8 @@ Both designs include a motion toggle, reduced-motion support, and a static fallb
 
 The filename becomes `/projects/your-project/`. Lower `order` numbers appear first. Projects stay in their existing repositories; add their URLs in `repository`. A `demo` URL is optional. Each project app keeps its own deployment configuration.
 
+Set `builtWithAI: true` when AI contributed to development, and explain that collaboration in the write-up. This flag is independent of `category`: a `Web app` can appear in both **Web apps** and **Built with AI**. Unmarked projects default to `false`. The portfolio and Trivia Turbo currently appear in both filters. The flag describes development assistance, not whether the app calls an AI model at runtime.
+
 Trivia Turbo embeds its 20-second MP4 directly on its case-study page, with native playback controls, English WebVTT captions, and no autoplay. The video, captions, and credits live in `public/video/` and deploy with the portfolio to GitHub Pages; no external video service is needed. Its `trailer` frontmatter provides the asset paths and description, while `image` supplies the poster. Keep media attribution with any replacement trailer and update the player’s visible music credit if the music changes.
 
 ## GitHub Pages and CI/CD
