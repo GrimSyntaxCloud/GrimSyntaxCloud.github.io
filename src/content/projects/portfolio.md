@@ -19,7 +19,7 @@ Give my projects a home that is easy to browse and easy to maintain. Each projec
 
 Astro turns Markdown project entries into static pages. Visitors can browse all projects or filter by Web apps and Built with AI. These filters overlap: this portfolio and Trivia Turbo are web apps developed with AI assistance.
 
-The site offers two homepage designs: Editorial by default and an Industrial alternative. Both share the same content and include custom Three.js sculptures, project filters, and motion controls. The 3D renderer loads separately, respects reduced-motion preferences, and has a static fallback. The site uses system fonts and plain CSS, with no database, paid API, or external font service.
+The site offers two designs across the homepage, project stories, and archive: Editorial by default and an Industrial alternative. Both share the same content, navigation, and motion controls. The homepages include custom Three.js sculptures and project filters; project stories and the archive carry the same typography, colors, and visual details into a reading-focused layout. The 3D renderer loads separately, respects reduced-motion preferences, and has a static fallback. The site uses system fonts and plain CSS, with no database, paid API, or external font service.
 
 ## Delivery
 

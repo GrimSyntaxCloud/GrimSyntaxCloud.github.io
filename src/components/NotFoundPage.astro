@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { designPath, type Design } from '../lib/paths';
+import { profile } from '../data/profile';
+interface Props {
+  variant?: Design;
+}
+const { variant = 'editorial' } = Astro.props;
+---
+
+<Layout
+  variant={variant}
+  pagePath="404.html"
+  title={`Page not found — ${profile.name}`}
+>
+  <section class="not-found reveal">
+    <p class="eyebrow">404 / A SMALL DETOUR</p>
+    <h1>
+      Nothing here.
+      <br />
+      Plenty to explore.
+    </h1>
+    <p>This page may have moved, or the link may be incorrect.</p>
+    <a class="button" href={designPath(variant)}>
+      Back to the portfolio ↗
+    </a>
+  </section>
+</Layout>

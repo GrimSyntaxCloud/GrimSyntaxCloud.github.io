@@ -90,3 +90,9 @@ For a custom domain later, set `SITE_URL` and `BASE_PATH` in the workflow build 
 GitHub Pages serves static files. It cannot run a Python model, Node backend, or database. Link to each project's separately hosted demo, or show screenshots and a case study when a free live demo is impractical. The portfolio itself makes no AI API calls and requires no AI subscription.
 
 Reference: [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages), [GitHub Actions billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions).
+
+### Site designs
+
+Editorial is the default design. Industrial is available under `/industrial/`, including matching archive and project pages. The “Choose your view” links switch between designs on the same page; navigation keeps the current design without cookies or browser storage. All variants use one shared layout and the same project content. Industrial pages point their canonical URL to the Editorial equivalent.
+
+Shared navigation and design controls live in `src/layouts/Layout.astro`. Homepage styling is in `src/styles/home.css`; reading, archive, and 404 layouts are in `src/styles/pages.css`. The archive and project route files render shared components so content and filtering stay consistent across both designs. The GitHub Pages 404 fallback defaults to Editorial.
