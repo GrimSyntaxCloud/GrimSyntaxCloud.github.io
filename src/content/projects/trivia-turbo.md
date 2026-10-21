@@ -2,6 +2,7 @@
 title: 'Trivia Turbo'
 description: 'A real-time multiplayer racing game where correct trivia answers earn turbo boosts. Race friends, challenge computer racers, or practice solo.'
 category: 'Web app'
+builtWithAI: true
 tags: ['React', 'TypeScript', 'WebSockets', 'Cloudflare']
 year: 2026
 order: 0
@@ -45,6 +46,14 @@ Cloudflare D1 stores room routing and initialization records; active race state 
 The project includes automated checks for race rules, synchronized questions, steering, reconnects, host permissions, room capacity, and rematches. Its key challenges are keeping multiple browsers consistent, making movement feel responsive despite network delay, and presenting trivia clearly without stopping the race.
 
 This is a casual multiplayer game. Broader physical-device and group playtesting remains ongoing; it is not presented as a competitive anti-cheat system or a proven large-scale service.
+
+## Built with AI
+
+I developed Trivia Turbo with ChatGPT/Codex as an AI development collaborator. I guided the game's direction and refined the experience through feedback, while AI helped with implementation, debugging, and explanations of how the code works. We built and iterated on the project together.
+
+The work brought together the browser racing interface, shared trivia rounds, real-time multiplayer coordination, and automated checks for game behavior. The collaboration also extended to presenting the game in this portfolio, including its gameplay trailer and technical write-up.
+
+“Built with AI” describes our development process. During play, the game uses bundled trivia questions and programmed race rules; it does not call a generative AI service to create questions or control the computer racers.
 
 ## Hosting and credits
 

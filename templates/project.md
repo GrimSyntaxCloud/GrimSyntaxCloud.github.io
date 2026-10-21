@@ -2,6 +2,7 @@
 title: 'Your project name'
 description: 'One sentence explaining the problem the project solves.'
 category: 'AI project'
+# builtWithAI: true # Also include in Built with AI; independent of project type.
 tags: ['Python', 'Your framework']
 year: 2026
 order: 4
