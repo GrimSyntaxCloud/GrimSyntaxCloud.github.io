@@ -5,18 +5,19 @@ category: 'Web app'
 tags: ['Express', 'MongoDB', 'Passport']
 year: 2022
 order: 6
-status: 'Source available'
+status: 'Live'
+demo: 'https://white-sand-0e657a60f.1.azurestaticapps.net'
 visual: 'code'
 repository: 'https://github.com/GrimSyntaxCloud/pets-r-us'
 ---
 
 ## The project
 
-A coursework project for a pet-service business, with pages for grooming, boarding, and training. The source also includes registration, login, profile editing, and appointment routes.
+A coursework project for a pet-service business, with pages for grooming, boarding, and training. Visitors can register, sign in, edit their profile, and save private appointment requests.
 
 ## The implementation
 
-Express handles routing, Passport handles authentication, and Mongoose models represent users and appointments. The project renders its pages on the server.
+Express handles routing, Passport handles authentication, and Mongoose models represent users and appointments. The project renders its EJS pages through managed Node.js HTTP functions on Azure Static Web Apps Free. Cosmos DB for MongoDB stores accounts, appointments, and secure sessions in separate collections within a shared database.
 
 ## What to explore
 
@@ -24,4 +25,4 @@ The separation of routes, models, page templates, and shared headers and footers
 
 ## Current status
 
-The earlier Heroku demo is no longer available. This entry links to the source. Running the app again requires a Node.js host, database configuration, and a review of its older dependencies and unfinished request handling.
+The original Heroku deployment has been replaced by a free Azure demo. Try the read-only fictional sample or register with fictional details to explore the full flow. Visitor accounts expire after 96 hours; appointments expire no later than their owner. Hourly cleanup preserves permanent samples. No real booking or payment takes place.
