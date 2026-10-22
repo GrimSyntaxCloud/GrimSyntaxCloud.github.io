@@ -1,9 +1,9 @@
 ---
-title: "Still"
-description: "A calm task list with local persistence, completion filters and a tactile sage-and-paper design."
+title: 'Still'
+description: 'A colorful task workspace with local persistence, completion filters and playful progress feedback.'
 category: 'Web app'
 builtWithAI: true
-tags: ["JavaScript", "Local storage", "DOM"]
+tags: ['JavaScript', 'Local storage', 'DOM']
 year: 2026
 order: 16
 status: 'Live'
@@ -11,16 +11,16 @@ visual: 'web'
 repository: 'https://github.com/GrimSyntaxCloud/javascript-showcase'
 demo: 'https://grimsyntaxcloud.github.io/javascript-showcase/still/'
 image: 'images/projects/still-home.webp'
-imageAlt: "Still task manager with sage navigation, paper-colored content and a stacked-stone illustration."
+imageAlt: 'Still task manager with a lavender workspace, cream task sheet, mint progress card and purple flower.'
 imageFit: 'contain'
 screenshots:
   - src: 'images/projects/still-home.webp'
-    alt: "Still task manager with sage navigation, paper-colored content and a stacked-stone illustration."
+    alt: 'Still task manager with a lavender workspace, cream task sheet, mint progress card and purple flower.'
     caption: 'The refreshed desktop interface preserves the original project workflow.'
-    width: 1600
-    height: 987
+    width: 1425
+    height: 1069
   - src: 'images/projects/still-mobile.webp'
-    alt: "Still on a narrow mobile screen."
+    alt: 'Still on a narrow mobile screen.'
     caption: 'The opening mobile view, checked for readable content and controls that fit.'
     width: 375
     height: 843
@@ -28,7 +28,7 @@ screenshots:
 
 ## The project
 
-Still is a quieter take on my earlier JavaScript to-do list. A sage sidebar, generous spacing and CSS stone artwork give a simple daily workflow room to breathe.
+Still gives my earlier JavaScript to-do list a colorful place to focus. A lavender dotted workspace holds a cream task sheet, mint progress card, coral sticker and a butter-yellow reminder. A CSS flower responds to completed tasks with a short celebratory motion.
 
 Add tasks, mark them complete, filter the list and remove finished items. Progress feedback helps show what is left without turning the page into a complicated dashboard.
 
@@ -40,4 +40,4 @@ This is a browser-local tool: it does not create accounts or synchronize tasks b
 
 ## Built together
 
-I worked with ChatGPT/Codex to recover the original functionality and redesign it around a calmer visual identity. We verified add, complete, filter, delete and reload persistence, then checked the narrow-screen layout. GitHub Pages serves the app without a backend or paid service.
+I worked with ChatGPT/Codex to recover the original functionality and redesign it around a playful, focused visual identity. We verified add, complete, filter, delete and reload persistence, then checked the narrow-screen layout. GitHub Pages serves the app without a backend or paid service.

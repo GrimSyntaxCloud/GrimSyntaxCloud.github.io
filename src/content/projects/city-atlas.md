@@ -1,9 +1,9 @@
 ---
-title: "City Atlas"
-description: "An interactive D3 map exploring a historical sample of 50 U.S. cities."
+title: 'City Atlas'
+description: 'An interactive D3 map exploring a historical sample of 50 U.S. cities.'
 category: 'Web app'
 builtWithAI: true
-tags: ["D3", "JavaScript", "Data visualization"]
+tags: ['D3', 'JavaScript', 'Data visualization']
 year: 2026
 order: 20
 status: 'Live'
@@ -11,16 +11,16 @@ visual: 'web'
 repository: 'https://github.com/GrimSyntaxCloud/city-atlas'
 demo: 'https://grimsyntaxcloud.github.io/city-atlas/'
 image: 'images/projects/city-atlas-home.webp'
-imageAlt: "City Atlas with a paper-and-ink United States map, proportional city markers and a ranked city index."
+imageAlt: 'City Atlas with a midnight-blue map workspace, cyan markers, chartreuse selection and a city directory rail.'
 imageFit: 'contain'
 screenshots:
   - src: 'images/projects/city-atlas-home.webp'
-    alt: "City Atlas with a paper-and-ink United States map, proportional city markers and a ranked city index."
+    alt: 'City Atlas with a midnight-blue map workspace, cyan markers, chartreuse selection and a city directory rail.'
     caption: 'The refreshed desktop interface preserves the original project workflow.'
-    width: 1265
-    height: 1400
+    width: 1425
+    height: 1069
   - src: 'images/projects/city-atlas-mobile.webp'
-    alt: "City Atlas on a narrow mobile screen."
+    alt: 'City Atlas on a narrow mobile screen.'
     caption: 'The opening mobile view, checked for readable content and controls that fit.'
     width: 375
     height: 843
@@ -28,7 +28,7 @@ screenshots:
 
 ## The project
 
-City Atlas recovers the D3 mapping exercise from my Emerging-tech coursework. A paper-and-ink cartographic layout puts the map, selected city and searchable index into one responsive workspace.
+City Atlas recovers the D3 mapping exercise from my Emerging-tech coursework. A midnight-blue urban observatory puts a cyan map, chartreuse city selection and searchable directory into a single cartographic workspace. A selection reticle adds a focused visual response as you explore; the mobile layout places the map above the directory.
 
 Explore 50 cities, filter the top 10 or 25, toggle state labels, step through the selection or download the CSV. Marker area remains proportional to population.
 

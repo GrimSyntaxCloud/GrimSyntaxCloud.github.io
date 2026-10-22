@@ -11,14 +11,14 @@ visual: 'web'
 repository: 'https://github.com/GrimSyntaxCloud/eny-salon'
 demo: 'https://zealous-grass-00a9b990f.3.azurestaticapps.net/'
 image: 'images/projects/eny-salon-home.webp'
-imageAlt: 'Eny Salon with cream and copper colors, editorial typography and salon line artwork.'
+imageAlt: 'Eny Salon with a giant peach masthead, aubergine background, sculptural satin artwork and curved rose sections.'
 imageFit: 'contain'
 screenshots:
   - src: 'images/projects/eny-salon-home.webp'
-    alt: 'Eny Salon with cream and copper colors, editorial typography and salon line artwork.'
+    alt: 'Eny Salon with a giant peach masthead, aubergine background, sculptural satin artwork and curved rose sections.'
     caption: 'The redesigned desktop experience.'
-    width: 1600
-    height: 739
+    width: 1425
+    height: 990
   - src: 'images/projects/eny-salon-mobile.webp'
     alt: 'Eny Salon on a narrow mobile screen.'
     caption: 'A closer look at the responsive mobile experience.'
@@ -28,7 +28,7 @@ screenshots:
 
 ## The project
 
-Eny Salon began as my PHP salon-booking coursework. The recovery keeps its original services and prices, giving the experience a warm cream, copper and sage identity with original salon artwork.
+Eny Salon began as my PHP salon-booking coursework. The recovery keeps its original services and prices, giving the experience a bold aubergine-and-peach beauty-studio identity. A giant ENY masthead, sculptural satin artwork, horizontal service rows and curved rose sections establish a distinct layout across the booking and staff workflows.
 
 Explore the service menu, choose an available appointment, enter fictional customer details and try the staff workspace. Appointment editing, rescheduling, availability management and a message inbox demonstrate the complete workflow.
 
