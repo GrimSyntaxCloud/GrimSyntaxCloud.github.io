@@ -19,6 +19,17 @@ const projectDemos = new Set(
     .filter((repo) => repo.demo)
     .map((repo) => new URL(repo.demo).href),
 );
+// A showcase repository can publish several apps below its root. Include the
+// exact demo URLs declared by case studies, without exempting the whole prefix.
+for (const file of await walk('src/content/projects')) {
+  if (!file.endsWith('.md')) continue;
+  const source = await readFile(file, 'utf8');
+  const frontmatter = source.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  const demo = frontmatter?.[1].match(
+    /^demo:\s*['"]?(https?:\/\/[^'"\s]+)['"]?\s*$/m,
+  );
+  if (demo) projectDemos.add(new URL(demo[1]).href);
+}
 const failures = [];
 let checked = 0;
 async function walk(directory) {

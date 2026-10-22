@@ -10,6 +10,39 @@
     "caseStudy": "portfolio"
   },
   {
+    "name": "city-atlas",
+    "title": "City Atlas",
+    "description": "An interactive D3 map of a historical 50-city sample, with search and proportional markers.",
+    "group": "Applications",
+    "language": "JavaScript",
+    "year": 2026,
+    "repository": "https://github.com/GrimSyntaxCloud/city-atlas",
+    "caseStudy": "city-atlas",
+    "demo": "https://grimsyntaxcloud.github.io/city-atlas/"
+  },
+  {
+    "name": "angular-showcase",
+    "title": "Angular Showcase",
+    "description": "The Reading Room, Grade Lab and Opus: three modernized Angular coursework projects.",
+    "group": "Applications",
+    "language": "TypeScript",
+    "year": 2026,
+    "repository": "https://github.com/GrimSyntaxCloud/angular-showcase",
+    "caseStudy": "reading-room",
+    "demo": "https://grimsyntaxcloud.github.io/angular-showcase/"
+  },
+  {
+    "name": "javascript-showcase",
+    "title": "JavaScript Showcase",
+    "description": "Recovered Meme Press and Still apps, with distinct interfaces and browser-local functionality.",
+    "group": "Applications",
+    "language": "JavaScript",
+    "year": 2026,
+    "repository": "https://github.com/GrimSyntaxCloud/javascript-showcase",
+    "caseStudy": "meme-press",
+    "demo": "https://grimsyntaxcloud.github.io/javascript-showcase/"
+  },
+  {
     "name": "nodebucket",
     "title": "Nodebucket",
     "description": "Angular task board with a Node.js API and persistent Cosmos DB storage.",
@@ -22,7 +55,7 @@
   },
   {
     "name": "BCRS",
-    "title": "Bob\u2019s Computer Repair Shop",
+    "title": "Bob’s Computer Repair Shop",
     "description": "Full-stack Angular repair-shop demo with registration, sign-in, profiles, and account-specific invoices in Cosmos DB.",
     "group": "Applications",
     "language": "TypeScript",
