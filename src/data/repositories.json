@@ -150,7 +150,7 @@
   {
     "name": "web-340",
     "title": "Node.js Coursework",
-    "description": "Node.js learning exercises from WEB 340.",
+    "description": "Archived Node.js console exercises covering books and sports teams.",
     "group": "Coursework",
     "language": "JavaScript",
     "year": 2022,
@@ -429,7 +429,7 @@
   {
     "name": "bootstrap-projects",
     "title": "Bootstrap Studies",
-    "description": "Bootstrap layout and form exercises, plus a photo-page project.",
+    "description": "Archived Bootstrap component and form studies, including an unfinished photo-page scaffold.",
     "group": "Coursework",
     "language": "HTML",
     "year": 2018,
@@ -438,7 +438,7 @@
   {
     "name": "Emerging-tech",
     "title": "Emerging Technology Studies",
-    "description": "D3 map of US cities in dataVisualization, plus Flask, Gulp, and Selenium learning projects.",
+    "description": "Archived technology coursework. The D3 map is maintained separately as City Atlas.",
     "group": "Coursework",
     "language": "HTML",
     "year": 2018,
@@ -521,7 +521,7 @@
   {
     "name": "seleniumTest",
     "title": "Selenium Testing Exercises",
-    "description": "Browser automation and form assertion exercises using Selenium.",
+    "description": "Archived introductory Selenium browser automation and form assertion exercises.",
     "group": "Coursework",
     "language": "JavaScript",
     "year": 2018,
