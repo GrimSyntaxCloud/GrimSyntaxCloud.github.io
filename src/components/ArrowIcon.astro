@@ -1,0 +1,41 @@
+---
+interface Props {
+  direction?: 'up-right' | 'down-right' | 'down' | 'left' | 'right';
+}
+const { direction = 'up-right' } = Astro.props;
+const paths = {
+  'up-right': 'M5 19 19 5M5 5h14v14',
+  'down-right': 'M5 5 19 19M5 19h14V5',
+  down: 'M12 4v16M5 13l7 7 7-7',
+  left: 'M20 12H4m7-7-7 7 7 7',
+  right: 'M4 12h16m-7-7 7 7-7 7',
+};
+---
+
+<!-- Draw the arrow instead of relying on platform-specific symbol/emoji fonts. -->
+<svg
+  class="arrow-icon"
+  xmlns="http://www.w3.org/2000/svg"
+  width="1em"
+  height="1em"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  focusable="false"
+>
+  <path d={paths[direction]} />
+</svg>
+
+<style>
+  .arrow-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex: 0 0 auto;
+    vertical-align: -0.125em;
+  }
+</style>

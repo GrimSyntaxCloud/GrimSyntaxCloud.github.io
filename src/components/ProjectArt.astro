@@ -1,4 +1,5 @@
 ---
+import ArrowIcon from './ArrowIcon.astro';
 interface Props {
   kind?: 'web' | 'ai' | 'code';
 }
@@ -19,7 +20,10 @@ const { kind = 'web' } = Astro.props;
         <strong>
           Hello,
           <br />
-          possibility<span>↗</span>
+          possibility
+          <span>
+            <ArrowIcon />
+          </span>
         </strong>
         <div class="mini-grid">
           <i></i>
@@ -34,15 +38,21 @@ const { kind = 'web' } = Astro.props;
       <div class="code-stack">
         <span>
           01 <b>interface</b>
-          <em>↗</em>
+          <em>
+            <ArrowIcon />
+          </em>
         </span>
         <span>
           02 <b>logic</b>
-          <em>↗</em>
+          <em>
+            <ArrowIcon />
+          </em>
         </span>
         <span>
           03 <b>data</b>
-          <em>↗</em>
+          <em>
+            <ArrowIcon />
+          </em>
         </span>
       </div>
       <span class="code-bottom">CONNECTED BY CODE.</span>
@@ -53,7 +63,10 @@ const { kind = 'web' } = Astro.props;
       <span class="ai-orbit orbit-two"></span>
       <span class="ai-orbit orbit-three"></span>
       <span class="ai-core">✳</span>
-      <span class="ai-caption">EXPERIMENT → LEARN → ITERATE</span>
+      <span class="ai-caption">
+        EXPERIMENT <ArrowIcon direction="right" /> LEARN{' '}
+        <ArrowIcon direction="right" /> ITERATE
+      </span>
     </div>
   )}
 </div>

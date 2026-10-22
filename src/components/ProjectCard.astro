@@ -1,4 +1,5 @@
 ---
+import ArrowIcon from './ArrowIcon.astro';
 import type { CollectionEntry } from 'astro:content';
 import ProjectArt from './ProjectArt.astro';
 import { withBase } from '../lib/paths';
@@ -29,7 +30,7 @@ const { data } = project;
       <ProjectArt kind={data.visual} />
     )}
     <span class="cover-arrow" aria-hidden="true">
-      ↗
+      <ArrowIcon />
     </span>
   </a>
   <div class="project-meta">
@@ -48,7 +49,15 @@ const { data } = project;
     ))}
   </ul>
   <div class="card-links">
-    {data.demo && <a href={data.demo}>Live demo ↗</a>}
-    {data.repository && <a href={data.repository}>Source code ↗</a>}
+    {data.demo && (
+      <a href={data.demo}>
+        Live demo <ArrowIcon />
+      </a>
+    )}
+    {data.repository && (
+      <a href={data.repository}>
+        Source code <ArrowIcon />
+      </a>
+    )}
   </div>
 </article>

@@ -1,4 +1,5 @@
 ---
+import ArrowIcon from './ArrowIcon.astro';
 import { getCollection } from 'astro:content';
 import { profile } from '../data/profile';
 import repositories from '../data/repositories.json';
@@ -91,7 +92,10 @@ const technologies = [
       <div class="hero-bottom">
         <p>{profile.intro}</p>
         <a class="button" href="#work">
-          Explore my work <span aria-hidden="true">↘</span>
+          Explore my work{' '}
+          <span aria-hidden="true">
+            <ArrowIcon direction="down-right" />
+          </span>
         </a>
       </div>
     </div>
@@ -109,7 +113,9 @@ const technologies = [
     </div>
     <div class="hero-footnote" aria-hidden="true">
       <span>WEB DEVELOPMENT & AI</span>
-      <span>SCROLL TO EXPLORE ↓</span>
+      <span>
+        SCROLL TO EXPLORE <ArrowIcon direction="down" />
+      </span>
     </div>
   </section>
   <div
@@ -127,7 +133,9 @@ const technologies = [
         <small>03</small> LEARN FROM IT.
       </span>
     </div>
-    <p aria-hidden="true">A little better, every iteration. ↗</p>
+    <p aria-hidden="true">
+      A little better, every iteration. <ArrowIcon />
+    </p>
   </div>
   <section id="work" class="work-section" aria-labelledby="work-title">
     <div class="section-heading reveal">
@@ -203,7 +211,7 @@ const technologies = [
                 : 'LIVE WEBSITE / ' + project.data.title}
             </span>
             <span class="cover-arrow" aria-hidden="true">
-              ↗
+              <ArrowIcon />
             </span>
           </a>
           <div class="project-copy">
@@ -226,12 +234,15 @@ const technologies = [
             <div class="card-links">
               {project.data.demo && (
                 <a class="button" href={project.data.demo}>
-                  Live demo <span>↗</span>
+                  Live demo{' '}
+                  <span>
+                    <ArrowIcon />
+                  </span>
                 </a>
               )}
               {project.data.repository && (
                 <a class="text-link" href={project.data.repository}>
-                  Source code ↗
+                  Source code <ArrowIcon />
                 </a>
               )}
             </div>
@@ -273,7 +284,9 @@ const technologies = [
             ) : (
               <span class="index-preview-fallback">
                 {project.data.title}
-                <small>Explore the project ↗</small>
+                <small>
+                  Explore the project <ArrowIcon />
+                </small>
               </span>
             )}
           </a>
@@ -292,11 +305,13 @@ const technologies = [
                   project.id === 'portfolio' ? pageLink() : project.data.demo
                 }
               >
-                Live demo ↗
+                Live demo <ArrowIcon />
               </a>
             )}
             {project.data.repository && (
-              <a href={project.data.repository}>Source code ↗</a>
+              <a href={project.data.repository}>
+                Source code <ArrowIcon />
+              </a>
             )}
           </div>
           <span class="index-year">{project.data.year}</span>
@@ -308,7 +323,7 @@ const technologies = [
       collection.
     </p>
     <a class="text-link archive-link" href={pageLink('archive/')}>
-      Browse all {repositories.length} repositories ↗
+      Browse all {repositories.length} repositories <ArrowIcon />
     </a>
   </section>
   <section
@@ -325,7 +340,9 @@ const technologies = [
       </h2>
       <div class="about-object" aria-hidden="true">
         <span>?</span>
-        <span>↗</span>
+        <span>
+          <ArrowIcon />
+        </span>
       </div>
     </div>
     <div class="about-copy">
@@ -369,7 +386,9 @@ const technologies = [
       href={profile.email ? `mailto:${profile.email}` : profile.github}
     >
       {profile.email ? 'Say hello' : 'Find me on GitHub'}{' '}
-      <span aria-hidden="true">↗</span>
+      <span aria-hidden="true">
+        <ArrowIcon />
+      </span>
     </a>
   </section>
 </Layout>
