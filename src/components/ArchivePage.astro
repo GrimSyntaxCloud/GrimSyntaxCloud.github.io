@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 import repositories from '../data/repositories.json';
-import { designPath, type Design } from '../lib/paths';
+import { designPath, withBase, type Design } from '../lib/paths';
 import { profile } from '../data/profile';
 interface Props {
   variant?: Design;
@@ -9,6 +10,19 @@ interface Props {
 const { variant = 'editorial' } = Astro.props;
 const pageLink = (path = '') => designPath(variant, path);
 const groups = [...new Set(repositories.map((repo) => repo.group))];
+const projects = (
+  await getCollection('projects', ({ data }) => !data.draft)
+).sort((a, b) => a.data.order - b.data.order);
+const repositoryKey = (url: string) => url.replace(/\/$/, '').toLowerCase();
+// Share project images and destinations with the main portfolio so they stay current.
+const entries = repositories.map((repo) => ({
+  ...repo,
+  projects: projects.filter(
+    (project) =>
+      project.data.repository &&
+      repositoryKey(project.data.repository) === repositoryKey(repo.repository),
+  ),
+}));
 ---
 
 <Layout
@@ -38,6 +52,10 @@ const groups = [...new Set(repositories.map((repo) => repo.group))];
         coursework behind them. Earlier exercises are included as part of the
         learning process.
       </p>
+      <p class="archive-guide">
+        Browse the screenshots, open a project story, or jump straight into a
+        live demo. Shared repositories include individual projects below.
+      </p>
     </header>
     <div class="archive-controls" hidden>
       <div class="archive-search">
@@ -66,13 +84,39 @@ const groups = [...new Set(repositories.map((repo) => repo.group))];
       {repositories.length} repositories
     </p>
     <div class="repo-list">
-      {repositories.map((repo) => (
+      {entries.map((repo) => (
         <article
-          class="repo-row"
+          class:list={[
+            'repo-row',
+            {
+              'repo-row-preview':
+                repo.projects.length === 1 && repo.projects[0].data.image,
+            },
+          ]}
           data-group={repo.group}
-          data-search={`${repo.title} ${repo.name} ${repo.description} ${repo.language}`.toLowerCase()}
+          data-search={`${repo.title} ${repo.name} ${repo.description} ${repo.language} ${repo.projects.map(({ data }) => `${data.title} ${data.description} ${data.tags.join(' ')}`).join(' ')}`.toLowerCase()}
         >
           <div class="repo-year">{repo.year}</div>
+          {repo.projects.length === 1 && repo.projects[0].data.image && (
+            <a
+              class="repo-preview"
+              href={pageLink(`projects/${repo.projects[0].id}/`)}
+              aria-label={`Read about ${repo.projects[0].data.title}`}
+            >
+              <img
+                src={withBase(repo.projects[0].data.image)}
+                alt={
+                  repo.projects[0].data.imageAlt ||
+                  `${repo.projects[0].data.title} screenshot`
+                }
+                loading="lazy"
+                decoding="async"
+                width="640"
+                height="400"
+                style={{ objectFit: repo.projects[0].data.imageFit }}
+              />
+            </a>
+          )}
           <div class="repo-description">
             <p class="eyebrow">{repo.group}</p>
             <h2>{repo.title}</h2>
@@ -80,7 +124,7 @@ const groups = [...new Set(repositories.map((repo) => repo.group))];
             <span class="repo-language">{repo.language}</span>
           </div>
           <div class="repo-links">
-            {repo.caseStudy && (
+            {repo.projects.length <= 1 && repo.caseStudy && (
               <a
                 href={pageLink(`projects/${repo.caseStudy}/`)}
                 aria-label={`Read about ${repo.title}`}
@@ -93,7 +137,7 @@ const groups = [...new Set(repositories.map((repo) => repo.group))];
                 href={String(repo.demo)}
                 aria-label={`Open ${repo.title} demo`}
               >
-                Live demo ↗
+                {repo.projects.length > 1 ? 'Collection home ↗' : 'Live demo ↗'}
               </a>
             )}
             <a
@@ -103,6 +147,60 @@ const groups = [...new Set(repositories.map((repo) => repo.group))];
               Source code ↗
             </a>
           </div>
+          {repo.projects.length > 1 && (
+            <section
+              class="repo-projects"
+              aria-label={`Projects in ${repo.title}`}
+            >
+              <p class="repo-projects-label">
+                Inside this repository{' '}
+                <span>{repo.projects.length} projects</span>
+              </p>
+              <div class="repo-project-grid">
+                {repo.projects.map(({ id, data }) => (
+                  <div class="repo-project-card">
+                    {data.image && (
+                      <a
+                        class="repo-preview"
+                        href={pageLink(`projects/${id}/`)}
+                        aria-label={`Read about ${data.title}`}
+                      >
+                        <img
+                          src={withBase(data.image)}
+                          alt={data.imageAlt || `${data.title} screenshot`}
+                          loading="lazy"
+                          decoding="async"
+                          width="640"
+                          height="400"
+                          style={{ objectFit: data.imageFit }}
+                        />
+                      </a>
+                    )}
+                    <h3>
+                      <a href={pageLink(`projects/${id}/`)}>{data.title}</a>
+                    </h3>
+                    <p>{data.description}</p>
+                    <div class="repo-project-actions">
+                      <a
+                        href={pageLink(`projects/${id}/`)}
+                        aria-label={`Read ${data.title} project story`}
+                      >
+                        Project story ↗
+                      </a>
+                      {data.demo && (
+                        <a
+                          href={data.demo}
+                          aria-label={`Open ${data.title} demo`}
+                        >
+                          Live demo ↗
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
         </article>
       ))}
     </div>
