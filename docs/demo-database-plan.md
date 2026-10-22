@@ -54,19 +54,21 @@ Verification included:
 
 `DEMO_MAINTENANCE=true` pauses an application's API before database access. Confirm HTTP 503 responses and allow in-flight requests to drain before taking a migration backup. Recheck backup equality immediately before destructive changes. Never raise capacity to work around a failed migration.
 
-## Additional recovery preparation — October 22, 2026
+## Additional recovered applications — October 22, 2026
 
-Relay Room and Endpoint Studio have been prepared locally. Their public source publication and live application deployment are awaiting approval; the reserved Azure sites are not verified live application demos yet.
+Relay Room and Endpoint Studio are deployed to Azure Static Web Apps Free. Fold & Fork is deployed to GitHub Pages. The user explicitly approved public repositories, live demos and portfolio publication.
 
 - A fresh encrypted backup of all eight existing collections was restored into disposable MongoDB and compared before adding new collections.
 - `endpoint_demo` and `relay_rooms` now share the existing 400 RU/s database pool. No dedicated throughput, extra region or paid supporting resource was added.
-- The two reserved Static Web Apps use the Free SKU, bringing the account's prepared sites to nine. The subscription spending limit remains on, and the Cosmos account remains on its free tier with the existing 1,000 RU/s account cap.
-- Separate app and cleanup credentials were created for each new collection. Own-collection access succeeded and access to an existing project's collection was denied. Encrypted credentials and backup recovery material are held privately outside the repositories. Installing these credentials into server settings and GitHub environment secrets is still part of the pending deployment.
+- The two new Static Web Apps use the Free SKU, bringing the account's sites to nine. The subscription spending limit remains on, and the Cosmos account remains on its free tier with the existing 1,000 RU/s account cap.
+- Separate app and cleanup credentials were created for each new collection. Own-collection access succeeded and access to an existing project's collection was denied. Encrypted credentials and backup recovery material are held privately outside the repositories. App credentials are installed in server-only Azure settings; cleanup and deployment credentials are stored in main-only GitHub environments. Both hourly cleanup workflows completed successfully.
 - Endpoint Studio visitor workspaces have a fixed 96-hour lifetime; fictional read-only samples are application fixtures and are never removed by workspace cleanup.
 - Relay Room expires rooms and signaling metadata after 30 minutes. Media travels directly between browsers and is never stored. The shorter retention window avoids keeping connection metadata for four days.
 - Fold & Fork is a static browser-only demo with no database, submitted orders or payment processing.
 
-Local tests include actual MongoDB persistence and expiry/cleanup behavior. Cloud API behavior and scheduled cleanup still require verification after deployment. Reserved Free resources do not extend the subscription trial or authorize a billing upgrade.
+All 14 application tests pass, including actual MongoDB persistence. Live verification confirmed private workspace isolation, create/read/update operations, password verification, protected samples, fixed 96-hour expiry, room invitation and membership checks, recipient-only signaling, host controls and 30-minute room expiry. Scoped cleanup removed expired synthetic data while retaining a permanent sample fixture in each collection. The permanent REST catalog also remained available. No existing project records were changed.
+
+Azure reserves the standard authorization header; these apps use `X-Demo-Authorization` for their independently validated private bearer credentials. Browser and live API checks verified the deployed fix. Free resources do not extend the subscription trial or authorize a billing upgrade.
 
 ## References
 

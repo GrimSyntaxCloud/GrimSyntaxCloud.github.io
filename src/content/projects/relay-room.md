@@ -6,7 +6,9 @@ builtWithAI: true
 tags: ['WebRTC', 'Node.js', 'Azure', 'Cosmos DB']
 year: 2026
 order: 25
-status: 'In progress'
+status: 'Live'
+repository: 'https://github.com/GrimSyntaxCloud/relay-room'
+demo: 'https://mango-sea-0c6bba80f.4.azurestaticapps.net/'
 visual: 'web'
 image: 'images/projects/relay-room-home.webp'
 imageAlt: 'An aurora-lit video chat landing page with translucent panels and a liquid orb.'
@@ -14,7 +16,7 @@ imageFit: 'contain'
 screenshots:
   - src: 'images/projects/relay-room-home.webp'
     alt: 'An aurora-lit video chat landing page with translucent panels and a liquid orb.'
-    caption: 'The opening design, captured from the working local preview.'
+    caption: 'The opening design, captured from the verified working application.'
     width: 1265
     height: 889
   - src: 'images/projects/relay-room-room.webp'
@@ -37,7 +39,7 @@ Create a room, invite up to three other people, mute your microphone, turn your 
 
 ## How it works
 
-Native WebRTC carries media directly between participants. A Node.js API coordinates invitations, membership and connection messages; the prepared Azure deployment uses a collection in the existing shared Cosmos DB database. The server stores connection metadata, never recordings or media streams. Random invitation and participant credentials are stored as hashes, and each participant can retrieve only connection messages addressed to them.
+Native WebRTC carries media directly between participants. A Node.js API coordinates invitations, membership and connection messages; the Azure deployment uses a collection in the existing shared Cosmos DB database. The server stores connection metadata, never recordings or media streams. Random invitation and participant credentials are stored as hashes, and each participant can retrieve only connection messages addressed to them.
 
 Rooms expire 30 minutes after creation, a shorter privacy window than the 96-hour policy for saved demo work. Edits and joins do not extend the deadline. Expired rooms become inaccessible immediately; scheduled cleanup removes their stored metadata on its next successful run.
 
@@ -49,4 +51,4 @@ The app uses a public STUN server to help browsers establish direct connections.
 
 I worked with ChatGPT/Codex to recover the original project, redesign the interface and replace its signaling layer. Automated tests cover invitation access, room limits, private signaling, host controls, expiry and MongoDB persistence. Two browser participants connected using generated test video and silent audio; the controls and departure flow were checked without using a real camera or microphone.
 
-The local preview is ready. Public source and live deployment are awaiting approval.
+The live demo is published with automated checks and deployment through GitHub Actions.

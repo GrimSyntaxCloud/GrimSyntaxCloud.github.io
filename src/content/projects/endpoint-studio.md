@@ -6,7 +6,9 @@ builtWithAI: true
 tags: ['REST API', 'Node.js', 'MongoDB', 'Azure']
 year: 2026
 order: 26
-status: 'In progress'
+status: 'Live'
+repository: 'https://github.com/GrimSyntaxCloud/endpoint-studio'
+demo: 'https://black-beach-00f091d0f.5.azurestaticapps.net/'
 visual: 'web'
 image: 'images/projects/endpoint-studio-home.webp'
 imageAlt: 'An orange and charcoal API instrument panel with a spirograph and MAKE CONTACT headline.'
@@ -14,7 +16,7 @@ imageFit: 'contain'
 screenshots:
   - src: 'images/projects/endpoint-studio-home.webp'
     alt: 'An orange and charcoal API instrument panel with a spirograph and MAKE CONTACT headline.'
-    caption: 'The opening design, captured from the working local preview.'
+    caption: 'The opening design, captured from the verified working application.'
     width: 1265
     height: 889
   - src: 'images/projects/endpoint-studio-workbench.webp'
@@ -37,7 +39,7 @@ Choose composers, people, teams or customers; create a private workspace; then s
 
 ## How it works
 
-A Node.js and Express API validates requests and stores visitor records in an isolated workspace. The prepared Azure deployment uses native MongoDB access to the existing shared Cosmos DB database. A random bearer credential identifies each workspace; only its hash is stored on the server. Password examples use salted scrypt hashes, and invoice totals are calculated by the server.
+A Node.js and Express API validates requests and stores visitor records in an isolated workspace. The Azure deployment uses native MongoDB access to the existing shared Cosmos DB database. A random bearer credential identifies each workspace; only its hash is stored on the server. Password examples use salted scrypt hashes, and invoice totals are calculated by the server.
 
 Visitor workspaces expire 96 hours after creation. Editing data or signing in does not renew the deadline. Expired data is rejected by the API and physically removed by the next successful cleanup job. Fictional, read-only examples are bundled with the application and remain available after cleanup.
 
@@ -47,4 +49,4 @@ The signup exercise demonstrates password verification within a private demo wor
 
 I worked with ChatGPT/Codex to recover the coursework, modernize its dependencies and build an interface around the real API. Validation covers private workspace isolation, expiry boundaries, immutable examples, malformed input, password handling, invoice preservation and database persistence. Customer edits also preserve unique usernames so invoice routes remain unambiguous.
 
-The local preview is ready. Public source and live deployment are awaiting approval.
+The live demo is published with automated checks and deployment through GitHub Actions.
