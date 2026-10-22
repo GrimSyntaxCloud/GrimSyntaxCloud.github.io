@@ -24,6 +24,8 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
+      - name: Audit dependency security
+        run: npm audit --audit-level=low
       - name: Check types, build pages, and verify local links
         run: npm run validate
       - name: Upload site
