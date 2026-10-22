@@ -10,6 +10,28 @@
     "caseStudy": "portfolio"
   },
   {
+    "name": "the-edit-cms",
+    "title": "The Edit",
+    "description": "Editorial CMS with roles, images, CSV exchange and private 96-hour workspaces; original PHP edition retained.",
+    "group": "Applications",
+    "language": "JavaScript",
+    "year": 2026,
+    "repository": "https://github.com/GrimSyntaxCloud/the-edit-cms",
+    "caseStudy": "the-edit",
+    "demo": "https://salmon-pebble-0af10980f.2.azurestaticapps.net/"
+  },
+  {
+    "name": "eny-salon",
+    "title": "Eny Salon",
+    "description": "Salon booking and staff workflows with private 96-hour workspaces; original PHP edition retained.",
+    "group": "Applications",
+    "language": "JavaScript",
+    "year": 2026,
+    "repository": "https://github.com/GrimSyntaxCloud/eny-salon",
+    "caseStudy": "eny-salon",
+    "demo": "https://zealous-grass-00a9b990f.3.azurestaticapps.net/"
+  },
+  {
     "name": "city-atlas",
     "title": "City Atlas",
     "description": "An interactive D3 map of a historical 50-city sample, with search and proportional markers.",
@@ -34,7 +56,7 @@
   {
     "name": "javascript-showcase",
     "title": "JavaScript Showcase",
-    "description": "Recovered Meme Press and Still apps, with distinct interfaces and browser-local functionality.",
+    "description": "Meme Press and Still on GitHub Pages, plus Interval registration and FIELD weather apps with Azure APIs.",
     "group": "Applications",
     "language": "JavaScript",
     "year": 2026,
