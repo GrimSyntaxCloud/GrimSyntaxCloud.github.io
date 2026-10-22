@@ -100,7 +100,7 @@
   {
     "name": "nodebucket",
     "title": "Nodebucket",
-    "description": "Angular task board with a Node.js API and persistent Cosmos DB storage.",
+    "description": "Angular task workspace with accessible movement controls, Cosmos DB persistence and fixed 96-hour visitor-task cleanup.",
     "group": "Applications",
     "language": "TypeScript",
     "year": 2023,
@@ -122,7 +122,7 @@
   {
     "name": "loc8r",
     "title": "Loc8r",
-    "description": "Pug location-directory sample exported to static HTML on GitHub Pages.",
+    "description": "Map-first location field guide with an illustrated neighborhood, Pug-generated static pages and an API-key-free map link.",
     "group": "Applications",
     "language": "Pug",
     "year": 2023,
@@ -133,7 +133,7 @@
   {
     "name": "loan-app",
     "title": "Loan Calculator",
-    "description": "Angular calculator for monthly loan payments and total interest.",
+    "description": "Angular financial workbench with validated loan terms, monthly payment and interest totals, and an SVG remaining-balance curve.",
     "group": "Applications",
     "language": "TypeScript",
     "year": 2022,
@@ -240,7 +240,7 @@
   {
     "name": "investment-estimator",
     "title": "Investment Estimator",
-    "description": "Browser calculator with annual growth estimates and randomized example inputs.",
+    "description": "Burgundy growth observatory with an interactive yearly balance trace, validated inputs and randomized examples.",
     "group": "Browser experiments",
     "language": "JavaScript",
     "year": 2021,
@@ -315,7 +315,7 @@
   {
     "name": "taskManager-OOP",
     "title": "Object-Oriented Task Manager",
-    "description": "Task list with local storage, sorting, and object-based JavaScript modules.",
+    "description": "Object-oriented task desk with inline editing, automatic alphabetical sorting and backward-compatible local storage.",
     "group": "Browser experiments",
     "language": "JavaScript",
     "year": 2020,
@@ -362,7 +362,7 @@
   {
     "name": "countdown",
     "title": "Event Countdown",
-    "description": "Date-based calculator that reports days until or since an event.",
+    "description": "Amber split-flap event board with validated calendar-day calculations, animated digits and reduced-motion support.",
     "group": "Browser experiments",
     "language": "JavaScript",
     "year": 2020,
@@ -373,7 +373,7 @@
   {
     "name": "Dice-game",
     "title": "PIG Dice Game",
-    "description": "Two-player dice game with turn scores, hold actions, and a race to 100.",
+    "description": "Two-player dice game with a tactile cobalt tabletop, animated roll feedback, keyboard controls and protected turn state.",
     "group": "Browser experiments",
     "language": "JavaScript",
     "year": 2020,
@@ -412,7 +412,7 @@
   {
     "name": "savings-calculator-app",
     "title": "Savings Calculator",
-    "description": "JavaScript exercise in compound-growth calculations and form validation.",
+    "description": "Botanical savings studio with proportional growth rings, annual balance tables and accessible compound-interest calculations.",
     "group": "Browser experiments",
     "language": "JavaScript",
     "year": 2020,
@@ -534,7 +534,7 @@
   {
     "name": "Dynamic-recipe-project",
     "title": "Dynamic Recipes",
-    "description": "Recipe pages with adjustable ingredient quantities and print controls.",
+    "description": "Photo-led recipe magazine with original/half/double portions, exact fraction scaling, interactive directions and printable recipes.",
     "group": "Applications",
     "language": "HTML",
     "year": 2018,
