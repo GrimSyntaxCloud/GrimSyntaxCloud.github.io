@@ -1,8 +1,9 @@
 ---
 title: 'Investment Estimator'
-description: 'A browser-based growth calculator with validated inputs and randomized examples.'
+description: 'A graph-led investment observatory with an interactive yearly balance trace and randomized examples.'
 category: 'Web app'
-tags: ['JavaScript', 'Bootstrap', 'HTML']
+builtWithAI: true
+tags: ['JavaScript', 'SVG', 'CSS']
 year: 2021
 order: 10
 status: 'Live'
@@ -10,14 +11,14 @@ visual: 'web'
 repository: 'https://github.com/GrimSyntaxCloud/investment-estimator'
 demo: 'https://grimsyntaxcloud.github.io/investment-estimator/'
 image: 'images/projects/investment-estimator-home.webp'
-imageAlt: 'Investment Estimator with an orange gradient background and a bordered calculation form.'
+imageAlt: 'Investment Estimator with a burgundy graph workspace, cyan compound-growth curve and rose parameter dock.'
 imageFit: 'contain'
 screenshots:
   - src: 'images/projects/investment-estimator-home.webp'
-    alt: 'Investment Estimator with an orange gradient background and a bordered calculation form.'
-    caption: 'A preview of the live project interface.'
-    width: 960
-    height: 600
+    alt: 'Investment Estimator with a burgundy graph workspace, cyan compound-growth curve and rose parameter dock.'
+    caption: 'The graph-first workspace shows the real annual-compounding result, with a slider to inspect individual years.'
+    width: 1265
+    height: 1091
 ---
 
 ## The project
@@ -26,11 +27,13 @@ A JavaScript exercise that estimates annual compound growth from an initial amou
 
 ## The implementation
 
-The app validates its numeric fields before calculating a result. It uses plain DOM event handlers and Bootstrap styling.
+The app validates its numeric fields before calculating a result. Native JavaScript drives the form, summary and SVG graph from the same annual-compounding model. A keyboard-operable slider exposes the balance at each year, with a numeric readout and accessible description. The graph starts from zero and labels values in dollars and years.
+
+I worked with AI to build the burgundy, rose and cyan observatory layout. A wide graph and horizontal parameter dock give it a different structure from the other calculators. Native motion can be paused, and reduced-motion preferences are respected.
 
 ## Scope and limitations
 
-This is an educational calculator with a constant-rate model. The original formatting logic has edge cases for results below one thousand; it is not a financial planning product.
+This is an educational calculator with a constant-rate model. It validates numeric inputs and whole-year terms, clears stale results after invalid entries, and formats small and large amounts consistently. It is not a financial planning product.
 
 ## Deployment
 
