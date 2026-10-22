@@ -1,7 +1,8 @@
 ---
 title: 'Bob’s Computer Repair Shop'
-description: 'A full-stack repair-shop demo with registration, secure sign-in, editable profiles, invoices, and a purchases chart backed by Cosmos DB.'
+description: 'A warm, tactile repair-shop experience with secure accounts, service selection, invoices, and reporting backed by Cosmos DB.'
 category: 'Web app'
+builtWithAI: true
 tags: ['Angular', 'Node.js', 'Azure', 'Cosmos DB']
 year: 2023
 order: 2
@@ -9,6 +10,20 @@ status: 'Live'
 visual: 'code'
 repository: 'https://github.com/GrimSyntaxCloud/BCRS'
 demo: 'https://brave-river-09cd8f10f.6.azurestaticapps.net'
+image: 'images/projects/bcrs-home.webp'
+imageAlt: 'Bob’s Computer Repair Shop homepage with warm stone surfaces, clay-orange accents, raised controls, and a three-dimensional CSS computer illustration.'
+imageFit: 'contain'
+screenshots:
+  - src: 'images/projects/bcrs-services.webp'
+    alt: 'The redesigned repair-service catalog with softly raised cards and clearly displayed service prices.'
+    caption: 'A tactile service menu carries the new identity into the existing repair-selection flow, with the original prices and labor calculation preserved.'
+    width: 960
+    height: 1963
+  - src: 'images/projects/bcrs-about.webp'
+    alt: 'The About page with the original cartoon technician on a transparent background beside the shop story.'
+    caption: 'The shop story keeps its original character illustration, now with a transparent background that blends into the warm interface.'
+    width: 960
+    height: 1381
 ---
 
 ## The project
@@ -16,6 +31,12 @@ demo: 'https://brave-river-09cd8f10f.6.azurestaticapps.net'
 Bob’s Computer Repair Shop is a web development project built around a computer repair business.
 
 The deployed application credits Andres Macias, Patrick Wolff, and April Yang. This entry describes the team application rather than attributing every feature to one contributor.
+
+## A more personal repair shop
+
+For the 2026 redesign, I wanted the shop to feel modern, welcoming, and carefully made. Warm stone surfaces, clay-orange accents, and soft raised and inset shadows give the interface a neumorphic style. A computer illustration built with CSS anchors the homepage, while the existing About-page character now sits on a transparent background.
+
+The same visual language carries through the service catalog, sign-in and registration, profile, cart, invoice screens, reporting, and administration views. Responsive layouts, visible keyboard focus, and scrollable tables keep the interface usable on smaller screens. The redesign preserves the existing service prices, account features, invoice calculations, and backend behavior.
 
 ## Try the full-stack demo
 
@@ -44,3 +65,9 @@ The server calculates prices from the fixed catalog, validates adjustments, enfo
 The frontend lives in `src`, and the deployed demo API lives in `api`. Original team coursework remains credited in the source and interface. The repository includes setup instructions and a GitHub Actions workflow that tests, builds, deploys, and checks database connectivity.
 
 The frontend runs Angular 21 LTS with compatible Material and PrimeNG libraries, and CI checks dependency advisories. The Azure deployment uses free service tiers with the trial spending limit enabled; availability depends on the subscription remaining active.
+
+## Built together, iterated together
+
+The original application was a team coursework project. For the 2026 redesign, I worked with ChatGPT/Codex as a development collaborator: I chose the neumorphic direction, reviewed the working pages, and requested the final About-image cleanup. Together, we updated the presentation and checked the existing flows with automated tests and desktop and mobile browser checks.
+
+“Built with AI” describes the development process. The live application does not call an AI model or add an AI service cost. Hosting continues through the existing free Azure setup.
