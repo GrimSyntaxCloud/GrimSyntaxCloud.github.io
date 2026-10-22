@@ -345,6 +345,141 @@
   font: 11px var(--mono);
   color: var(--muted);
 }
+.archive-quick,
+.archive-active {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding-top: 18px;
+}
+.archive-filter-caption {
+  font: 10px var(--mono);
+  text-transform: uppercase;
+  margin-right: 6px;
+}
+.archive-quick button,
+.archive-active button {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+  text-align: left;
+}
+.archive-quick button[aria-pressed='true'] {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+.archive-coursework {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  margin-left: auto;
+  font-size: 14px;
+  cursor: pointer;
+}
+.archive-coursework input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+}
+.archive-more {
+  margin-top: 18px;
+  border-block: 1px solid var(--line);
+}
+.archive-more summary {
+  padding: 16px 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+.archive-more summary:focus-visible,
+.archive-coursework input:focus-visible,
+.archive-filter-grid select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.archive-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  padding: 10px 0;
+}
+.archive-filter-grid label {
+  font: 10px/1.5 var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 0;
+}
+.archive-filter-grid > div {
+  min-width: 0;
+}
+.archive-filter-grid select {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  min-height: 46px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font:
+    14px Arial,
+    sans-serif;
+}
+.archive-filter-help {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+  padding: 6px 0 20px;
+  max-width: 800px;
+}
+.archive-active:empty {
+  display: none;
+}
+.archive-active button {
+  background: color-mix(in srgb, var(--accent) 6%, var(--paper));
+}
+.archive-project-facts {
+  color: var(--accent);
+  font: 11px/1.7 var(--mono);
+  margin-top: 16px;
+}
+.archive-project-facts .archive-project-note {
+  color: var(--muted);
+  font:
+    12px/1.7 Arial,
+    sans-serif;
+  margin: 8px 0 14px;
+}
+@media (max-width: 1000px) {
+  .archive-filter-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  .archive-coursework {
+    margin-left: 0;
+    width: 100%;
+  }
+  .archive-filter-grid select {
+    font-size: 16px;
+  }
+}
+@media (max-width: 440px) {
+  .archive-filter-grid {
+    grid-template-columns: 1fr;
+  }
+  .archive-filter-caption {
+    width: 100%;
+  }
+}
 .repo-row {
   display: grid;
   grid-template-columns: 65px minmax(0, 1fr) 160px;
