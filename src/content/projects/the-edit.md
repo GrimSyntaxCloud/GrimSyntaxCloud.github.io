@@ -11,24 +11,31 @@ visual: 'web'
 repository: 'https://github.com/GrimSyntaxCloud/the-edit-cms'
 demo: 'https://salmon-pebble-0af10980f.2.azurestaticapps.net/'
 image: 'images/projects/the-edit-home.webp'
-imageAlt: 'The Edit publication with slate and red accents, oversized headlines and a modern editorial layout.'
+imageAlt: 'The Edit newsroom with an oversized black masthead, cobalt folded-newsprint artwork, orange annotations and numbered stories.'
 imageFit: 'contain'
 screenshots:
   - src: 'images/projects/the-edit-home.webp'
-    alt: 'The Edit publication with slate and red accents, oversized headlines and a modern editorial layout.'
-    caption: 'The redesigned desktop experience.'
-    width: 1600
-    height: 739
+    alt: 'The Edit newsroom with an oversized black masthead, cobalt folded-newsprint artwork, orange annotations and numbered stories.'
+    caption: 'The publication front page: a bold masthead, original newsprint artwork and a numbered story rail.'
+    width: 1425
+    height: 990
   - src: 'images/projects/the-edit-mobile.webp'
     alt: 'The Edit on a narrow mobile screen.'
     caption: 'A closer look at the responsive mobile experience.'
     width: 375
-    height: 843
+    height: 844
+  - src: 'images/projects/the-edit-desk.webp'
+    alt: 'The Edit private editorial desk with a dark publishing sidebar, searchable story table and protected sample articles.'
+    caption: 'Inside a fictional private workspace: publishing tools, protected samples and a visible expiry deadline.'
+    width: 1425
+    height: 990
 ---
 
 ## The project
 
-The Edit recovers the content-management project inside my advanced PHP coursework. A slate-and-red newsroom layout connects a publication-style homepage with a practical editorial desk.
+The Edit recovers the content-management project inside my advanced PHP coursework. The publication opens with an oversized black masthead, original cobalt folded-newsprint artwork, orange annotations and a numbered story rail. Inside the private editorial desk, a dark tool rail keeps publishing controls together while focused forms and mobile record cards make the working screens easier to scan.
+
+The visual treatment uses original SVG artwork, native CSS and restrained effects with reduced-motion support.
 
 Create a private demo workspace, write and edit articles and pages, manage fictional users and roles, upload images, and exchange stories through CSV. The project also includes a latest-article widget and read-only JSON routes. The recovery completes the original intended CSV import/export workflow and fixes its broken methods.
 
