@@ -9,6 +9,15 @@ status: 'Live'
 visual: 'web'
 repository: 'https://github.com/GrimSyntaxCloud/investment-estimator'
 demo: 'https://grimsyntaxcloud.github.io/investment-estimator/'
+image: 'images/projects/investment-estimator-home.webp'
+imageAlt: 'Investment Estimator with an orange gradient background and a bordered calculation form.'
+imageFit: 'contain'
+screenshots:
+  - src: 'images/projects/investment-estimator-home.webp'
+    alt: 'Investment Estimator with an orange gradient background and a bordered calculation form.'
+    caption: 'A preview of the live project interface.'
+    width: 960
+    height: 600
 ---
 
 ## The project

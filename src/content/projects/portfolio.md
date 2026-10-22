@@ -9,6 +9,15 @@ order: 1
 status: 'Live'
 visual: 'web'
 repository: 'https://github.com/GrimSyntaxCloud/GrimSyntaxCloud.github.io'
+image: 'images/projects/portfolio-home.webp'
+imageAlt: 'The editorial portfolio homepage with bold typography and a blue animated sculpture.'
+imageFit: 'contain'
+screenshots:
+  - src: 'images/projects/portfolio-home.webp'
+    alt: 'The editorial portfolio homepage with bold typography and a blue animated sculpture.'
+    caption: 'A preview of the live project interface.'
+    width: 1265
+    height: 791
 ---
 
 ## The idea

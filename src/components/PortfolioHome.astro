@@ -215,7 +215,7 @@ const pageLink = (path = '') => designPath(variant, path);
         </article>
       ))}
     </div>
-    <div class="project-index">
+    <div class="project-index" id="project-index">
       {remaining.map((project, i) => (
         <article
           class="index-row reveal"
@@ -225,7 +225,36 @@ const pageLink = (path = '') => designPath(variant, path);
           <span class="index-number">
             {String(i + featured.length + 1).padStart(2, '0')}
           </span>
-          <div>
+          <a
+            class="index-thumbnail"
+            href={pageLink(`projects/${project.id}/`)}
+            aria-label={`Read about ${project.data.title}`}
+          >
+            {project.data.image ? (
+              <img
+                src={withBase(project.data.image)}
+                alt={project.data.imageAlt || project.data.title}
+                loading="lazy"
+                decoding="async"
+                width={
+                  project.data.screenshots?.find(
+                    (shot) => shot.src === project.data.image,
+                  )?.width || 1280
+                }
+                height={
+                  project.data.screenshots?.find(
+                    (shot) => shot.src === project.data.image,
+                  )?.height || 720
+                }
+              />
+            ) : (
+              <span class="index-preview-fallback">
+                {project.data.title}
+                <small>Explore the project ↗</small>
+              </span>
+            )}
+          </a>
+          <div class="index-copy">
             <h3>
               <a href={pageLink(`projects/${project.id}/`)}>
                 {project.data.title}

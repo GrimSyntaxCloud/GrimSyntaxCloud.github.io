@@ -9,6 +9,15 @@ status: 'Live'
 visual: 'web'
 repository: 'https://github.com/GrimSyntaxCloud/loc8r'
 demo: 'https://grimsyntaxcloud.github.io/loc8r/'
+image: 'images/projects/loc8r-home.webp'
+imageAlt: 'Loc8r location directory with a red navigation bar, teal background and sample Wi-Fi listings.'
+imageFit: 'contain'
+screenshots:
+  - src: 'images/projects/loc8r-home.webp'
+    alt: 'Loc8r location directory with a red navigation bar, teal background and sample Wi-Fi listings.'
+    caption: 'A preview of the live project interface.'
+    width: 1280
+    height: 800
 ---
 
 ## The project

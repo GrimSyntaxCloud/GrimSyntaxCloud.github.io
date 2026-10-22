@@ -9,6 +9,15 @@ status: 'Live'
 visual: 'code'
 repository: 'https://github.com/GrimSyntaxCloud/savings-calculator-app'
 demo: 'https://grimsyntaxcloud.github.io/savings-calculator-app/'
+image: 'images/projects/savings-calculator-home.webp'
+imageAlt: 'Savings Calculator form with investment, years, interest rate and result fields.'
+imageFit: 'contain'
+screenshots:
+  - src: 'images/projects/savings-calculator-home.webp'
+    alt: 'Savings Calculator form with investment, years, interest rate and result fields.'
+    caption: 'A preview of the live project interface.'
+    width: 660
+    height: 413
 ---
 
 ## The project

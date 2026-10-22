@@ -634,7 +634,7 @@ h2 {
 }
 .index-row {
   display: grid;
-  grid-template-columns: 40px 1fr 140px 50px;
+  grid-template-columns: 32px minmax(160px, 220px) minmax(0, 1fr) 120px 44px;
   gap: 25px;
   padding: 28px 0;
   border-bottom: 1px solid var(--line);
@@ -642,6 +642,37 @@ h2 {
   transition:
     background 0.25s,
     padding 0.25s;
+}
+.index-thumbnail {
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--ink) 5%, var(--paper));
+  border: 1px solid var(--line);
+}
+.index-thumbnail img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s;
+}
+.index-thumbnail:hover img {
+  transform: scale(1.025);
+}
+.index-copy {
+  min-width: 0;
+}
+.index-preview-fallback {
+  display: grid;
+  align-content: center;
+  gap: 12px;
+  height: 100%;
+  padding: 18px;
+  font-size: 18px;
+}
+.index-preview-fallback small {
+  font: 10px var(--mono);
+  color: var(--muted);
 }
 .index-row:hover {
   background: color-mix(in srgb, var(--accent) 4%, transparent);
@@ -1200,7 +1231,7 @@ html[data-motion='paused'] *:after {
     min-height: 400px;
   }
   .index-row {
-    grid-template-columns: 30px 1fr 110px;
+    grid-template-columns: 24px 160px minmax(0, 1fr) 100px;
     gap: 18px;
   }
   .index-year {
@@ -1401,6 +1432,14 @@ html[data-motion='paused'] *:after {
     grid-template-columns: 22px 1fr;
     gap: 14px;
     padding: 24px 0;
+  }
+  .index-thumbnail,
+  .index-copy {
+    grid-column: 2;
+  }
+  .index-number {
+    grid-column: 1;
+    grid-row: 1;
   }
   .index-row h3 {
     font-size: 19px;
