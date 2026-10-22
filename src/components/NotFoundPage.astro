@@ -1,4 +1,5 @@
 ---
+import ArrowIcon from './ArrowIcon.astro';
 import Layout from '../layouts/Layout.astro';
 import { designPath, type Design } from '../lib/paths';
 import { profile } from '../data/profile';
@@ -22,7 +23,7 @@ const { variant = 'editorial' } = Astro.props;
     </h1>
     <p>This page may have moved, or the link may be incorrect.</p>
     <a class="button" href={designPath(variant)}>
-      Back to the portfolio ↗
+      Back to the portfolio <ArrowIcon />
     </a>
   </section>
 </Layout>

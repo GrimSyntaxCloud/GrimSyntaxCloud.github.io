@@ -1,4 +1,5 @@
 ---
+import ArrowIcon from './ArrowIcon.astro';
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import repositories from '../data/repositories.json';
@@ -80,7 +81,7 @@ const technologies = [
 >
   <section class="archive-section" aria-labelledby="archive-title">
     <a class="text-link back-link" href={pageLink('#work')}>
-      ← Selected work
+      <ArrowIcon direction="left" /> Selected work
     </a>
     <header class="archive-header reveal">
       <p class="eyebrow">THE WORK, THE PRACTICE, THE PROCESS</p>
@@ -89,9 +90,15 @@ const technologies = [
           Project archive<span>.</span>
         </h1>
         <div class="archive-emblem" aria-hidden="true">
-          <span>↗</span>
-          <span>↗</span>
-          <span>↗</span>
+          <span>
+            <ArrowIcon />
+          </span>
+          <span>
+            <ArrowIcon />
+          </span>
+          <span>
+            <ArrowIcon />
+          </span>
         </div>
       </div>
       <p>
@@ -266,7 +273,7 @@ const technologies = [
                 href={pageLink(`projects/${repo.caseStudy}/`)}
                 aria-label={`Read about ${repo.title}`}
               >
-                Project story ↗
+                Project story <ArrowIcon />
               </a>
             )}
             {(repo.demo || repo.caseStudy === 'portfolio') && (
@@ -278,14 +285,15 @@ const technologies = [
                 }
                 aria-label={`Open ${repo.title} demo`}
               >
-                {repo.projects.length > 1 ? 'Collection home ↗' : 'Live demo ↗'}
+                {repo.projects.length > 1 ? 'Collection home' : 'Live demo'}{' '}
+                <ArrowIcon />
               </a>
             )}
             <a
               href={repo.repository}
               aria-label={`View ${repo.title} source on GitHub`}
             >
-              Source code ↗
+              Source code <ArrowIcon />
             </a>
           </div>
           {repo.projects.length > 1 && (
@@ -345,14 +353,14 @@ const technologies = [
                         href={pageLink(`projects/${id}/`)}
                         aria-label={`Read ${data.title} project story`}
                       >
-                        Project story ↗
+                        Project story <ArrowIcon />
                       </a>
                       {data.demo && (
                         <a
                           href={data.demo}
                           aria-label={`Open ${data.title} demo`}
                         >
-                          Live demo ↗
+                          Live demo <ArrowIcon />
                         </a>
                       )}
                     </div>

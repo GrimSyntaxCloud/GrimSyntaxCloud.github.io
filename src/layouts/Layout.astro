@@ -1,4 +1,5 @@
 ---
+import ArrowIcon from '../components/ArrowIcon.astro';
 import { profile } from '../data/profile';
 import { withBase, designPath, type Design } from '../lib/paths';
 import '../styles/home.css';
@@ -119,7 +120,7 @@ const canonical = new URL(withBase(pagePath), Astro.site);
           aria-label={`${profile.name} home`}
         >
           <span class="brand-mark" aria-hidden="true">
-            a↗
+            a<ArrowIcon />
           </span>
           {profile.name}
           <small>{profile.role}</small>
@@ -134,7 +135,10 @@ const canonical = new URL(withBase(pagePath), Astro.site);
           </a>
           <a href={pageLink('#about')}>About</a>
           <a class="nav-github" href={profile.github}>
-            GitHub <span aria-hidden="true">↗</span>
+            GitHub{' '}
+            <span aria-hidden="true">
+              <ArrowIcon />
+            </span>
           </a>
         </nav>
       </header>
@@ -142,9 +146,13 @@ const canonical = new URL(withBase(pagePath), Astro.site);
         <slot />
       </main>
       <footer>
-        <a href={pageLink()}>{profile.name} ↗</a>
+        <a href={pageLink()}>
+          {profile.name} <ArrowIcon />
+        </a>
         <p>Built with curiosity. Made with Astro.</p>
-        <a href={profile.github}>Find me on GitHub ↗</a>
+        <a href={profile.github}>
+          Find me on GitHub <ArrowIcon />
+        </a>
       </footer>
     </div>
     <script>
