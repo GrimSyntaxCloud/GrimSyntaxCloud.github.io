@@ -472,6 +472,12 @@ h2 {
 .project-visual:hover > img {
   transform: scale(1.035);
 }
+.project-the-edit .project-visual {
+  background: #fff;
+}
+.project-field-weather .project-visual {
+  background: #151b37;
+}
 .project-trivia-turbo .project-visual {
   background: #101c16;
 }
@@ -523,6 +529,11 @@ h2 {
   letter-spacing: -0.05em;
   line-height: 1.04;
   margin: 25px 0;
+}
+.project-focus {
+  font: 10px/1.6 var(--mono);
+  letter-spacing: 0.04em;
+  color: var(--accent);
 }
 .project-description {
   font-size: 14px;

@@ -12,8 +12,17 @@ const { variant } = Astro.props;
 const projects = (
   await getCollection('projects', ({ data }) => !data.draft)
 ).sort((a, b) => a.data.order - b.data.order);
-const featuredIds = ['pets-r-us', 'prism-lanes', 'trivia-turbo'];
-const featured = featuredIds.map((id) => projects.find((p) => p.id === id)!);
+const featuredSelections = [
+  { id: 'the-edit', focus: 'Full-stack publishing' },
+  { id: 'field-weather', focus: 'API integration & shared caching' },
+  { id: 'pets-r-us', focus: 'Accounts & private appointments' },
+  { id: 'trivia-turbo', focus: 'Real-time multiplayer' },
+];
+const featuredIds = featuredSelections.map(({ id }) => id);
+const featured = featuredSelections.map(({ id, focus }) => ({
+  ...projects.find((project) => project.id === id)!,
+  focus,
+}));
 const remaining = projects.filter((p) => !featuredIds.includes(p.id));
 const projectFilters = [
   { label: 'All projects', value: 'all', count: projects.length },
@@ -138,8 +147,16 @@ const pageLink = (path = '') => designPath(variant, path);
               <img
                 src={withBase(project.data.image)}
                 alt={project.data.imageAlt || project.data.title}
-                width="1280"
-                height="720"
+                width={
+                  project.data.screenshots?.find(
+                    (shot) => shot.src === project.data.image,
+                  )?.width || 1280
+                }
+                height={
+                  project.data.screenshots?.find(
+                    (shot) => shot.src === project.data.image,
+                  )?.height || 720
+                }
                 loading="lazy"
               />
             ) : (
@@ -175,6 +192,7 @@ const pageLink = (path = '') => designPath(variant, path);
                 {project.data.title}
               </a>
             </h3>
+            <p class="project-focus">{project.focus}</p>
             <p class="project-description">{project.data.description}</p>
             <ul class="tags" aria-label="Technologies">
               {project.data.tags.map((tag) => (
