@@ -18,7 +18,7 @@ screenshots:
     alt: 'Interval event poster with acid-yellow typography, cobalt statistics, pink registration and optical ring artwork.'
     caption: 'The redesigned desktop experience.'
     width: 1600
-    height: 791
+    height: 739
   - src: 'images/projects/interval-mobile.webp'
     alt: 'Interval on a narrow mobile screen.'
     caption: 'A closer look at the responsive mobile experience.'

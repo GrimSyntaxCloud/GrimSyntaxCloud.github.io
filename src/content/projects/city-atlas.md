@@ -18,7 +18,7 @@ screenshots:
     alt: 'City Atlas with a midnight-blue map workspace, cyan markers, chartreuse selection and a city directory rail.'
     caption: 'The refreshed desktop interface preserves the original project workflow.'
     width: 1425
-    height: 1069
+    height: 1188
   - src: 'images/projects/city-atlas-mobile.webp'
     alt: 'City Atlas on a narrow mobile screen.'
     caption: 'The opening mobile view, checked for readable content and controls that fit.'
