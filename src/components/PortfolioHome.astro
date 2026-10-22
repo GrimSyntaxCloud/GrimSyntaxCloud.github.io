@@ -4,6 +4,9 @@ import { profile } from '../data/profile';
 import repositories from '../data/repositories.json';
 import { withBase } from '../lib/paths';
 import Layout from '../layouts/Layout.astro';
+import HomepageFilters from './HomepageFilters.astro';
+import { projectFilters as reviewedFilters } from '../data/project-filters';
+import type { HomepageCandidate } from '../lib/archive-filter';
 import { designPath } from '../lib/paths';
 interface Props {
   variant: 'editorial' | 'industrial';
@@ -24,7 +27,7 @@ const featured = featuredSelections.map(({ id, focus }) => ({
   focus,
 }));
 const remaining = projects.filter((p) => !featuredIds.includes(p.id));
-const projectFilters = [
+const collections = [
   { label: 'All projects', value: 'all', count: projects.length },
   {
     label: 'Web apps',
@@ -38,6 +41,32 @@ const projectFilters = [
   },
 ];
 const pageLink = (path = '') => designPath(variant, path);
+const candidates = new Map(
+  projects.map(({ id, data }) => {
+    const filters = reviewedFilters[id];
+    if (!filters)
+      throw new Error(`Missing reviewed homepage filters for ${id}`);
+    const candidate: HomepageCandidate = {
+      id,
+      ...filters,
+      category: data.category,
+      builtWithAI: data.builtWithAI,
+      search:
+        `${data.title} ${data.description} ${data.tags.join(' ')} ${filters.technologies.join(' ')}`.toLowerCase(),
+      availability: [
+        'story',
+        ...(data.demo || id === 'portfolio' ? ['live'] : []),
+        ...(data.repository ? ['source'] : []),
+      ],
+    };
+    return [id, candidate];
+  }),
+);
+const technologies = [
+  ...new Set(
+    [...candidates.values()].flatMap((project) => project.technologies),
+  ),
+].sort();
 ---
 
 <Layout variant={variant} pagePath="">
@@ -115,25 +144,20 @@ const pageLink = (path = '') => designPath(variant, path);
         Here’s what I’ve been building.
       </p>
     </div>
-    <div
-      class="project-filters"
-      role="group"
-      aria-label="Filter projects"
-      hidden
+    <HomepageFilters technologies={technologies} collections={collections} />
+    <p
+      class="home-filter-status"
+      id="filter-status"
+      role="status"
+      aria-live="polite"
     >
-      {projectFilters.map((filter, i) => (
-        <button type="button" data-filter={filter.value} aria-pressed={i === 0}>
-          {filter.label}
-          <span>{filter.count}</span>
-        </button>
-      ))}
-    </div>
+      {projects.length} projects
+    </p>
     <div class="featured-projects">
       {featured.map((project, index) => (
         <article
           class={`featured-project reveal project-${project.id}`}
-          data-category={project.data.category}
-          data-built-with-ai={String(project.data.builtWithAI)}
+          data-project-candidate={JSON.stringify(candidates.get(project.id))}
         >
           <a
             class:list={[
@@ -219,8 +243,7 @@ const pageLink = (path = '') => designPath(variant, path);
       {remaining.map((project, i) => (
         <article
           class="index-row reveal"
-          data-category={project.data.category}
-          data-built-with-ai={String(project.data.builtWithAI)}
+          data-project-candidate={JSON.stringify(candidates.get(project.id))}
         >
           <span class="index-number">
             {String(i + featured.length + 1).padStart(2, '0')}
@@ -263,7 +286,15 @@ const pageLink = (path = '') => designPath(variant, path);
             <p>{project.data.description}</p>
           </div>
           <div class="index-links">
-            {project.data.demo && <a href={project.data.demo}>Live demo ↗</a>}
+            {(project.data.demo || project.id === 'portfolio') && (
+              <a
+                href={
+                  project.id === 'portfolio' ? pageLink() : project.data.demo
+                }
+              >
+                Live demo ↗
+              </a>
+            )}
             {project.data.repository && (
               <a href={project.data.repository}>Source code ↗</a>
             )}
@@ -273,9 +304,9 @@ const pageLink = (path = '') => designPath(variant, path);
       ))}
     </div>
     <p class="filter-empty" hidden>
-      No projects in this category yet. More experiments are on the way.
+      No matching projects. Remove a filter or choose Clear all to see the
+      collection.
     </p>
-    <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
     <a class="text-link archive-link" href={pageLink('archive/')}>
       Browse all {repositories.length} repositories ↗
     </a>

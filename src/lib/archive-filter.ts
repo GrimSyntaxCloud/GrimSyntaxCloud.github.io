@@ -15,6 +15,34 @@ export interface ArchiveSelection {
   feature: string;
   availability: string;
 }
+export interface HomepageCandidate extends ArchiveCandidate {
+  category: string;
+  builtWithAI: boolean;
+}
+export type HomepageSelection = Omit<
+  ArchiveSelection,
+  'group' | 'coursework'
+> & {
+  collection: string;
+};
+export function matchesHomepageCandidate(
+  candidate: HomepageCandidate,
+  selection: HomepageSelection,
+) {
+  const collectionMatches =
+    selection.collection === 'all' ||
+    (selection.collection === 'built-with-ai'
+      ? candidate.builtWithAI
+      : candidate.category === selection.collection);
+  return (
+    collectionMatches &&
+    matchesArchiveCandidate(candidate, 'Applications', {
+      ...selection,
+      group: 'all',
+      coursework: true,
+    })
+  );
+}
 export function matchesArchiveCandidate(
   candidate: ArchiveCandidate,
   group: string,

@@ -2,7 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readdirSync } from 'node:fs';
 import { projectFilters } from '../src/data/project-filters.ts';
-import { matchesArchiveCandidate } from '../src/lib/archive-filter.ts';
+import {
+  matchesArchiveCandidate,
+  matchesHomepageCandidate,
+} from '../src/lib/archive-filter.ts';
 
 const selection = {
   search: '',
@@ -21,6 +24,72 @@ const candidate = (id) => ({
 });
 const matches = (id, filters, group = 'Applications') =>
   matchesArchiveCandidate(candidate(id), group, { ...selection, ...filters });
+
+const homeSelection = {
+  search: '',
+  collection: 'all',
+  focus: '',
+  technology: '',
+  feature: '',
+  availability: '',
+};
+test('homepage collections combine with capability filters instead of overriding them', () => {
+  const project = {
+    ...candidate('nodebucket'),
+    category: 'Web app',
+    builtWithAI: true,
+  };
+  assert.equal(
+    matchesHomepageCandidate(project, {
+      ...homeSelection,
+      collection: 'built-with-ai',
+      focus: 'frontend',
+    }),
+    false,
+  );
+  assert.equal(
+    matchesHomepageCandidate(project, {
+      ...homeSelection,
+      collection: 'Web app',
+      focus: 'full-stack',
+      technology: 'Angular',
+      feature: 'database',
+    }),
+    true,
+  );
+  assert.equal(
+    matchesHomepageCandidate(
+      { ...project, builtWithAI: false },
+      { ...homeSelection, collection: 'built-with-ai' },
+    ),
+    false,
+  );
+});
+test('homepage supports a live game without a public source repository', () => {
+  const project = {
+    ...candidate('trivia-turbo'),
+    category: 'Web app',
+    builtWithAI: true,
+    availability: ['live', 'story'],
+  };
+  assert.equal(
+    matchesHomepageCandidate(project, {
+      ...homeSelection,
+      focus: 'games',
+      feature: 'realtime',
+      availability: 'live',
+    }),
+    true,
+  );
+  assert.equal(
+    matchesHomepageCandidate(project, {
+      ...homeSelection,
+      availability: 'source',
+    }),
+    false,
+  );
+  assert.equal(matchesHomepageCandidate(project, homeSelection), true);
+});
 
 test('every published project has reviewed filter metadata', () => {
   const ids = readdirSync(new URL('../src/content/projects/', import.meta.url))
