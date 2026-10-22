@@ -1,5 +1,7 @@
 # Repository review — October 20, 2026
 
+> Historical snapshot of the initial migration. Hosting, database allocation and project coverage below have since changed. See the [October 22 health review](repository-health-2026-10-22.md) and current project case studies for the maintained state.
+
 Reviewed the public repository metadata, README files, recursive file lists, and selected application source under `GrimSyntaxCloud`.
 
 ## Portfolio coverage
