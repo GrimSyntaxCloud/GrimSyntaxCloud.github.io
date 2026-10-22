@@ -9,6 +9,15 @@ status: 'Live'
 visual: 'web'
 repository: 'https://github.com/GrimSyntaxCloud/taskManager-OOP'
 demo: 'https://grimsyntaxcloud.github.io/taskManager-OOP/'
+image: 'images/projects/task-manager-home.webp'
+imageAlt: 'Object-Oriented Task Manager with a task entry field, Add Task and Clear Tasks controls.'
+imageFit: 'contain'
+screenshots:
+  - src: 'images/projects/task-manager-home.webp'
+    alt: 'Object-Oriented Task Manager with a task entry field, Add Task and Clear Tasks controls.'
+    caption: 'A preview of the live project interface.'
+    width: 840
+    height: 525
 ---
 
 ## The project

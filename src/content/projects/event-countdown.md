@@ -9,6 +9,15 @@ status: 'Live'
 visual: 'code'
 repository: 'https://github.com/GrimSyntaxCloud/countdown'
 demo: 'https://grimsyntaxcloud.github.io/countdown/'
+image: 'images/projects/event-countdown-home.webp'
+imageAlt: 'Event Countdown form with event name and date fields inside a blue border.'
+imageFit: 'contain'
+screenshots:
+  - src: 'images/projects/event-countdown-home.webp'
+    alt: 'Event Countdown form with event name and date fields inside a blue border.'
+    caption: 'A preview of the live project interface.'
+    width: 630
+    height: 394
 ---
 
 ## The project

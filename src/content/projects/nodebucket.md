@@ -9,6 +9,15 @@ status: 'Live'
 visual: 'web'
 repository: 'https://github.com/GrimSyntaxCloud/nodebucket'
 demo: 'https://red-mushroom-0f3c1260f.1.azurestaticapps.net'
+image: 'images/projects/nodebucket-home.webp'
+imageAlt: 'Nodebucket task board with a yellow header and Todo and Done lists containing the permanent sample task.'
+imageFit: 'contain'
+screenshots:
+  - src: 'images/projects/nodebucket-home.webp'
+    alt: 'Nodebucket task board with a yellow header and Todo and Done lists containing the permanent sample task.'
+    caption: 'A preview of the live project interface.'
+    width: 1280
+    height: 800
 ---
 
 ## The project
