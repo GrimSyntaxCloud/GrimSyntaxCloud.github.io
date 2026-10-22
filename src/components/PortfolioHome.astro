@@ -127,7 +127,10 @@ const pageLink = (path = '') => designPath(variant, path);
           data-built-with-ai={String(project.data.builtWithAI)}
         >
           <a
-            class="project-visual"
+            class:list={[
+              'project-visual',
+              { 'project-visual-image': project.data.image },
+            ]}
             href={pageLink(`projects/${project.id}/`)}
             aria-label={`Read about ${project.data.title}`}
           >

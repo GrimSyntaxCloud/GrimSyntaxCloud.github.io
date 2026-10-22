@@ -1682,4 +1682,34 @@ html[data-motion='paused'] *:after {
   .type-art strong {
     font-size: clamp(68px, 23vw, 100px);
   }
+  /* Keep screenshot details clear of the caption on small screens. */
+  .project-visual-image,
+  [data-design='industrial'] .project-visual-image {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 56px;
+    aspect-ratio: auto;
+    height: auto;
+  }
+  .project-visual-image > img {
+    grid-column: 1 / -1;
+    height: auto;
+  }
+  .project-visual-image:hover > img {
+    transform: none;
+  }
+  .project-visual-image .visual-caption {
+    position: static;
+    max-width: none;
+    margin: 12px;
+    padding: 6px 8px;
+    font-size: 9px;
+    line-height: 1.5;
+    letter-spacing: 0.8px;
+    justify-self: start;
+  }
+  .project-visual-image .cover-arrow {
+    position: static;
+    margin: 8px 12px 8px 0;
+    justify-self: end;
+  }
 }
