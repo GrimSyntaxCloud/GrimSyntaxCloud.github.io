@@ -56,7 +56,23 @@ Enabling the previously missing alerts revealed **405 additional alerts in eight
 | [Emerging-tech](https://github.com/GrimSyntaxCloud/Emerging-tech)           |                    76 | Use City Atlas for the recovered map; modernize legacy Gulp/build tooling before running remaining exercises.                |
 | [seleniumTest](https://github.com/GrimSyntaxCloud/seleniumTest)             |                    17 | Remove committed node_modules after preserving a reproducible manifest/lockfile, then upgrade and retest Selenium tooling.   |
 
-These eight repositories remain active pending the owner’s choice of preservation or modernization. Their old dependencies were not patched in this pass. These are separate source repositories from the maintained portfolio deployments. Counts are a timestamped snapshot and may change as GitHub indexes manifests or publishes advisories. Unavailable/disabled alert access was never counted as a clean scan.
+After inspecting their contents, five repositories were archived under the owner’s instruction to preserve collections whose useful projects were already recovered or which had no standalone application worth extracting. Each received an archive notice and a verified Git bundle before archival:
+
+| Archived repository  | Content assessment                                                                                                               |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `web-340`            | Small Node.js console exercises for books and sports teams.                                                                      |
+| `advanced-css`       | Third-party Natours, Trillo and Nexter starter/finished course examples; attribution retained.                                   |
+| `bootstrap-projects` | Component/form exercises; `myPhoto` is only a Hello World scaffold.                                                              |
+| `Emerging-tech`      | The D3 visualization is maintained as City Atlas; remaining material is research and introductory Flask/Gulp/Selenium exercises. |
+| `seleniumTest`       | Introductory browser-automation scripts and a small assertion example.                                                           |
+
+Three repositories remain active because they contain possible recovery work:
+
+- `javaScript`: `videoCallWebRTC` implements room creation/joining and video controls and has not been recovered. Four other applications are maintained in `javascript-showcase`; `forkify` is only an import/console scaffold.
+- `web-420`: Express/Mongoose REST API exercises with routes, models and Swagger documentation. A hardcoded database connection string was removed from current source and replaced with `MONGODB_URI` from the server environment; environment files are ignored and setup documentation now explains the limitations. JavaScript syntax validation passed. The historical dependency stack was not upgraded or connected to a database. **The owning Atlas account must revoke the old credential; earlier commits still contain it.**
+- `web-426`: an upstream Angular course fork, including a restaurant-ordering example not yet assessed for recovery and attribution. Keeping it active does not establish original authorship or readiness to deploy.
+
+The three retained repositories account for **260 alerts in this review snapshot**. Another 145 alerts belong to the five newly archived snapshots and remain unpatched historical dependencies. These are separate source repositories from the maintained portfolio deployments. Counts may change as GitHub indexes manifests or publishes advisories. Unavailable/disabled alert access was never counted as a clean scan.
 
 ## Public repository inventory
 
@@ -64,12 +80,12 @@ These eight repositories remain active pending the owner’s choice of preservat
 
 | Repository                                                                                                  | Review scope                | README after maintenance | Alert snapshot                    |
 | ----------------------------------------------------------------------------------------------------------- | --------------------------- | ------------------------ | --------------------------------- |
-| [advanced-css](https://github.com/GrimSyntaxCloud/advanced-css)                                             | Historical/source inventory | Present                  | 44                                |
+| [advanced-css](https://github.com/GrimSyntaxCloud/advanced-css)                                             | Archived source             | Present                  | 44 before archive; not patched    |
 | [advancedPHP](https://github.com/GrimSyntaxCloud/advancedPHP)                                               | Historical/source inventory | Missing — backlog        | 0                                 |
 | [angular-showcase](https://github.com/GrimSyntaxCloud/angular-showcase)                                     | Maintained app              | Present                  | 0                                 |
 | [BCRS](https://github.com/GrimSyntaxCloud/BCRS)                                                             | Maintained app              | Present                  | 0                                 |
 | [bioSite](https://github.com/GrimSyntaxCloud/bioSite)                                                       | Historical/source inventory | Present                  | 0                                 |
-| [bootstrap-projects](https://github.com/GrimSyntaxCloud/bootstrap-projects)                                 | Historical/source inventory | Missing — backlog        | 4                                 |
+| [bootstrap-projects](https://github.com/GrimSyntaxCloud/bootstrap-projects)                                 | Archived source             | Present                  | 4 before archive; not patched     |
 | [city-atlas](https://github.com/GrimSyntaxCloud/city-atlas)                                                 | Maintained app              | Present                  | 0                                 |
 | [closures-slideshow](https://github.com/GrimSyntaxCloud/closures-slideshow)                                 | Historical/source inventory | Present                  | 0                                 |
 | [countdown](https://github.com/GrimSyntaxCloud/countdown)                                                   | Maintained app              | Present                  | 0                                 |
@@ -77,7 +93,7 @@ These eight repositories remain active pending the owner’s choice of preservat
 | [drupalphotogallery](https://github.com/GrimSyntaxCloud/drupalphotogallery)                                 | Historical/source inventory | Present                  | 0                                 |
 | [Dynamic-recipe-project](https://github.com/GrimSyntaxCloud/Dynamic-recipe-project)                         | Maintained app              | Present                  | 0                                 |
 | [email-list](https://github.com/GrimSyntaxCloud/email-list)                                                 | Historical/source inventory | Present                  | 0                                 |
-| [Emerging-tech](https://github.com/GrimSyntaxCloud/Emerging-tech)                                           | Historical/source inventory | Missing — backlog        | 76                                |
+| [Emerging-tech](https://github.com/GrimSyntaxCloud/Emerging-tech)                                           | Archived source             | Present                  | 76 before archive; not patched    |
 | [eny-salon](https://github.com/GrimSyntaxCloud/eny-salon)                                                   | Maintained app              | Present                  | 0                                 |
 | [FAQs](https://github.com/GrimSyntaxCloud/FAQs)                                                             | Historical/source inventory | Present                  | 0                                 |
 | [Form-validation-project](https://github.com/GrimSyntaxCloud/Form-validation-project)                       | Historical/source inventory | Missing — backlog        | 0                                 |
@@ -110,7 +126,7 @@ These eight repositories remain active pending the owner’s choice of preservat
 | [rentalApplication](https://github.com/GrimSyntaxCloud/rentalApplication)                                   | Historical/source inventory | Missing — backlog        | 0                                 |
 | [rollover-images](https://github.com/GrimSyntaxCloud/rollover-images)                                       | Historical/source inventory | Present                  | 0                                 |
 | [savings-calculator-app](https://github.com/GrimSyntaxCloud/savings-calculator-app)                         | Maintained app              | Present                  | 0                                 |
-| [seleniumTest](https://github.com/GrimSyntaxCloud/seleniumTest)                                             | Historical/source inventory | Missing — backlog        | 17                                |
+| [seleniumTest](https://github.com/GrimSyntaxCloud/seleniumTest)                                             | Archived source             | Present                  | 17 before archive; not patched    |
 | [Signup-form](https://github.com/GrimSyntaxCloud/Signup-form)                                               | Historical/source inventory | Present                  | 0                                 |
 | [slideshow](https://github.com/GrimSyntaxCloud/slideshow)                                                   | Historical/source inventory | Present                  | 0                                 |
 | [taskManager](https://github.com/GrimSyntaxCloud/taskManager)                                               | Historical/source inventory | Present                  | 0                                 |
@@ -126,7 +142,7 @@ These eight repositories remain active pending the owner’s choice of preservat
 | [web-231](https://github.com/GrimSyntaxCloud/web-231)                                                       | Historical/source inventory | Present                  | 0                                 |
 | [web-330](https://github.com/GrimSyntaxCloud/web-330)                                                       | Historical/source inventory | Present                  | 0                                 |
 | [web-335](https://github.com/GrimSyntaxCloud/web-335)                                                       | Historical/source inventory | Present                  | 0                                 |
-| [web-340](https://github.com/GrimSyntaxCloud/web-340)                                                       | Historical/source inventory | Present                  | 4                                 |
+| [web-340](https://github.com/GrimSyntaxCloud/web-340)                                                       | Archived source             | Present                  | 4 before archive; not patched     |
 | [web-420](https://github.com/GrimSyntaxCloud/web-420)                                                       | Historical/source inventory | Present                  | 48                                |
 | [web-425](https://github.com/GrimSyntaxCloud/web-425)                                                       | Archived source             | Present                  | 3,075 before archive; not patched |
 | [web-426](https://github.com/GrimSyntaxCloud/web-426)                                                       | Historical/source inventory | Present                  | 73                                |
