@@ -1,0 +1,107 @@
+---
+import { focusOptions, featureOptions } from '../data/project-filters';
+interface Props {
+  technologies: string[];
+  collections: { label: string; value: string; count: number }[];
+}
+const { technologies, collections } = Astro.props;
+const fields = [
+  {
+    id: 'technology',
+    label: 'Technology',
+    any: 'Any technology',
+    options: technologies.map((value) => [value, value]),
+  },
+  {
+    id: 'focus',
+    label: 'Project focus',
+    any: 'Any focus',
+    options: Object.entries(focusOptions),
+  },
+  {
+    id: 'feature',
+    label: 'Feature demonstrated',
+    any: 'Any feature',
+    options: Object.entries(featureOptions),
+  },
+  {
+    id: 'availability',
+    label: 'Availability',
+    any: 'Any availability',
+    options: [
+      ['live', 'Live demo'],
+      ['source', 'Source code'],
+      ['story', 'Project write-up'],
+    ],
+  },
+];
+---
+
+<div class="home-project-controls" hidden>
+  <div class="project-filters" role="group" aria-label="Project collection">
+    {collections.map((collection, index) => (
+      <button
+        type="button"
+        data-collection={collection.value}
+        aria-pressed={index === 0}
+      >
+        {collection.label}
+        <span>{collection.count}</span>
+      </button>
+    ))}
+  </div>
+  <div class="home-search-row">
+    <div>
+      <label for="home-project-search">Search projects</label>
+      <input
+        id="home-project-search"
+        type="search"
+        autocomplete="off"
+        placeholder="Name, technology, or topic…"
+      />
+    </div>
+    <button type="button" id="home-clear-filters">
+      Clear all
+    </button>
+  </div>
+  <div class="archive-quick" role="group" aria-label="Quick project filters">
+    <button type="button" data-home-quick="live" aria-pressed="false">
+      Live demos
+    </button>
+    <button type="button" data-home-quick="full-stack" aria-pressed="false">
+      Full stack
+    </button>
+    <button type="button" data-home-quick="frontend" aria-pressed="false">
+      Frontend
+    </button>
+  </div>
+  <details class="archive-more">
+    <summary>
+      More filters <span id="home-more-filter-count"></span>
+    </summary>
+    <div class="archive-filter-grid">
+      {fields.map((field) => (
+        <div>
+          <label for={`home-filter-${field.id}`}>{field.label}</label>
+          <select id={`home-filter-${field.id}`}>
+            <option value="">{field.any}</option>
+            {field.options.map(([value, label]) => (
+              <option value={value}>{label}</option>
+            ))}
+          </select>
+        </div>
+      ))}
+    </div>
+    <p class="archive-filter-help">
+      Combine filters to find a project that fits. Browser storage and database
+      persistence are separate features; PHP original editions are labeled
+      separately.
+    </p>
+  </details>
+  <div
+    class="archive-active"
+    id="home-active-filters"
+    role="group"
+    aria-label="Selected project filters"
+  ></div>
+</div>

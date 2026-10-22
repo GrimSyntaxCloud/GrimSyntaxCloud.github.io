@@ -1,4 +1,5 @@
 import type * as Three from 'three';
+import { initHomepageFilters } from './homepage-filters';
 
 const root = document.documentElement;
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -59,32 +60,7 @@ document.addEventListener('visibilitychange', () => {
 updateMotion();
 
 // Standard links and filtering keep working independently of WebGL support.
-const filters = document.querySelector<HTMLElement>('.project-filters');
-if (filters) filters.hidden = false;
-const filterButtons =
-  document.querySelectorAll<HTMLButtonElement>('[data-filter]');
-const cards = document.querySelectorAll<HTMLElement>('[data-category]');
-filterButtons.forEach((button) =>
-  button.addEventListener('click', () => {
-    let count = 0;
-    filterButtons.forEach((other) =>
-      other.setAttribute('aria-pressed', String(button === other)),
-    );
-    cards.forEach((card) => {
-      card.hidden =
-        button.dataset.filter === 'built-with-ai'
-          ? card.dataset.builtWithAi !== 'true'
-          : button.dataset.filter !== 'all' &&
-            card.dataset.category !== button.dataset.filter;
-      if (!card.hidden) count++;
-    });
-    const empty = document.querySelector<HTMLElement>('.filter-empty');
-    if (empty) empty.hidden = count !== 0;
-    const status = document.querySelector('#filter-status');
-    if (status)
-      status.textContent = `${count} ${count === 1 ? 'project' : 'projects'} shown.`;
-  }),
-);
+initHomepageFilters();
 const reveals = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
