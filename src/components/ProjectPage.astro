@@ -95,7 +95,11 @@ const { data } = project;
     {data.screenshots.length > 0 && (
       <section class="case-gallery" aria-labelledby="screenshots-title">
         <div class="gallery-heading">
-          <p class="eyebrow">FROM THE LIVE DEMO</p>
+          <p class="eyebrow">
+            {data.demo && data.status === 'Live'
+              ? 'FROM THE LIVE DEMO'
+              : 'FROM THE WORKING PREVIEW'}
+          </p>
           <h2 id="screenshots-title">A closer look.</h2>
           <p>Open a screenshot to see it at full size.</p>
         </div>

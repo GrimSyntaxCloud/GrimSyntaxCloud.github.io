@@ -4,14 +4,14 @@ Approved and executed on 2026-10-21. The user authorized backups, a brief mainte
 
 ## Hosting
 
-| Project | Host | Database collection(s) |
-| --- | --- | --- |
-| Portfolio | GitHub Pages | None |
-| Dynamic Recipes | GitHub Pages | None |
-| Prism Lanes (formerly Rainbow Bowling) | GitHub Pages | None |
-| Nodebucket | Azure Static Web Apps Free | `employees` |
-| BCRS | Azure Static Web Apps Free | `bcrs_demo` |
-| Pets-R-Us | Azure Static Web Apps Free | `pets_users`, `pets_appointments`, `pets_sessions` |
+| Project                                | Host                       | Database collection(s)                             |
+| -------------------------------------- | -------------------------- | -------------------------------------------------- |
+| Portfolio                              | GitHub Pages               | None                                               |
+| Dynamic Recipes                        | GitHub Pages               | None                                               |
+| Prism Lanes (formerly Rainbow Bowling) | GitHub Pages               | None                                               |
+| Nodebucket                             | Azure Static Web Apps Free | `employees`                                        |
+| BCRS                                   | Azure Static Web Apps Free | `bcrs_demo`                                        |
+| Pets-R-Us                              | Azure Static Web Apps Free | `pets_users`, `pets_appointments`, `pets_sessions` |
 
 All five collections share **one 400 RU/s manual pool**, database `portfolio-demos`, in the existing Cosmos DB for MongoDB 4.2 free-tier account. The previous Nodebucket and BCRS dedicated collections were removed after verified restoration and live application checks. Their old database shells are empty and have no throughput allocation.
 
@@ -53,6 +53,20 @@ Verification included:
 - Dependency audits, production builds, CI checks, and portfolio link validation.
 
 `DEMO_MAINTENANCE=true` pauses an application's API before database access. Confirm HTTP 503 responses and allow in-flight requests to drain before taking a migration backup. Recheck backup equality immediately before destructive changes. Never raise capacity to work around a failed migration.
+
+## Additional recovery preparation — October 22, 2026
+
+Relay Room and Endpoint Studio have been prepared locally. Their public source publication and live application deployment are awaiting approval; the reserved Azure sites are not verified live application demos yet.
+
+- A fresh encrypted backup of all eight existing collections was restored into disposable MongoDB and compared before adding new collections.
+- `endpoint_demo` and `relay_rooms` now share the existing 400 RU/s database pool. No dedicated throughput, extra region or paid supporting resource was added.
+- The two reserved Static Web Apps use the Free SKU, bringing the account's prepared sites to nine. The subscription spending limit remains on, and the Cosmos account remains on its free tier with the existing 1,000 RU/s account cap.
+- Separate app and cleanup credentials were created for each new collection. Own-collection access succeeded and access to an existing project's collection was denied. Encrypted credentials and backup recovery material are held privately outside the repositories. Installing these credentials into server settings and GitHub environment secrets is still part of the pending deployment.
+- Endpoint Studio visitor workspaces have a fixed 96-hour lifetime; fictional read-only samples are application fixtures and are never removed by workspace cleanup.
+- Relay Room expires rooms and signaling metadata after 30 minutes. Media travels directly between browsers and is never stored. The shorter retention window avoids keeping connection metadata for four days.
+- Fold & Fork is a static browser-only demo with no database, submitted orders or payment processing.
+
+Local tests include actual MongoDB persistence and expiry/cleanup behavior. Cloud API behavior and scheduled cleanup still require verification after deployment. Reserved Free resources do not extend the subscription trial or authorize a billing upgrade.
 
 ## References
 
