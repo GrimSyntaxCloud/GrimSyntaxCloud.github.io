@@ -11,11 +11,11 @@ visual: 'web'
 repository: 'https://github.com/GrimSyntaxCloud/javascript-showcase'
 demo: 'https://lively-desert-0d824e10f.2.azurestaticapps.net/'
 image: 'images/projects/interval-home.webp'
-imageAlt: 'Interval event page with lilac and apricot panels, editorial type and a registration form.'
+imageAlt: 'Interval event poster with acid-yellow typography, cobalt statistics, pink registration and optical ring artwork.'
 imageFit: 'contain'
 screenshots:
   - src: 'images/projects/interval-home.webp'
-    alt: 'Interval event page with lilac and apricot panels, editorial type and a registration form.'
+    alt: 'Interval event poster with acid-yellow typography, cobalt statistics, pink registration and optical ring artwork.'
     caption: 'The redesigned desktop experience.'
     width: 1600
     height: 739
@@ -23,12 +23,12 @@ screenshots:
     alt: 'Interval on a narrow mobile screen.'
     caption: 'A closer look at the responsive mobile experience.'
     width: 375
-    height: 843
+    height: 812
 ---
 
 ## The project
 
-Interval recovers my JavaScript event-registration exercise as a fictional creative event. An editorial layout, lilac and apricot palette, and dimensional CSS artwork give the form and statistics a shared identity.
+Interval recovers my JavaScript event-registration exercise as a fictional creative event. An oversized festival-poster layout uses acid yellow, cobalt and hot pink, optical ring artwork and a ticket-style registration form. Motion can be paused and respects reduced-motion preferences.
 
 Use the fictional sample-fill option, submit the form and explore the three statistics views. The server validates the request and returns a clear result.
 

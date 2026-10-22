@@ -15,6 +15,12 @@ jobs:
     name: Check and build
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      NODE_OPTIONS: --dns-result-order=ipv4first
+      npm_config_fetch_timeout: '30000'
+      npm_config_fetch_retries: '2'
+      npm_config_fetch_retry_mintimeout: '1000'
+      npm_config_fetch_retry_maxtimeout: '5000'
     steps:
       - uses: actions/checkout@v7
         with:
@@ -23,7 +29,7 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
-      - run: npm ci
+      - run: npm ci --no-audit --no-fund
       - name: Audit dependency security
         run: npm audit --audit-level=low
       - name: Check types, build pages, and verify local links
