@@ -111,7 +111,7 @@
   {
     "name": "web-425",
     "title": "Angular Coursework",
-    "description": "Angular coursework containing the complete In-N-Out Books, GPA Calculator, and composer directory applications alongside weekly exercises.",
+    "description": "Archived Angular coursework. The Reading Room, Grade Lab, and Opus are maintained in angular-showcase; historical dependencies are unsupported.",
     "group": "Coursework",
     "language": "TypeScript",
     "year": 2022,

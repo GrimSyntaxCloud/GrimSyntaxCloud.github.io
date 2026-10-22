@@ -69,7 +69,7 @@ Recommended repository: `GrimSyntaxCloud/GrimSyntaxCloud.github.io`, which serve
 
 The workflow:
 
-- On a pull request to `main`: installs locked dependencies, checks types, builds, and checks internal links.
+- On a pull request to `main`: installs locked dependencies, audits all dependencies, checks types, builds, and checks internal links.
 - On a push to `main`: runs the same checks, uploads `dist`, and deploys only after the build succeeds.
 - Supports manual runs from the Actions tab. Only `main` can deploy.
 - Uses the built-in GitHub token; no personal token or paid secret is needed.
@@ -96,3 +96,11 @@ Reference: [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-
 Editorial is the default design. Industrial is available under `/industrial/`, including matching archive and project pages. The “Choose your view” links switch between designs on the same page; navigation keeps the current design. Choosing a design saves that preference in localStorage on that browser, so later visits open the matching view. First-time visitors start with Editorial. The preference stays on the device, uses no cookies or backend, and gracefully falls back to normal links if storage is unavailable. All variants use one shared layout and the same project content. Industrial pages point their canonical URL to the Editorial equivalent.
 
 Shared navigation and design controls live in `src/layouts/Layout.astro`. Homepage styling is in `src/styles/home.css`; reading, archive, and 404 layouts are in `src/styles/pages.css`. The archive and project route files render shared components so content and filtering stay consistent across both designs. The GitHub Pages 404 fallback defaults to Editorial.
+
+## Repository maintenance
+
+Dependabot checks npm packages and GitHub Actions weekly through `.github/dependabot.yml`. Update PRs still need review and passing CI; they are not automatically merged. Run `npm audit` and `npm run validate` when changing dependencies.
+
+The [October 22 repository health review](docs/repository-health-2026-10-22.md) records the portfolio-linked app checks, README repairs and historical dependency backlog. Its alert counts are dated observations, not permanent security guarantees.
+
+Every selected project currently has a screenshot. The shared homepage uses those images for featured panels and the remaining project thumbnails in both designs, with lazy loading. When replacing an image, update its descriptive `imageAlt` and matching `screenshots` metadata (including actual pixel dimensions and caption) in the project frontmatter. Screenshots stay local to the portfolio; they do not require a paid image service.
