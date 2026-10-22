@@ -10,16 +10,6 @@
     "caseStudy": "portfolio"
   },
   {
-    "name": "personal-portfolio",
-    "title": "Earlier Personal Portfolio",
-    "description": "Earlier portfolio containing project, database, API test, and resume pages.",
-    "group": "Design studies",
-    "language": "HTML",
-    "year": 2023,
-    "repository": "https://github.com/GrimSyntaxCloud/personal-portfolio",
-    "demo": "https://grimsyntaxcloud.github.io/personal-portfolio/"
-  },
-  {
     "name": "nodebucket",
     "title": "Nodebucket",
     "description": "Angular task board with a Node.js API and persistent Cosmos DB storage.",
@@ -66,7 +56,7 @@
   {
     "name": "web-425",
     "title": "Angular Coursework",
-    "description": "Collection of Angular and TypeScript coursework and exercises.",
+    "description": "Angular coursework containing the complete In-N-Out Books, GPA Calculator, and composer directory applications alongside weekly exercises.",
     "group": "Coursework",
     "language": "TypeScript",
     "year": 2022,
@@ -391,18 +381,9 @@
     "repository": "https://github.com/GrimSyntaxCloud/bootstrap-projects"
   },
   {
-    "name": "portfolio",
-    "title": "Earlier Portfolio Designs",
-    "description": "Earlier PHP portfolio designs, styling, and project presentation assets.",
-    "group": "Design studies",
-    "language": "CSS",
-    "year": 2018,
-    "repository": "https://github.com/GrimSyntaxCloud/portfolio"
-  },
-  {
     "name": "Emerging-tech",
     "title": "Emerging Technology Studies",
-    "description": "Experiments with data visualization, Flask, build tooling, and browser testing.",
+    "description": "D3 map of US cities in dataVisualization, plus Flask, Gulp, and Selenium learning projects.",
     "group": "Coursework",
     "language": "HTML",
     "year": 2018,
@@ -416,15 +397,6 @@
     "language": "PHP",
     "year": 2018,
     "repository": "https://github.com/GrimSyntaxCloud/advancedPHP"
-  },
-  {
-    "name": "wdv495",
-    "title": "Emerging Technology Coursework",
-    "description": "Small collection of emerging-technology course files.",
-    "group": "Coursework",
-    "language": "HTML",
-    "year": 2018,
-    "repository": "https://github.com/GrimSyntaxCloud/wdv495"
   },
   {
     "name": "rentalApplication",
