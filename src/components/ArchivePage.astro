@@ -4,6 +4,12 @@ import { getCollection } from 'astro:content';
 import repositories from '../data/repositories.json';
 import { designPath, withBase, type Design } from '../lib/paths';
 import { profile } from '../data/profile';
+import {
+  projectFilters,
+  focusOptions,
+  featureOptions,
+} from '../data/project-filters';
+import type { ArchiveCandidate } from '../lib/archive-filter';
 interface Props {
   variant?: Design;
 }
@@ -23,6 +29,47 @@ const entries = repositories.map((repo) => ({
       repositoryKey(project.data.repository) === repositoryKey(repo.repository),
   ),
 }));
+const availabilityOptions = {
+  live: 'Live demo',
+  source: 'Source code',
+  story: 'Project write-up',
+};
+const candidatesFor = (repo: (typeof entries)[number]): ArchiveCandidate[] => {
+  if (!repo.projects.length)
+    return [
+      {
+        id: repo.name,
+        search:
+          `${repo.title} ${repo.name} ${repo.description} ${repo.language}`.toLowerCase(),
+        focus: [],
+        features: [],
+        technologies: [repo.language],
+        availability: ['source', ...(repo.demo ? ['live'] : [])],
+      },
+    ];
+  return repo.projects.map(({ id, data }) => {
+    const filters = projectFilters[id];
+    if (!filters) throw new Error(`Missing reviewed archive filters for ${id}`);
+    return {
+      id,
+      ...filters,
+      search:
+        `${repo.title} ${repo.name} ${data.title} ${data.description} ${data.tags.join(' ')} ${filters.technologies.join(' ')} ${filters.note || ''}`.toLowerCase(),
+      availability: [
+        'source',
+        'story',
+        ...(data.demo || id === 'portfolio' ? ['live'] : []),
+      ],
+    };
+  });
+};
+const technologies = [
+  ...new Set(
+    entries.flatMap((repo) =>
+      candidatesFor(repo).flatMap((project) => project.technologies),
+    ),
+  ),
+].sort();
 ---
 
 <Layout
@@ -57,28 +104,99 @@ const entries = repositories.map((repo) => ({
         live demo. Shared repositories include individual projects below.
       </p>
     </header>
-    <div class="archive-controls" hidden>
-      <div class="archive-search">
-        <label for="repo-search">Search projects</label>
-        <input
-          id="repo-search"
-          type="search"
-          placeholder="Search by name, technology, or topic…"
-          autocomplete="off"
-        />
+    <div class="archive-filter-panel" hidden>
+      <div class="archive-controls">
+        <div class="archive-search">
+          <label for="repo-search">Search projects</label>
+          <input
+            id="repo-search"
+            type="search"
+            placeholder="Search by name, technology, or topic…"
+            autocomplete="off"
+          />
+        </div>
+        <div>
+          <label for="repo-group">Collection</label>
+          <select id="repo-group">
+            <option value="all">All collections</option>
+            {groups.map((group) => (
+              <option value={group}>{group}</option>
+            ))}
+          </select>
+        </div>
+        <button type="button" id="reset-search">
+          Clear all
+        </button>
       </div>
-      <div>
-        <label for="repo-group">Collection</label>
-        <select id="repo-group">
-          <option value="all">All collections</option>
-          {groups.map((group) => (
-            <option value={group}>{group}</option>
-          ))}
-        </select>
+      <div class="archive-quick" role="group" aria-label="Quick filters">
+        <span class="archive-filter-caption">Start here</span>
+        <button type="button" data-quick="live" aria-pressed="false">
+          Live demos
+        </button>
+        <button type="button" data-quick="full-stack" aria-pressed="false">
+          Full stack
+        </button>
+        <button type="button" data-quick="frontend" aria-pressed="false">
+          Frontend
+        </button>
+        <label class="archive-coursework">
+          <input id="include-coursework" type="checkbox" /> Include coursework
+        </label>
       </div>
-      <button type="button" id="reset-search">
-        Reset
-      </button>
+      <details class="archive-more">
+        <summary>
+          More filters <span id="more-filter-count"></span>
+        </summary>
+        <div class="archive-filter-grid">
+          <div>
+            <label for="filter-technology">Technology</label>
+            <select id="filter-technology">
+              <option value="">Any technology</option>
+              {technologies.map((value) => (
+                <option value={value}>{value}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label for="filter-focus">Project focus</label>
+            <select id="filter-focus">
+              <option value="">Any focus</option>
+              {Object.entries(focusOptions).map(([value, label]) => (
+                <option value={value}>{label}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label for="filter-feature">Feature demonstrated</label>
+            <select id="filter-feature">
+              <option value="">Any feature</option>
+              {Object.entries(featureOptions).map(([value, label]) => (
+                <option value={value}>{label}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label for="filter-availability">Availability</label>
+            <select id="filter-availability">
+              <option value="">Any availability</option>
+              {Object.entries(availabilityOptions).map(([value, label]) => (
+                <option value={value}>{label}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <p class="archive-filter-help">
+          Filters combine to find the same project. Frontend means a browser or
+          static-site app; full stack includes a working server. PHP original
+          editions are labeled separately.
+        </p>
+      </details>
+      <div
+        id="active-filters"
+        class="archive-active"
+        role="group"
+        aria-label="Selected filters"
+      ></div>
     </div>
     <p class="archive-count" id="repo-count" role="status" aria-live="polite">
       {repositories.length} repositories
@@ -94,7 +212,7 @@ const entries = repositories.map((repo) => ({
             },
           ]}
           data-group={repo.group}
-          data-search={`${repo.title} ${repo.name} ${repo.description} ${repo.language} ${repo.projects.map(({ data }) => `${data.title} ${data.description} ${data.tags.join(' ')}`).join(' ')}`.toLowerCase()}
+          data-candidates={JSON.stringify(candidatesFor(repo))}
         >
           <div class="repo-year">{repo.year}</div>
           {repo.projects.length === 1 && repo.projects[0].data.image && (
@@ -122,6 +240,25 @@ const entries = repositories.map((repo) => ({
             <h2>{repo.title}</h2>
             <p>{repo.description}</p>
             <span class="repo-language">{repo.language}</span>
+            {repo.projects.length === 1 && (
+              <div class="archive-project-facts">
+                <p>
+                  {[
+                    ...projectFilters[repo.projects[0].id].focus.map(
+                      (key) => focusOptions[key],
+                    ),
+                    ...projectFilters[repo.projects[0].id].features.map(
+                      (key) => featureOptions[key],
+                    ),
+                  ].join(' · ')}
+                </p>
+                {projectFilters[repo.projects[0].id].note && (
+                  <p class="archive-project-note">
+                    {projectFilters[repo.projects[0].id].note}
+                  </p>
+                )}
+              </div>
+            )}
           </div>
           <div class="repo-links">
             {repo.projects.length <= 1 && repo.caseStudy && (
@@ -132,9 +269,13 @@ const entries = repositories.map((repo) => ({
                 Project story ↗
               </a>
             )}
-            {'demo' in repo && repo.demo && (
+            {(repo.demo || repo.caseStudy === 'portfolio') && (
               <a
-                href={String(repo.demo)}
+                href={
+                  repo.caseStudy === 'portfolio'
+                    ? pageLink()
+                    : String(repo.demo)
+                }
                 aria-label={`Open ${repo.title} demo`}
               >
                 {repo.projects.length > 1 ? 'Collection home ↗' : 'Live demo ↗'}
@@ -154,11 +295,13 @@ const entries = repositories.map((repo) => ({
             >
               <p class="repo-projects-label">
                 Inside this repository{' '}
-                <span>{repo.projects.length} projects</span>
+                <span class="repo-matched-count">
+                  {repo.projects.length} projects
+                </span>
               </p>
               <div class="repo-project-grid">
                 {repo.projects.map(({ id, data }) => (
-                  <div class="repo-project-card">
+                  <div class="repo-project-card" data-project-id={id}>
                     {data.image && (
                       <a
                         class="repo-preview"
@@ -180,6 +323,23 @@ const entries = repositories.map((repo) => ({
                       <a href={pageLink(`projects/${id}/`)}>{data.title}</a>
                     </h3>
                     <p>{data.description}</p>
+                    <div class="archive-project-facts">
+                      <p>
+                        {[
+                          ...projectFilters[id].focus.map(
+                            (key) => focusOptions[key],
+                          ),
+                          ...projectFilters[id].features.map(
+                            (key) => featureOptions[key],
+                          ),
+                        ].join(' · ')}
+                      </p>
+                      {projectFilters[id].note && (
+                        <p class="archive-project-note">
+                          {projectFilters[id].note}
+                        </p>
+                      )}
+                    </div>
                     <div class="repo-project-actions">
                       <a
                         href={pageLink(`projects/${id}/`)}
@@ -215,36 +375,145 @@ const entries = repositories.map((repo) => ({
   </section>
 </Layout>
 <script>
-  const controls = document.querySelector<HTMLElement>('.archive-controls');
-  const search = document.querySelector<HTMLInputElement>('#repo-search');
-  const group = document.querySelector<HTMLSelectElement>('#repo-group');
-  const reset = document.querySelector<HTMLButtonElement>('#reset-search');
-  const rows = document.querySelectorAll<HTMLElement>('.repo-row');
-  const count = document.querySelector<HTMLElement>('#repo-count');
-  const empty = document.querySelector<HTMLElement>('.archive-empty');
+  import {
+    matchesArchiveCandidate,
+    type ArchiveCandidate,
+    type ArchiveSelection,
+  } from '../lib/archive-filter';
+  const panel = document.querySelector<HTMLElement>('.archive-filter-panel');
+  const search = document.querySelector<HTMLInputElement>('#repo-search')!;
+  const group = document.querySelector<HTMLSelectElement>('#repo-group')!;
+  const coursework = document.querySelector<HTMLInputElement>(
+    '#include-coursework',
+  )!;
+  const reset = document.querySelector<HTMLButtonElement>('#reset-search')!;
+  const selects = {
+    technology:
+      document.querySelector<HTMLSelectElement>('#filter-technology')!,
+    focus: document.querySelector<HTMLSelectElement>('#filter-focus')!,
+    feature: document.querySelector<HTMLSelectElement>('#filter-feature')!,
+    availability: document.querySelector<HTMLSelectElement>(
+      '#filter-availability',
+    )!,
+  };
+  const quick = [
+    ...document.querySelectorAll<HTMLButtonElement>('[data-quick]'),
+  ];
+  const rows = [...document.querySelectorAll<HTMLElement>('.repo-row')].map(
+    (row) => ({
+      row,
+      candidates: JSON.parse(
+        row.dataset.candidates || '[]',
+      ) as ArchiveCandidate[],
+    }),
+  );
+  const count = document.querySelector<HTMLElement>('#repo-count')!;
+  const empty = document.querySelector<HTMLElement>('.archive-empty')!;
+  const active = document.querySelector<HTMLElement>('#active-filters')!;
+  const moreCount = document.querySelector<HTMLElement>('#more-filter-count')!;
   function filter() {
-    const terms = (search?.value.trim().toLowerCase() || '')
-      .split(/\s+/)
-      .filter(Boolean);
+    const selection: ArchiveSelection = {
+      search: search.value,
+      group: group.value,
+      coursework: coursework.checked,
+      technology: selects.technology.value,
+      focus: selects.focus.value,
+      feature: selects.feature.value,
+      availability: selects.availability.value,
+    };
     let visible = 0;
-    rows.forEach((row) => {
-      row.hidden = !(
-        terms.every((term) => row.dataset.search?.includes(term)) &&
-        (group?.value === 'all' || row.dataset.group === group?.value)
+    rows.forEach(({ row, candidates }) => {
+      const matches = candidates.filter((candidate) =>
+        matchesArchiveCandidate(candidate, row.dataset.group || '', selection),
       );
+      row.hidden = matches.length === 0;
       if (!row.hidden) visible++;
+      row.querySelectorAll<HTMLElement>('[data-project-id]').forEach((card) => {
+        card.hidden = !matches.some(
+          (candidate) => candidate.id === card.dataset.projectId,
+        );
+      });
+      const matchedCount = row.querySelector('.repo-matched-count');
+      if (matchedCount)
+        matchedCount.textContent =
+          matches.length === candidates.length
+            ? `${matches.length} projects`
+            : `${matches.length} of ${candidates.length} projects match`;
     });
-    if (count)
-      count.textContent = `${visible} ${visible === 1 ? 'repository' : 'repositories'}`;
-    if (empty) empty.hidden = visible > 0;
+    count.textContent = `${visible} ${visible === 1 ? 'repository' : 'repositories'}${coursework.checked ? '' : ' · coursework hidden'}`;
+    empty.hidden = visible > 0;
+    quick.forEach((button) =>
+      button.setAttribute(
+        'aria-pressed',
+        String(
+          button.dataset.quick === 'live'
+            ? selection.availability === 'live'
+            : selection.focus === button.dataset.quick,
+        ),
+      ),
+    );
+    const selectedCount = Object.values(selects).filter(
+      (select) => select.value,
+    ).length;
+    moreCount.textContent = selectedCount ? `(${selectedCount} selected)` : '';
+    active.replaceChildren();
+    const chip = (label: string, clear: () => void) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = `${label} ×`;
+      button.setAttribute('aria-label', `Remove filter: ${label}`);
+      button.addEventListener('click', () => {
+        clear();
+        filter();
+        search.focus();
+      });
+      active.append(button);
+    };
+    if (search.value.trim())
+      chip(`Search: ${search.value.trim()}`, () => (search.value = ''));
+    if (group.value !== 'all')
+      chip(`Collection: ${group.value}`, () => (group.value = 'all'));
+    if (!coursework.checked)
+      chip('Coursework excluded', () => (coursework.checked = true));
+    Object.entries(selects).forEach(([key, select]) => {
+      if (select.value)
+        chip(
+          `${key === 'feature' ? 'Feature' : key === 'technology' ? 'Technology' : key === 'focus' ? 'Focus' : 'Availability'}: ${select.selectedOptions[0].textContent}`,
+          () => (select.value = ''),
+        );
+    });
   }
-  if (controls) controls.hidden = false;
-  search?.addEventListener('input', filter);
-  group?.addEventListener('change', filter);
-  reset?.addEventListener('click', () => {
-    if (search) search.value = '';
-    if (group) group.value = 'all';
+  search.addEventListener('input', filter);
+  group.addEventListener('change', () => {
+    // Selecting Coursework should show it without a second, contradictory control.
+    if (group.value === 'Coursework') coursework.checked = true;
     filter();
-    search?.focus();
   });
+  coursework.addEventListener('change', () => {
+    if (!coursework.checked && group.value === 'Coursework')
+      group.value = 'all';
+    filter();
+  });
+  Object.values(selects).forEach((select) =>
+    select.addEventListener('change', filter),
+  );
+  quick.forEach((button) =>
+    button.addEventListener('click', () => {
+      const select =
+        button.dataset.quick === 'live' ? selects.availability : selects.focus;
+      const value = button.dataset.quick!;
+      select.value = select.value === value ? '' : value;
+      filter();
+    }),
+  );
+  reset.addEventListener('click', () => {
+    search.value = '';
+    group.value = 'all';
+    coursework.checked = true;
+    Object.values(selects).forEach((select) => (select.value = ''));
+    filter();
+    search.focus();
+  });
+  filter();
+  if (panel) panel.hidden = false;
 </script>

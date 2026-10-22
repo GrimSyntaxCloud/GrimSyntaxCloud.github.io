@@ -25,21 +25,21 @@ Run `npm run format` to format Astro, CSS, Markdown, and configuration files.
 
 - `src/data/profile.ts`: display name, bio, headline, GitHub URL, optional contact email, and tools.
 - `src/styles/home.css`: Editorial and Industrial homepage designs.
-- `src/styles/global.css`: project-page and archive styles.
+- `src/styles/pages.css`: project-page and archive styles.
 - `src/components/PortfolioHome.astro`: shared homepage content and design switcher.
 - `src/scripts/home.ts`: filters, motion controls, and progressively loaded Three.js scenes.
 - `src/content/projects/*.md`: project entries and case studies.
 - `public/`: images, videos, captions, credits, and favicon.
 
-The collection includes 13 project case studies and a searchable archive of 55 public repositories. `src/data/repositories.json` contains the archive entries, optional case-study slugs, and verified demo URLs. Update this file when adding a repository to the archive; it is a curated static snapshot, not a live GitHub API feed.
+The collection includes 27 project case studies and a searchable archive of 60 public repositories. `src/data/repositories.json` contains the archive entries, optional case-study slugs, and verified demo URLs. Update this file when adding a repository to the archive; it is a curated static snapshot, not a live GitHub API feed.
 
-Project entries are based on repository source. BCRS is credited as team work and Loc8r as a learning implementation. Loan Calculator and PIG Dice Game use actual demo screenshots; Trivia Turbo uses a frame from its gameplay trailer. Other covers use decorative illustrations. Trivia Turbo links to its existing live site; its local source is not part of the public GitHub repository archive.
+Project entries are based on repository source. BCRS is credited as team work and Loc8r as a learning implementation. Project covers use screenshots; Trivia Turbo uses a frame from its gameplay trailer. Trivia Turbo links to its existing live site; its local source is not part of the public GitHub repository archive.
 
 See `docs/repository-review.md` for the review scope, hosting decisions, and known limitations.
 
 ## Homepage designs
 
-Editorial is the default at `/`. Industrial is available at `/industrial/`. The “Choose your view” bar switches between them using normal links; opening `/` always starts with Editorial. Both pages use the same profile and project data, with a canonical URL pointing to the main homepage.
+Editorial is the first-visit default at `/`. Industrial is available at `/industrial/`. The “Choose your view” bar switches between them using normal links and remembers the visitor's preference. Both pages use the same profile and project data, with a canonical URL pointing to the main homepage.
 
 Both designs include a motion toggle, reduced-motion support, and a static fallback when WebGL is unavailable. Three.js loads separately from the controls. There are no hosted 3D services or additional recurring costs. See `docs/homepage-designs.md` for implementation and verification details.
 
@@ -49,7 +49,8 @@ Both designs include a motion toggle, reduced-motion support, and a static fallb
 2. Set its title, description, category (`Web app` or `AI project`), tags, year, and links.
 3. Write the case study and set `draft: false` when ready. Drafts appear in neither the homepage nor generated routes.
 4. Optionally put a screenshot in `public/images/your-project.webp` and set `image: "images/your-project.webp"` with a descriptive `imageAlt`.
-5. Run `npm run validate`, then commit and push.
+5. Add reviewed technology, focus, and feature labels in `src/data/project-filters.ts`. Describe the current implementation; distinguish browser storage from database persistence and demo IDs from account authentication.
+6. Run `npm run validate`, then commit and push.
 
 The filename becomes `/projects/your-project/`. Lower `order` numbers appear first. Projects stay in their existing repositories; add their URLs in `repository`. A `demo` URL is optional. Each project app keeps its own deployment configuration.
 
@@ -104,3 +105,11 @@ Dependabot checks npm packages and GitHub Actions weekly through `.github/depend
 The [October 22 repository health review](docs/repository-health-2026-10-22.md) records the portfolio-linked app checks, README repairs and historical dependency backlog. Its alert counts are dated observations, not permanent security guarantees.
 
 Every selected project currently has a screenshot. The shared homepage uses those images for featured panels and the remaining project thumbnails in both designs, with lazy loading. When replacing an image, update its descriptive `imageAlt` and matching `screenshots` metadata (including actual pixel dimensions and caption) in the project frontmatter. Screenshots stay local to the portfolio; they do not require a paid image service.
+
+## Archive filters
+
+Both archive designs share `ArchivePage.astro` and reviewed metadata in `src/data/project-filters.ts`. Repository URLs associate case studies and thumbnails with archive entries. Shared repositories show only the individual projects that match every selected filter; criteria never combine features from different apps. Source-only entries use their recorded language and link availability, without inferred authentication or database claims.
+
+Quick buttons select Live demos, Full stack, or Frontend. More filters provides technology, project focus, feature, and availability controls. Coursework is initially excluded when JavaScript is available. Selecting the Coursework collection includes it automatically; Clear all restores all 60 entries. Selected filters can be removed individually. Without JavaScript, the full archive and links remain visible.
+
+`npm run test:archive` checks metadata coverage, cross-project matching, storage/authentication distinctions, search, coursework, and link-availability filtering. It is included in `npm run validate` and the existing CI workflow. Filters run entirely in the browser with no new dependencies or services.

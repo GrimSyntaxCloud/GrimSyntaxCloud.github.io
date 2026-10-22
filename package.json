@@ -13,7 +13,8 @@
     "check": "astro check",
     "format": "prettier --write .",
     "test:links": "node scripts/check-links.mjs",
-    "validate": "npm run check && npm run build && npm run test:links"
+    "validate": "npm run test:archive && npm run check && npm run build && npm run test:links",
+    "test:archive": "node --experimental-strip-types --test scripts/archive-filters.test.mjs"
   },
   "dependencies": {
     "astro": "^7.4.1"
