@@ -10,6 +10,39 @@
     "caseStudy": "portfolio"
   },
   {
+    "name": "fold-and-fork",
+    "title": "Fold & Fork",
+    "description": "Origami-inspired ordering interaction study adapted from Richard Krasso’s MIT example; original menu and prices retained.",
+    "group": "Applications",
+    "language": "JavaScript",
+    "year": 2026,
+    "repository": "https://github.com/GrimSyntaxCloud/fold-and-fork",
+    "caseStudy": "fold-and-fork",
+    "demo": "https://grimsyntaxcloud.github.io/fold-and-fork/"
+  },
+  {
+    "name": "endpoint-studio",
+    "title": "Endpoint Studio",
+    "description": "REST API workbench with private 96-hour workspaces, permanent examples and server-side validation.",
+    "group": "Applications",
+    "language": "JavaScript",
+    "year": 2026,
+    "repository": "https://github.com/GrimSyntaxCloud/endpoint-studio",
+    "caseStudy": "endpoint-studio",
+    "demo": "https://black-beach-00f091d0f.5.azurestaticapps.net/"
+  },
+  {
+    "name": "relay-room",
+    "title": "Relay Room",
+    "description": "Private-invitation WebRTC video rooms with an aurora interface, camera controls and short-lived signaling.",
+    "group": "Applications",
+    "language": "JavaScript",
+    "year": 2026,
+    "repository": "https://github.com/GrimSyntaxCloud/relay-room",
+    "caseStudy": "relay-room",
+    "demo": "https://mango-sea-0c6bba80f.4.azurestaticapps.net/"
+  },
+  {
     "name": "the-edit-cms",
     "title": "The Edit",
     "description": "Editorial CMS with roles, images, CSV exchange and private 96-hour workspaces; original PHP edition retained.",
