@@ -17,13 +17,13 @@
     "test:archive": "node --experimental-strip-types --test scripts/archive-filters.test.mjs"
   },
   "dependencies": {
-    "astro": "^7.4.1"
+    "astro": "^7.4.2"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.9",
+    "@astrojs/check": "^0.9.12",
     "@types/three": "^0.186.0",
     "prettier": "^3.9.10",
-    "prettier-plugin-astro": "^1.1.1",
+    "prettier-plugin-astro": "^1.1.2",
     "three": "^0.186.1",
     "typescript": "^5.9.3"
   }
