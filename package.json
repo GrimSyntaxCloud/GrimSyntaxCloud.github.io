@@ -17,7 +17,7 @@
     "test:archive": "node --experimental-strip-types --test scripts/archive-filters.test.mjs"
   },
   "dependencies": {
-    "astro": "^7.4.1"
+    "astro": "^7.4.7"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
