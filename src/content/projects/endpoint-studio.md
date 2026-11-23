@@ -6,9 +6,8 @@ builtWithAI: true
 tags: ['REST API', 'Node.js', 'MongoDB', 'Azure']
 year: 2026
 order: 26
-status: 'Live'
+status: 'Demo temporarily offline'
 repository: 'https://github.com/GrimSyntaxCloud/endpoint-studio'
-demo: 'https://black-beach-00f091d0f.5.azurestaticapps.net/'
 visual: 'web'
 image: 'images/projects/endpoint-studio-home.webp'
 imageAlt: 'An orange and charcoal API instrument panel with a spirograph and MAKE CONTACT headline.'
@@ -35,7 +34,7 @@ screenshots:
 
 Endpoint Studio turns my WEB 420 REST API coursework into an interactive developer workbench. Its orange and charcoal instrument-panel layout pairs kinetic typography and a rotating spirograph with split-flap-style response codes. The visual feedback follows real request activity, so the interface makes the backend easier to explore.
 
-Choose composers, people, teams or customers; create a private workspace; then send a request and inspect its response. The recovered API also includes team players, customer invoices and a signup/password-verification exercise. Example requests make the workflows approachable without hiding the JSON or HTTP methods.
+The workbench lets visitors choose composers, people, teams or customers, create a private workspace, and inspect responses to their requests. The recovered API also includes team players, customer invoices and a signup/password-verification exercise. Example requests make the workflows approachable without hiding the JSON or HTTP methods.
 
 ## How it works
 
@@ -49,4 +48,4 @@ The signup exercise demonstrates password verification within a private demo wor
 
 I worked with ChatGPT/Codex to recover the coursework, modernize its dependencies and build an interface around the real API. Validation covers private workspace isolation, expiry boundaries, immutable examples, malformed input, password handling, invoice preservation and database persistence. Customer edits also preserve unique usernames so invoice routes remain unambiguous.
 
-The live demo is published with automated checks and deployment through GitHub Actions.
+The demo was deployed through GitHub Actions with automated checks.

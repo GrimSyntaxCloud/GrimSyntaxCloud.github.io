@@ -6,10 +6,9 @@ builtWithAI: true
 tags: ['Angular', 'Node.js', 'Azure', 'Cosmos DB']
 year: 2023
 order: 2
-status: 'Live'
+status: 'Demo temporarily offline'
 visual: 'code'
 repository: 'https://github.com/GrimSyntaxCloud/BCRS'
-demo: 'https://brave-river-09cd8f10f.6.azurestaticapps.net'
 image: 'images/projects/bcrs-home.webp'
 imageAlt: 'Bob’s Computer Repair Shop homepage with warm stone surfaces, clay-orange accents, raised controls, and a three-dimensional CSS computer illustration.'
 imageFit: 'contain'
@@ -38,11 +37,11 @@ For the 2026 redesign, I wanted the shop to feel modern, welcoming, and carefull
 
 The same visual language carries through the service catalog, sign-in and registration, profile, cart, invoice screens, reporting, and administration views. Responsive layouts, visible keyboard focus, and scrollable tables keep the interface usable on smaller screens. The redesign preserves the existing service prices, account features, invoice calculations, and backend behavior.
 
-## Try the full-stack demo
+## How the full-stack demo works
 
-Choose **Register** to create an account using fictional details and a unique demo password. Sign out and back in to verify persistence, edit your profile from the account menu, choose repair services, and save invoices. **My invoices** and **Purchases chart** show your account's saved records.
+The **Register** flow uses fictional details and a unique demo password. Registered visitors can edit their profile, choose repair services and save invoices that persist across sessions. **My invoices** and **Purchases chart** show the account’s saved records.
 
-For a quick preview, choose **Sign in → Try guest demo**. The guest account shares sample invoices and previews fictional administration screens. It cannot access registered accounts.
+**Sign in → Try guest demo** previews the app without registration. The guest account shares sample invoices and previews fictional administration screens. It cannot access registered accounts.
 
 Registration, login, profile editing, password changes, account deletion, and invoice creation, viewing, and deletion use the backend and Cosmos DB. Passwords are hashed and sessions use secure HttpOnly cookies; the server checks ownership independently of the interface.
 
@@ -70,4 +69,4 @@ The frontend runs Angular 21 LTS with compatible Material and PrimeNG libraries,
 
 The original application was a team coursework project. For the 2026 redesign, I worked with ChatGPT/Codex as a development collaborator: I chose the neumorphic direction, reviewed the working pages, and requested the final About-image cleanup. Together, we updated the presentation and checked the existing flows with automated tests and desktop and mobile browser checks.
 
-“Built with AI” describes the development process. The live application does not call an AI model or add an AI service cost. Hosting continues through the existing free Azure setup.
+“Built with AI” describes the development process. The application does not call an AI model or add an AI service cost. The demo was hosted on Azure Static Web Apps Free.

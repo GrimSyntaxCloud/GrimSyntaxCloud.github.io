@@ -28,8 +28,7 @@
     "language": "JavaScript",
     "year": 2026,
     "repository": "https://github.com/GrimSyntaxCloud/endpoint-studio",
-    "caseStudy": "endpoint-studio",
-    "demo": "https://black-beach-00f091d0f.5.azurestaticapps.net/"
+    "caseStudy": "endpoint-studio"
   },
   {
     "name": "relay-room",
@@ -39,8 +38,7 @@
     "language": "JavaScript",
     "year": 2026,
     "repository": "https://github.com/GrimSyntaxCloud/relay-room",
-    "caseStudy": "relay-room",
-    "demo": "https://mango-sea-0c6bba80f.4.azurestaticapps.net/"
+    "caseStudy": "relay-room"
   },
   {
     "name": "the-edit-cms",
@@ -50,8 +48,7 @@
     "language": "JavaScript",
     "year": 2026,
     "repository": "https://github.com/GrimSyntaxCloud/the-edit-cms",
-    "caseStudy": "the-edit",
-    "demo": "https://salmon-pebble-0af10980f.2.azurestaticapps.net/"
+    "caseStudy": "the-edit"
   },
   {
     "name": "eny-salon",
@@ -61,8 +58,7 @@
     "language": "JavaScript",
     "year": 2026,
     "repository": "https://github.com/GrimSyntaxCloud/eny-salon",
-    "caseStudy": "eny-salon",
-    "demo": "https://zealous-grass-00a9b990f.3.azurestaticapps.net/"
+    "caseStudy": "eny-salon"
   },
   {
     "name": "city-atlas",
@@ -105,8 +101,7 @@
     "language": "TypeScript",
     "year": 2023,
     "repository": "https://github.com/GrimSyntaxCloud/nodebucket",
-    "caseStudy": "nodebucket",
-    "demo": "https://red-mushroom-0f3c1260f.1.azurestaticapps.net"
+    "caseStudy": "nodebucket"
   },
   {
     "name": "BCRS",
@@ -116,8 +111,7 @@
     "language": "TypeScript",
     "year": 2023,
     "repository": "https://github.com/GrimSyntaxCloud/BCRS",
-    "caseStudy": "bcrs",
-    "demo": "https://brave-river-09cd8f10f.6.azurestaticapps.net"
+    "caseStudy": "bcrs"
   },
   {
     "name": "loc8r",
@@ -177,8 +171,7 @@
     "language": "HTML",
     "year": 2022,
     "repository": "https://github.com/GrimSyntaxCloud/pets-r-us",
-    "caseStudy": "pets-r-us",
-    "demo": "https://white-sand-0e657a60f.1.azurestaticapps.net"
+    "caseStudy": "pets-r-us"
   },
   {
     "name": "web-340",
