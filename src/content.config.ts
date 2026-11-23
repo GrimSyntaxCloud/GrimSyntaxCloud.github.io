@@ -13,7 +13,13 @@ const projects = defineCollection({
     year: z.number(),
     order: z.number().default(99),
     status: z
-      .enum(['In progress', 'Live', 'Source available', 'Archived'])
+      .enum([
+        'In progress',
+        'Live',
+        'Demo temporarily offline',
+        'Source available',
+        'Archived',
+      ])
       .default('In progress'),
     visual: z.enum(['web', 'ai', 'code']).default('web'),
     repository: z.url().optional(),

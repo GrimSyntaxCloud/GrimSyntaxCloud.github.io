@@ -31,6 +31,11 @@ const { data } = project;
       </p>
       <h1>{data.title}</h1>
       <p>{data.description}</p>
+      {data.status === 'Demo temporarily offline' && (
+        <p>
+          <strong>{data.status}</strong>
+        </p>
+      )}
       <div class="case-actions">
         {data.repository && (
           <a class="button" href={data.repository}>
@@ -107,7 +112,9 @@ const { data } = project;
           <p class="eyebrow">
             {data.demo && data.status === 'Live'
               ? 'FROM THE LIVE DEMO'
-              : 'FROM THE WORKING PREVIEW'}
+              : data.status === 'Demo temporarily offline'
+                ? 'FROM THE PROJECT PREVIEW'
+                : 'FROM THE WORKING PREVIEW'}
           </p>
           <h2 id="screenshots-title">A closer look.</h2>
           <p>Open a screenshot to see it at full size.</p>

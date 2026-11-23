@@ -247,6 +247,12 @@ const technologies = [
             <h2>{repo.title}</h2>
             <p>{repo.description}</p>
             <span class="repo-language">{repo.language}</span>
+            {repo.projects.length === 1 &&
+              repo.projects[0].data.status === 'Demo temporarily offline' && (
+                <p>
+                  <strong>{repo.projects[0].data.status}</strong>
+                </p>
+              )}
             {repo.projects.length === 1 && (
               <div class="archive-project-facts">
                 <p>
@@ -331,6 +337,11 @@ const technologies = [
                       <a href={pageLink(`projects/${id}/`)}>{data.title}</a>
                     </h3>
                     <p>{data.description}</p>
+                    {data.status === 'Demo temporarily offline' && (
+                      <p>
+                        <strong>{data.status}</strong>
+                      </p>
+                    )}
                     <div class="archive-project-facts">
                       <p>
                         {[

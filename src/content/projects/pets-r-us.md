@@ -6,8 +6,7 @@ builtWithAI: true
 tags: ['Express', 'EJS', 'Azure', 'Cosmos DB']
 year: 2022
 order: 6
-status: 'Live'
-demo: 'https://white-sand-0e657a60f.1.azurestaticapps.net'
+status: 'Demo temporarily offline'
 visual: 'web'
 repository: 'https://github.com/GrimSyntaxCloud/pets-r-us'
 image: 'images/projects/pets-r-us-home.webp'
@@ -40,9 +39,9 @@ Original SVG pets appear throughout the site, from the homepage companions to th
 
 The interface includes responsive navigation, visible keyboard focus, Escape-to-close navigation, and reduced-motion support. Text contrast and narrow-screen layouts were checked alongside the functional tests.
 
-## Try the full-stack demo
+## How the full-stack demo works
 
-Choose **Take a peek inside** for permanent, read-only sample appointments. To try the complete flow, choose **Join the club**, register with fictional details and a unique demo password, and save a grooming, boarding, or training request. Your clubhouse shows your own saved requests, and **Edit profile** updates your account details.
+**Take a peek inside** shows permanent, read-only sample appointments. The **Join the club** flow uses fictional details and a unique demo password, then lets visitors save a grooming, boarding, or training request. The clubhouse shows each visitor’s own requests, and **Edit profile** updates account details.
 
 Requests do not reserve dates, send emails, or collect payments. Visitor accounts expire 96 hours after registration; their requests expire no later than the account. The server rejects expired data immediately, and scheduled cleanup removes expired records while preserving the fictional samples.
 
@@ -58,4 +57,4 @@ GitHub Actions runs the integration tests, dependency audit, and production pack
 
 The original coursework was mine. For the hosting repairs and 2026 redesign, I worked with ChatGPT/Codex as a development collaborator. I set the direction, reviewed the working design, and asked for a warmer palette after the first version. Together, we implemented the illustrations, layouts, responsive behavior, and deployment updates, using browser checks and automated tests to verify the result.
 
-“Built with AI” describes that development process. The live app does not call an AI model or require an AI subscription.
+“Built with AI” describes that development process. The app does not call an AI model or require an AI subscription.

@@ -6,10 +6,9 @@ builtWithAI: true
 tags: ['Angular', 'Node.js', 'Azure', 'Cosmos DB']
 year: 2023
 order: 3
-status: 'Live'
+status: 'Demo temporarily offline'
 visual: 'web'
 repository: 'https://github.com/GrimSyntaxCloud/nodebucket'
-demo: 'https://red-mushroom-0f3c1260f.1.azurestaticapps.net'
 image: 'images/projects/nodebucket-home.webp'
 imageAlt: 'Nodebucket workspace with lilac accents, a completion ring, and Todo and Done task cards.'
 imageFit: 'contain'
@@ -28,11 +27,11 @@ screenshots:
 
 ## The project
 
-Nodebucket is a task management project with a straightforward workflow: add a task, organize it, and move it to done. Originally built as WEB 450 coursework, it now has a working Azure-hosted demo.
+Nodebucket is a task management project with a straightforward workflow: add a task, organize it, and move it to done. Originally built as WEB 450 coursework, the project was later deployed on Azure.
 
-## Try the shared demo
+## How the shared demo works
 
-Open the demo and use employee ID **1007**. Add a sample task, drag it between **Todo** and **Done** or use its move button, and reload the page to see it persist.
+The shared demo uses employee ID **1007**. Visitors can add sample tasks and move them between **Todo** and **Done** by dragging or using a move button. Tasks persist across reloads.
 
 Everyone shares this board and can change visitor-created tasks. A permanent fictional sample task is protected from deletion. It holds up to 50 tasks and is intended for sample data, so please do not enter personal information. The employee number opens the demo; it is not private account authentication.
 
@@ -54,4 +53,4 @@ Azure Static Web Apps serves the frontend and a managed Node.js Functions API. T
 
 The backend validates task input, limits stored tasks, and detects conflicting updates. GitHub Actions runs integration tests, builds the frontend and API, deploys changes from the main branch, and checks database connectivity afterward.
 
-The demo uses Azure's free service tiers. The frontend runs Angular 21 LTS with compatible Material and PrimeNG libraries. CI checks dependency advisories alongside the automated tests and production build.
+The demo was hosted on Azure's free service tiers. The frontend runs Angular 21 LTS with compatible Material and PrimeNG libraries. CI checks dependency advisories alongside the automated tests and production build.

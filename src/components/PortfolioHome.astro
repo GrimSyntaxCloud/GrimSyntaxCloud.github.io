@@ -208,7 +208,9 @@ const technologies = [
             <span class="visual-caption">
               {project.id === 'trivia-turbo'
                 ? 'GAMEPLAY / TRIVIA TURBO'
-                : 'LIVE WEBSITE / ' + project.data.title}
+                : (project.data.status === 'Demo temporarily offline'
+                    ? 'PROJECT PREVIEW / '
+                    : 'LIVE WEBSITE / ') + project.data.title}
             </span>
             <span class="cover-arrow" aria-hidden="true">
               <ArrowIcon />
@@ -226,6 +228,9 @@ const technologies = [
             </h3>
             <p class="project-focus">{project.focus}</p>
             <p class="project-description">{project.data.description}</p>
+            {project.data.status === 'Demo temporarily offline' && (
+              <p class="project-focus">{project.data.status}</p>
+            )}
             <ul class="tags" aria-label="Technologies">
               {project.data.tags.map((tag) => (
                 <li>{tag}</li>
@@ -297,6 +302,11 @@ const technologies = [
               </a>
             </h3>
             <p>{project.data.description}</p>
+            {project.data.status === 'Demo temporarily offline' && (
+              <p>
+                <strong>{project.data.status}</strong>
+              </p>
+            )}
           </div>
           <div class="index-links">
             {(project.data.demo || project.id === 'portfolio') && (

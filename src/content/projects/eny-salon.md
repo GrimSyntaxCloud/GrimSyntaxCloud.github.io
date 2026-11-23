@@ -6,10 +6,9 @@ builtWithAI: true
 tags: ['Node.js', 'Express', 'Azure', 'Cosmos DB', 'PHP']
 year: 2026
 order: 23
-status: 'Live'
+status: 'Demo temporarily offline'
 visual: 'web'
 repository: 'https://github.com/GrimSyntaxCloud/eny-salon'
-demo: 'https://zealous-grass-00a9b990f.3.azurestaticapps.net/'
 image: 'images/projects/eny-salon-home.webp'
 imageAlt: 'Eny Salon with a giant peach masthead, aubergine background, sculptural satin artwork and curved rose sections.'
 imageFit: 'contain'
@@ -30,7 +29,7 @@ screenshots:
 
 Eny Salon began as my PHP salon-booking coursework. The recovery keeps its original services and prices, giving the experience a bold aubergine-and-peach beauty-studio identity. A giant ENY masthead, sculptural satin artwork, horizontal service rows and curved rose sections establish a distinct layout across the booking and staff workflows.
 
-Explore the service menu, choose an available appointment, enter fictional customer details and try the staff workspace. Appointment editing, rescheduling, availability management and a message inbox demonstrate the complete workflow.
+The demo shows how visitors browse the service menu, choose an available appointment, enter fictional details and use the staff workspace. Appointment editing, rescheduling, availability management and a message inbox demonstrate the complete workflow.
 
 ## A private space to try the features
 

@@ -6,9 +6,8 @@ builtWithAI: true
 tags: ['WebRTC', 'Node.js', 'Azure', 'Cosmos DB']
 year: 2026
 order: 25
-status: 'Live'
+status: 'Demo temporarily offline'
 repository: 'https://github.com/GrimSyntaxCloud/relay-room'
-demo: 'https://mango-sea-0c6bba80f.4.azurestaticapps.net/'
 visual: 'web'
 image: 'images/projects/relay-room-home.webp'
 imageAlt: 'An aurora-lit video chat landing page with translucent panels and a liquid orb.'
@@ -35,7 +34,7 @@ screenshots:
 
 Relay Room recovers my videoCallWebRTC project as a small-group calling experience. A dark teal and periwinkle palette, translucent panels, a slowly morphing orb and a flowing canvas background give it a calm, atmospheric identity. Buttons respond to interaction, while a motion-pause control and reduced-motion support keep the effects optional.
 
-Create a room, invite up to three other people, mute your microphone, turn your camera off and on, or leave. The host can end the room for everyone. Camera and microphone access begins only after an explicit start or join action.
+The interface supports creating a room, inviting up to three other people, toggling the microphone or camera, and leaving. The host can end the room for everyone. Camera and microphone access begins only after an explicit start or join action.
 
 ## How it works
 
@@ -51,4 +50,4 @@ The app uses a public STUN server to help browsers establish direct connections.
 
 I worked with ChatGPT/Codex to recover the original project, redesign the interface and replace its signaling layer. Automated tests cover invitation access, room limits, private signaling, host controls, expiry and MongoDB persistence. Two browser participants connected using generated test video and silent audio; the controls and departure flow were checked without using a real camera or microphone.
 
-The live demo is published with automated checks and deployment through GitHub Actions.
+The demo was deployed through GitHub Actions with automated checks.
