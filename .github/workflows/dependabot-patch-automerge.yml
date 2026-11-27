@@ -1,0 +1,130 @@
+name: Dependabot npm patch auto-merge
+
+on:
+  workflow_run:
+    workflows: ['Check and deploy portfolio']
+    types: [completed]
+
+permissions: {}
+
+jobs:
+  merge-patch:
+    if: >-
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      startsWith(github.event.workflow_run.head_branch, 'dependabot/npm_and_yarn/')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: write
+      contents: write
+      pull-requests: write
+    concurrency:
+      group: dependabot-patch-${{ github.event.workflow_run.head_branch }}
+      cancel-in-progress: false
+    steps:
+      # No checkout, PR code execution, shared cache, or untrusted artifacts.
+      - name: Merge checked npm patches and dispatch the normal publish
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        with:
+          script: |
+            const { isDeepStrictEqual: equal } = require('node:util');
+            const { owner, repo } = context.repo;
+            const repoInfo = context.payload.repository;
+            const run = context.payload.workflow_run;
+            const scope = { owner, repo };
+            const skip = (reason) => core.info(`Manual review: ${reason}`);
+            const workflowFile = '.github/workflows/dependabot-patch-automerge.yml';
+
+            if (repoInfo.id !== 1427103586 || run.workflow_id !== 390612610 ||
+                run.path !== '.github/workflows/deploy.yml' ||
+                run.event !== 'pull_request' || run.conclusion !== 'success' ||
+                run.head_repository?.id !== repoInfo.id ||
+                !run.head_branch.startsWith('dependabot/npm_and_yarn/')) return;
+            const links = run.pull_requests ?? [];
+            if (links.length !== 1) return skip('No unique PR linked to the checked run');
+            const [link] = links;
+            if (link.head.sha !== run.head_sha || link.base.ref !== 'main' ||
+                link.head.repo.id !== repoInfo.id || link.base.repo.id !== repoInfo.id) return;
+            const pull_number = link.number;
+            const { data: pr } = await github.rest.pulls.get({ ...scope, pull_number });
+            if (pr.state !== 'open' || pr.merged || pr.draft ||
+                pr.user.login !== 'dependabot[bot]' || pr.user.type !== 'Bot' ||
+                pr.base.repo.id !== repoInfo.id || pr.head.repo?.id !== repoInfo.id ||
+                pr.base.ref !== 'main' || pr.head.sha !== run.head_sha ||
+                pr.head.ref !== run.head_branch) return;
+            const { data: jobs } = await github.rest.actions.listJobsForWorkflowRunAttempt({
+              ...scope, run_id: run.id, attempt_number: run.run_attempt, per_page: 100,
+            });
+            if (jobs.jobs.filter((job) => job.name === 'Check and build' &&
+                job.conclusion === 'success').length !== 1) return skip('Check and build did not pass');
+
+            if (pr.changed_files !== 2) return skip('Not a two-file npm update');
+            const { data: files } = await github.rest.pulls.listFiles({ ...scope, pull_number, per_page: 10 });
+            if (!equal(files.map((f) => f.filename).sort(), ['package-lock.json', 'package.json']) ||
+                files.some((f) => f.status !== 'modified')) return skip('Changed paths are outside scope');
+
+            const current = (await github.rest.repos.getBranch({ ...scope, branch: 'main' })).data.commit.sha;
+            if (current !== link.base.sha) {
+              const { data: diff } = await github.rest.repos.compareCommitsWithBasehead({
+                ...scope, basehead: `${link.base.sha}...${current}`,
+              });
+              // The first patch may have passed CI before this workflow was installed.
+              if (diff.status !== 'ahead' || diff.total_commits !== 1 || diff.files?.length !== 1 ||
+                  diff.files[0].filename !== workflowFile || diff.files[0].status !== 'added') {
+                return skip('Main changed after this check; needs a fresh check');
+              }
+            }
+            const getJSON = async (path, ref) => {
+              const { data } = await github.rest.repos.getContent({ ...scope, path, ref });
+              if (data.encoding !== 'base64') throw new Error(`Cannot read ${path}`);
+              return JSON.parse(Buffer.from(data.content, 'base64').toString('utf8'));
+            };
+            const [before, after, lockBefore, lockAfter] = await Promise.all([
+              getJSON('package.json', current), getJSON('package.json', pr.head.sha),
+              getJSON('package-lock.json', current), getJSON('package-lock.json', pr.head.sha),
+            ]);
+            const groups = ['dependencies', 'devDependencies'];
+            const withoutGroups = (pkg) => Object.fromEntries(Object.entries(pkg)
+              .filter(([key]) => !groups.includes(key)));
+            if (!equal(withoutGroups(before), withoutGroups(after)) ||
+                lockBefore.lockfileVersion !== lockAfter.lockfileVersion ||
+                !lockBefore.packages?.[''] || !lockAfter.packages?.['']) return skip('Manifest or lock format changed');
+
+            const version = /^([~^]?)(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/;
+            const changed = [];
+            for (const group of groups) {
+              const old = before[group] ?? {};
+              const next = after[group] ?? {};
+              if (!equal(Object.keys(old).sort(), Object.keys(next).sort()) ||
+                  !equal(lockBefore.packages[''][group] ?? {}, old) ||
+                  !equal(lockAfter.packages[''][group] ?? {}, next)) return skip('Dependency lists changed');
+              for (const name of Object.keys(old)) {
+                const a = old[name].match(version);
+                const b = next[name].match(version);
+                const from = lockBefore.packages[`node_modules/${name}`]?.version;
+                const to = lockAfter.packages[`node_modules/${name}`]?.version;
+                if (old[name] === next[name] && from === to) continue;
+                if (!a || !b || !from || !to || !from.match(version) ||
+                    a.slice(1, 4).join() !== b.slice(1, 4).join() ||
+                    Number(b[4]) <= Number(a[4]) || from !== a.slice(2).join('.') ||
+                    to !== b.slice(2).join('.')) return skip(`${name} is not a forward patch update`);
+                changed.push(name);
+              }
+            }
+            if (!changed.length) return skip('No verified direct dependency patch');
+            const { data: latest } = await github.rest.pulls.get({ ...scope, pull_number });
+            if (latest.head.sha !== pr.head.sha || latest.base.sha !== current ||
+                latest.state !== 'open' || latest.draft || latest.mergeable_state !== 'clean') {
+              return skip('PR changed or is not cleanly mergeable');
+            }
+            const { data: merge } = await github.rest.pulls.merge({
+              ...scope, pull_number, sha: pr.head.sha, merge_method: 'squash',
+            });
+            if (!merge.merged) throw new Error('GitHub did not merge the PR');
+            core.info(`Merged npm patch PR #${pull_number}: ${changed.join(', ')}`);
+            // GITHUB_TOKEN merges do not trigger push workflows. Use the existing
+            // manually dispatchable build-and-publish workflow, not a new deploy path.
+            await github.rest.actions.createWorkflowDispatch({
+              ...scope, workflow_id: 'deploy.yml', ref: 'main',
+            });
