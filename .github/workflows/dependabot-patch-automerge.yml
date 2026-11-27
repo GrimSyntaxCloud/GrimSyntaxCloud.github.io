@@ -69,9 +69,9 @@ jobs:
               const { data: diff } = await github.rest.repos.compareCommitsWithBasehead({
                 ...scope, basehead: `${link.base.sha}...${current}`,
               });
-              // The first patch may have passed CI before this workflow was installed.
-              if (diff.status !== 'ahead' || diff.total_commits !== 1 || diff.files?.length !== 1 ||
-                  diff.files[0].filename !== workflowFile || diff.files[0].status !== 'added') {
+              // Setup-only changes do not invalidate the checked application tree.
+              if (diff.status !== 'ahead' || diff.files?.length !== 1 ||
+                  diff.files[0].filename !== workflowFile) {
                 return skip('Main changed after this check; needs a fresh check');
               }
             }
@@ -114,8 +114,12 @@ jobs:
             }
             if (!changed.length) return skip('No verified direct dependency patch');
             const { data: latest } = await github.rest.pulls.get({ ...scope, pull_number });
-            if (latest.head.sha !== pr.head.sha || latest.base.sha !== current ||
-                latest.state !== 'open' || latest.draft || latest.mergeable_state !== 'clean') {
+            // GitHub can retain the PR's captured base SHA after main advances.
+            // Recheck the live branch tip separately before merging.
+            const tip = (await github.rest.repos.getBranch({ ...scope, branch: 'main' })).data.commit.sha;
+            if (latest.head.sha !== pr.head.sha || latest.base.sha !== pr.base.sha ||
+                tip !== current || latest.state !== 'open' || latest.draft ||
+                latest.mergeable !== true || latest.mergeable_state !== 'clean') {
               return skip('PR changed or is not cleanly mergeable');
             }
             const { data: merge } = await github.rest.pulls.merge({
